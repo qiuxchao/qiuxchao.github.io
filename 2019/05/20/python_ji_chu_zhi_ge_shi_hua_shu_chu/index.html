@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Python基础——格式化输出 | Qxc&#39;s Station</title>
+  
+  <meta name="keywords" content="python, JavaScript,Ajax,Git,算法">
+  
+  
+  <meta name="description" content="技术博客">
+  
+
+  
+  <link rel="alternate" href="/atom.xml" title="Qxc's Station">
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png">
+  
+
+  
+    <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<link rel="alternate" href="/atom.xml" title="Qxc's Station" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>QiuXc's Station</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;主页
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" target="_self" href='/' >
+        
+          Qxc's Station
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/05/20/python_ji_chu_zhi_ge_shi_hua_shu_chu/">
+        Python基础——格式化输出
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://qiuxchao.github.io" rel="nofollow">
+        
+          <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg">
+        
+        <p>Qiu Xc</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-05-20</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Python</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.1k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>4分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="Python基础——格式化输出及一些字符串方法"><a href="#Python基础——格式化输出及一些字符串方法" class="headerlink" title="Python基础——格式化输出及一些字符串方法"></a>Python基础——格式化输出及一些字符串方法</h1><h2 id="使用-格式化输出"><a href="#使用-格式化输出" class="headerlink" title="使用 % 格式化输出"></a>使用 % 格式化输出</h2><p>Python中用 <strong>%</strong> 代表<strong>格式符</strong>，或者叫<strong>占位符</strong>；<br>表示格式化操作，将其转化成相应的数据类型</p>
+<pre class=" language-python"><code class="language-python">age <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'我今年%d岁'</span><span class="token operator">%</span>age<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 我今年10岁</span></code></pre>
+<p>在程序中，看到了 <strong>%</strong> 这样的操作符，这就是Python <strong>格式化输出</strong></p>
+<pre class=" language-python"><code class="language-python">age <span class="token operator">=</span> <span class="token number">19</span>
+name <span class="token operator">=</span> <span class="token string">'xiaoming'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'我的名字是%s,年龄是%d岁'</span><span class="token operator">%</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 我的名字是xiaoming,年龄是19岁</span></code></pre>
+<p>下面是常用的格式符号</p>
+<table>
+<thead>
+<tr>
+<th>格式符号</th>
+<th align="right">转换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%c</td>
+<td align="right">字符</td>
+</tr>
+<tr>
+<td>%s</td>
+<td align="right">通过str()字符串转换来格式化</td>
+</tr>
+<tr>
+<td>%i</td>
+<td align="right">有符号十进制整数</td>
+</tr>
+<tr>
+<td>%d</td>
+<td align="right">有符号十进制整数</td>
+</tr>
+<tr>
+<td>%u</td>
+<td align="right">无符号十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td align="right">八进制整数</td>
+</tr>
+<tr>
+<td>%x</td>
+<td align="right">十六进制整数(小写字母)</td>
+</tr>
+<tr>
+<td>%X</td>
+<td align="right">十六进制整数(大写字母)</td>
+</tr>
+<tr>
+<td>%e</td>
+<td align="right">索引符号(小写‘e’)</td>
+</tr>
+<tr>
+<td>%E</td>
+<td align="right">索引符号(大写‘E’)</td>
+</tr>
+<tr>
+<td>%f</td>
+<td align="right">浮点实数</td>
+</tr>
+<tr>
+<td>%g</td>
+<td align="right">%f和%e的简写</td>
+</tr>
+<tr>
+<td>%G</td>
+<td align="right">%f和%E的简写</td>
+</tr>
+</tbody></table>
+<pre class=" language-python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'xiaoming'</span>
+qq <span class="token operator">=</span> <span class="token number">2915241235</span>
+num <span class="token operator">=</span> <span class="token number">13683823372</span>
+dizhi <span class="token operator">=</span> <span class="token string">'xx市xx区'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'=============================='</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"姓名：%s\nQQ：%i\n手机号：%d\n公司地址：%s"</span><span class="token operator">%</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>qq<span class="token punctuation">,</span>num<span class="token punctuation">,</span>dizhi<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ==============================</span>
+<span class="token comment" spellcheck="true"># 姓名：xiaoming</span>
+<span class="token comment" spellcheck="true"># QQ：2915241235</span>
+<span class="token comment" spellcheck="true"># 手机号：13683823372</span>
+<span class="token comment" spellcheck="true"># 公司地址：xx市xx区</span></code></pre>
+<h2 id="使用-format-函数-格式化字符串"><a href="#使用-format-函数-格式化字符串" class="headerlink" title="使用 format()函数 格式化字符串"></a>使用 format()函数 格式化字符串</h2><p>格式化字符串的函数 <strong>str.format()</strong>，它增强了字符串格式化的功能<br>基本语法是在字符串中定义 <strong>{}</strong> ，字符串后面加上 <strong>.format()</strong> ,函数中按花括号的顺序填写要补入的字符或字符串变量（也可以设置指定的参数及顺序）<br>下面演示了 <strong>format</strong> 函数 的使用方法：</p>
+<p>不设置指定位置，按默认顺序</p>
+<pre class=" language-python"><code class="language-python">str1 <span class="token operator">=</span> <span class="token string">"{} {}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span><span class="token string">"world"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># hello world</span></code></pre>
+<p>设置指定位置</p>
+<pre class=" language-python"><code class="language-python">str1 <span class="token operator">=</span> <span class="token string">"{0} {1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span><span class="token string">"world"</span><span class="token punctuation">)</span>
+str2 <span class="token operator">=</span> <span class="token string">"{1} {0} {1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">,</span><span class="token string">'world'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">,</span><span class="token string">'\n'</span><span class="token punctuation">,</span>str2<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># hello world </span>
+<span class="token comment" spellcheck="true"># world hello world</span></code></pre>
+<p>指定参数名</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"网站名：{name},地址：{url}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'百度'</span><span class="token punctuation">,</span>url<span class="token operator">=</span><span class="token string">'www.baidu.com'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 网站名：百度,地址：www.baidu.com</span></code></pre>
+<p>通过字典设置参数</p>
+<pre class=" language-python"><code class="language-python">site <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'百度'</span><span class="token punctuation">,</span><span class="token string">'url'</span><span class="token punctuation">:</span><span class="token string">'www.baidu.com'</span><span class="token punctuation">}</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"网站名：{name},地址：{url}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">**</span>site<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 网站名：百度,地址：www.baidu.com</span></code></pre>
+<p>通过列表索引设置参数（“0”是必须的）</p>
+<pre class=" language-python"><code class="language-python">site_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'百度'</span><span class="token punctuation">,</span><span class="token string">'www.baidu.com'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'网站名：{0[0]},地址：{0[1]}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>site_list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 网站名：百度,地址：www.baidu.com</span></code></pre>
+<p>格式化数字</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{:.2f}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token number">3.1415926</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 3.14</span></code></pre>
+<p>格式化数字的其他参数列表：</p>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th align="left">格式</th>
+<th align="center">输出</th>
+<th align="right">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3.1415926</td>
+<td align="left">{:.2f}</td>
+<td align="center">3.14</td>
+<td align="right">保留小数点后两位</td>
+</tr>
+<tr>
+<td>3.1415926</td>
+<td align="left">{:+.2f}</td>
+<td align="center">+3.14</td>
+<td align="right">带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td>-1</td>
+<td align="left">{:+.2f}</td>
+<td align="center">-1.00</td>
+<td align="right">带符号保留小数点后两位</td>
+</tr>
+<tr>
+<td>2.71828</td>
+<td align="left">{:.0f}</td>
+<td align="center">3</td>
+<td align="right">不带小数</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="left">{:0&gt;2d}</td>
+<td align="center">05</td>
+<td align="right">数字补零(填充左边, 宽度为2)</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="left">{:x&lt;4d}</td>
+<td align="center">5xxx</td>
+<td align="right">数字补x(填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td>10</td>
+<td align="left">{:x&lt;4d}</td>
+<td align="center">10xx</td>
+<td align="right">数字补x(填充右边, 宽度为4)</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td align="left">{:,}</td>
+<td align="center">1,000,000</td>
+<td align="right">以逗号分隔的数字格式</td>
+</tr>
+<tr>
+<td>0.25</td>
+<td align="left">{:.2%}</td>
+<td align="center">25.00%</td>
+<td align="right">百分比格式</td>
+</tr>
+<tr>
+<td>1000000000</td>
+<td align="left">{:.2e}</td>
+<td align="center">1.00e+09</td>
+<td align="right">指数记法</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="left">{:10d}</td>
+<td align="center">13</td>
+<td align="right">右对齐(默认,宽度为10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="left">{:&lt;10d}</td>
+<td align="center">13</td>
+<td align="right">左对齐(宽度为10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td align="left">{:^10d}</td>
+<td align="center">13</td>
+<td align="right">中间对齐(宽度为10)</td>
+</tr>
+</tbody></table>
+<h2 id="使用-replace-方法替换字符串中的字符"><a href="#使用-replace-方法替换字符串中的字符" class="headerlink" title="使用 replace 方法替换字符串中的字符"></a>使用 replace 方法替换字符串中的字符</h2><p>方法 <strong>replace()</strong> 将字符中的 <strong>old</strong>（旧字符串）替换成 <strong>new</strong> （新字符串）<br><strong>replace()</strong> 语法：<br><strong>str.replace(old,new,[,max])</strong><br>参数：<br><strong>old</strong> – 将被替换的字符串；<br><strong>new</strong> – 新字符串，用于替换old字符串；<br><strong>max</strong> – 可选字符串，替换不超过 max 次.</p>
+<pre class=" language-python"><code class="language-python">str1 <span class="token operator">=</span> <span class="token string">'你好$$$我正在学Python@#@#现在需要&amp;%&amp;%修改字符串'</span>
+str2 <span class="token operator">=</span> str1<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'$$$'</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'@#@#'</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'&amp;%&amp;%'</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 你好 我正在学Python 现在需要 修改字符串</span></code></pre>
+<p>如果指定第三个参数 <strong>max</strong> ，则替换不超过 <strong>max</strong> 次；<br><strong>replace</strong> 不会改变原 <strong>string</strong> 的内容</p>
+<pre class=" language-python"><code class="language-python">name <span class="token operator">=</span> <span class="token string">'xiaomzzg'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'zz'</span><span class="token punctuation">,</span><span class="token string">'in'</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># xiaoming</span>
+<span class="token comment" spellcheck="true"># xiaomzzg</span></code></pre>
+<h2 id="使用-split-方法分隔字符串"><a href="#使用-split-方法分隔字符串" class="headerlink" title="使用 split 方法分隔字符串"></a>使用 split 方法分隔字符串</h2><p><strong>split()</strong> 通过指定分隔符对字符串进行切片，返回一个字符串列表，如果参数 <strong>num</strong> 有指定值，则分隔 <strong>num+1</strong> 个子字符串<br>语法：<br><strong>str.split(str=””,num=string.count(str))</strong><br>参数：<br><strong>str</strong> – 分隔符，默认为所有的空字符，包括空格、换行(\n)、制表符(\t)等<br><strong>num</strong> – 分隔次数，默认为-1，即分隔所有</p>
+<pre class=" language-python"><code class="language-python">str1 <span class="token operator">=</span> <span class="token string">"aaa\nbbb\nccc"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 以空格为分隔符，包含 \n</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 以\n为分隔符，分隔成两个</span>
+name <span class="token operator">=</span> <span class="token string">'wang#xiao#ming'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'#'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> # 以#为分隔符，分割成<span class="token number">3</span>个
+<span class="token comment" spellcheck="true"># ['aaa', 'bbb', 'ccc']</span>
+<span class="token comment" spellcheck="true"># ['aaa', 'bbb\nccc']</span>
+<span class="token comment" spellcheck="true"># ['wang', 'xiao', 'ming']</span></code></pre>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-12T14:49:09+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>更新于 2020年3月12日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://qiuxchao.github.io/2019/05/20/python_ji_chu_zhi_ge_shi_hua_shu_chu/&title=Python基础——格式化输出 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qiuxchao.github.io/2019/05/20/python_ji_chu_zhi_ge_shi_hua_shu_chu/&title=Python基础——格式化输出 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJElEQVR42u3awW7bQAwE0Pz/T7tAr43TGVItrNXTyYhleZ8MhCJnv77i4/X7+PP1z2e+++y7c34+8qtddmBjY2PfhN1+2btPvXs3v8JmDbkFGxsb+1R2W7TyApOXt1kxS4orNjY2Nva+VciXm5yPjY2Njf3vClg+Zsph7dAKGxsb+5nsax/6Z4Oe9sy20GJjY2Ofyt4EvZ/2+j/l29jY2Ngfw34tjryZyduDTRhcrBwbGxv7IPZsC+PsQX/fZlwVFWBjY2OfxG5HM23Tktz1WaCbX/lt3cbGxsY+gr0fMOXLyiOH9mr54AkbGxv7Cex2KS2pDYM30UWxtQgbGxv7tux88pSAZ+UkHw+1q607MGxsbOwbspMxUBvrzuLe2dA/L3vf/B0bGxv7UPZsPDQLdPPguW2NsLGxsZ/DTh7u94P45HXe2MyKGTY2Nvap7LxhyAF5wNA2PLOW5i9FDhsbG/sIdlsShhnyaJSfXzkBR9UbGxsb+1bs/J/+VWP6WbFpI4Si/cDGxsY+gj17Sk8+1Uaw18YA2NjY2M9hbx7082HQJjzYNEXfnI+NjY19HLtddPEFJX6YbLSxMTY2Nvah7FmbkYfEszg5JxVNFDY2NvZj2Jtx/76AtRt3iuKHjY2NfTR7FhtsmpN2XDUrb8UeJWxsbOxbsWcP93mJardIJu1Q2/ZcsGsJGxsb+4PZ7VaY2eab5LvaoKK9lV/5UrCxsbFvy25j101LkF+5bX6i24qNjY19EHtWKmYtSt5mtJFDfuOwsbGxn8PePOjnA6N2hNSG0EU2go2NjX1zdhKm5jdlttVmP4rKB17Y2NjYp7L3w/e8FSkahkWDhI2Njf00dlvGZoP+trVoS9psWIaNjY19X/arPPKCtB8w7W/Z23exsbGxD2LnRx6yzhadNxVtKzK7JjY2Nva92O3QZ1Z+ZuOqvDmp4wdsbGzs49h5YdgEAFeVpbb0FjuVsLGxsR/AbiPVdmNNu5kyv8XY2NjY2En0Oys/sxH/rOHBxsbGPpW9D3eT6DcpMO2GnhyPjY2NfSp7E/Ru3m2Xmxe59mfAxsbGvi37FxvORShV47yCAAAAAElFTkSuQmCC' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
+        
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://qiuxchao.github.io/2019/05/20/python_ji_chu_zhi_ge_shi_hua_shu_chu/&title=Python基础——格式化输出 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJElEQVR42u3awW7bQAwE0Pz/T7tAr43TGVItrNXTyYhleZ8MhCJnv77i4/X7+PP1z2e+++y7c34+8qtddmBjY2PfhN1+2btPvXs3v8JmDbkFGxsb+1R2W7TyApOXt1kxS4orNjY2Nva+VciXm5yPjY2Njf3vClg+Zsph7dAKGxsb+5nsax/6Z4Oe9sy20GJjY2Ofyt4EvZ/2+j/l29jY2Ngfw34tjryZyduDTRhcrBwbGxv7IPZsC+PsQX/fZlwVFWBjY2OfxG5HM23Tktz1WaCbX/lt3cbGxsY+gr0fMOXLyiOH9mr54AkbGxv7Cex2KS2pDYM30UWxtQgbGxv7tux88pSAZ+UkHw+1q607MGxsbOwbspMxUBvrzuLe2dA/L3vf/B0bGxv7UPZsPDQLdPPguW2NsLGxsZ/DTh7u94P45HXe2MyKGTY2Nvap7LxhyAF5wNA2PLOW5i9FDhsbG/sIdlsShhnyaJSfXzkBR9UbGxsb+1bs/J/+VWP6WbFpI4Si/cDGxsY+gj17Sk8+1Uaw18YA2NjY2M9hbx7082HQJjzYNEXfnI+NjY19HLtddPEFJX6YbLSxMTY2Nvah7FmbkYfEszg5JxVNFDY2NvZj2Jtx/76AtRt3iuKHjY2NfTR7FhtsmpN2XDUrb8UeJWxsbOxbsWcP93mJardIJu1Q2/ZcsGsJGxsb+4PZ7VaY2eab5LvaoKK9lV/5UrCxsbFvy25j101LkF+5bX6i24qNjY19EHtWKmYtSt5mtJFDfuOwsbGxn8PePOjnA6N2hNSG0EU2go2NjX1zdhKm5jdlttVmP4rKB17Y2NjYp7L3w/e8FSkahkWDhI2Njf00dlvGZoP+trVoS9psWIaNjY19X/arPPKCtB8w7W/Z23exsbGxD2LnRx6yzhadNxVtKzK7JjY2Nva92O3QZ1Z+ZuOqvDmp4wdsbGzs49h5YdgEAFeVpbb0FjuVsLGxsR/AbiPVdmNNu5kyv8XY2NjY2En0Oys/sxH/rOHBxsbGPpW9D3eT6DcpMO2GnhyPjY2NfSp7E/Ru3m2Xmxe59mfAxsbGvi37FxvORShV47yCAAAAAElFTkSuQmCC' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
+        
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                          <h4>
+                              <a href="/2019/06/01/python_lie_biao_ji_shi_yong_for_xun_huan_cao_zuo_lie_biao_yuan_su/" rel="prev" title="Python基础——列表和for循环">
+                                
+                                    Python基础——列表和for循环
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Python/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2019/05/05/python_ji_chu_shu_ju_lei_xing_zhi_zi_fu_chuan_yu_shu_zi/" rel="prev" title="Python基础——字符串与数字">
+                                  
+                                      Python基础——字符串与数字
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Python/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Python基础——格式化输出',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/qiuxchao/CDN@1.0/toux.jpeg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Qxc's Station</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="/2915241235@qq.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/qiuxchao"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=329980085"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Welcome</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>欢迎来到本站！！！<br><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/img1.jpg" alt=""></p>
+
+  </div>
+</section>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python基础——格式化输出及一些字符串方法"><span class="toc-text">Python基础——格式化输出及一些字符串方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-格式化输出"><span class="toc-text">使用 % 格式化输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-format-函数-格式化字符串"><span class="toc-text">使用 format()函数 格式化字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-replace-方法替换字符串中的字符"><span class="toc-text">使用 replace 方法替换字符串中的字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-split-方法分隔字符串"><span class="toc-text">使用 split 方法分隔字符串</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/categories/"
+    title="blog/categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Git/" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Js/" href="/categories/Js/"><div class='name'>Js</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/Js/Ajax/" href="/categories/Js/Ajax/"><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/jQuery/" href="/categories/jQuery/"><div class='name'>jQuery</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/uni-app/" href="/categories/uni-app/"><div class='name'>uni-app</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"><div class='name'>算法</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%BD%91%E7%BB%9C/" href="/categories/%E7%BD%91%E7%BB%9C/"><div class='name'>网络</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Js/" style="font-size: 17.33px; color: #828282">Js</a> <a href="/tags/Python/" style="font-size: 24px; color: #555">Python</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/uni-app/" style="font-size: 14px; color: #999">uni-app</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20.67px; color: #6c6c6c">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">网络</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="/2915241235@qq.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/qiuxchao"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=329980085"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("08/10/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@20.2/js/backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+    
+      <script src="/js/volantis.js"></script>
+    
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'false' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "n0TTWl2VyPosl8Rd7QY8rVAK-gzGzoHsz",
+    appKey: "dfg3Lsat42X2duNoth6bhtHv",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  <script src="/js/app.js"></script>
+
+
+  <script src="/js/search.js"></script>
+
+
+  
+    <script src="/js/commentTyping.js"></script>
+  
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+
+<!-- 数字雨
+<canvas id="canvas" width="1440" height="900" ></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+</body>
+</html> -->

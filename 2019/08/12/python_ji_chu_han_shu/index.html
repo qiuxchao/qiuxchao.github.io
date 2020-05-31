@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Python基础——函数 | Qxc&#39;s Station</title>
+  
+  <meta name="keywords" content="python, JavaScript,Ajax,Git,算法">
+  
+  
+  <meta name="description" content="技术博客">
+  
+
+  
+  <link rel="alternate" href="/atom.xml" title="Qxc's Station">
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png">
+  
+
+  
+    <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<link rel="alternate" href="/atom.xml" title="Qxc's Station" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>QiuXc's Station</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;主页
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" target="_self" href='/' >
+        
+          Qxc's Station
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/08/12/python_ji_chu_han_shu/">
+        Python基础——函数
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://qiuxchao.github.io" rel="nofollow">
+        
+          <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg">
+        
+        <p>Qiu Xc</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-08-12</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Python</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>5.4k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>20分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p><strong>函数</strong> 是带名字的代码块，用于完成具体的工作，要执行函数定义的特定任务，可调用该函数；</p>
+<p>需要在程序中多次执行同一项任务时，无需反复编写完成该任务的代码，而只需调用执行该任务的函数，让 Python 运行其中的代码即可；</p>
+<p>将函数存储在被称为 <strong>模块</strong> 的独立文件中，可以让主程序文件的组织更为有序</p>
+<h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><p>关键字 <strong>def</strong> ：定义一个函数；</p>
+<p><strong>def 函数名()</strong> ：向 Python 指出了函数名，还能在括号中指出函数为完成其任务需要什么样的信息；</p>
+<p>紧跟在 <strong>def 函数名():</strong> 后面的所有缩进构成了 <strong>函数体</strong>；</p>
+<p><strong>函数调用</strong> 让Python执行函数中的代码，调用函数可依次指定函数名以及用括号括起的必要信息</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">greet_user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""显示简单的问候语"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello!"</span><span class="token punctuation">)</span>
+greet_user<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Hello!</span></code></pre>
+<p>文档字符串用三引号括起,Python使用它们来生成有关程序中函数的注释</p>
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""这是一个文档字符串(docstring)"""</span></code></pre>
+<h3 id="向函数传递信息"><a href="#向函数传递信息" class="headerlink" title="向函数传递信息"></a>向函数传递信息</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">greet_user</span><span class="token punctuation">(</span>username<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""显示简单的问候语，括号里面定义一个变量"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, "</span> <span class="token operator">+</span> username<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"!"</span><span class="token punctuation">)</span>
+greet_user<span class="token punctuation">(</span><span class="token string">'qxc'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Hello, Qxc!</span></code></pre>
+<p><strong>实参和形参</strong>：<br>上面定义函数 greet_user() 时，要求给变量 username 指定一个值。调用这个函数并提供这种信息（人名）时，它将打印相应的问候语。</p>
+<p>在函数 greet_user() 的定义中，变量 username 是一个 形参 ——函数完成其工作所需的一项信息。在代码 greet_user(‘jesse’) 中，值 ‘jesse’ 是一个实参。实参是调用函数时传递给函数的信<br>息。调用函数时，将要让函数使用的信息放在括号内。在 greet_user(‘jesse’) 中，将实参<br>‘jesse’ 传递给了函数 greet_user() ，这个值被存储在形参 username 中。</p>
+<h3 id="传递实参"><a href="#传递实参" class="headerlink" title="传递实参"></a>传递实参</h3><p>鉴于函数定义中可能包含多个<strong>形参</strong>，因此函数调用中也可能包含多个<strong>实参</strong>。</p>
+<p>向函数传递实参的方式有很多：<br><strong>位置实参</strong>：要求实参的顺序与形参的顺序相同；<br><strong>关键字实参</strong>：其中每个实参都由变量名和值组成；<br>还可使用字典和列表。</p>
+<h3 id="位置实参"><a href="#位置实参" class="headerlink" title="位置实参"></a>位置实参</h3><p>调用函数时，Python必须将函数调用中的每个实参都关联到函数定义中的一个形参；<br>基于实参顺序的关联方式被称为<strong>位置实参</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">describe_pet</span><span class="token punctuation">(</span>animal_type<span class="token punctuation">,</span>pet_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""显示宠物的信息"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I have a "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"'s name is "</span> <span class="token operator">+</span> pet_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+
+describe_pet<span class="token punctuation">(</span><span class="token string">'dog'</span><span class="token punctuation">,</span><span class="token string">'wangwang'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># I have a dog.</span>
+<span class="token comment" spellcheck="true"># My dog's name is Wangwang.</span></code></pre>
+<ul>
+<li><p>可以根据需要调用函数任意次，调用函数多次是一种效率极高的工作方式</p>
+<pre class=" language-python"><code class="language-python">describe_pet<span class="token punctuation">(</span><span class="token string">'cat'</span><span class="token punctuation">,</span><span class="token string">'miaomiao'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># I have a cat.</span>
+<span class="token comment" spellcheck="true"># My cat's name is Miaomiao.</span></code></pre>
+</li>
+<li><p>使用位置实参来调用函数时，如果实参的顺序不正确，结果会出乎意料</p>
+<h3 id="关键字实参"><a href="#关键字实参" class="headerlink" title="关键字实参"></a>关键字实参</h3></li>
+</ul>
+<p><strong>关键字实参</strong> 是传递给函数的 <strong>名称——值</strong> 对；<br>直接在实参中将名称和值关联起来，因此向函数传递实参时不会混淆</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">describe_pet</span><span class="token punctuation">(</span>animal_type<span class="token punctuation">,</span>pet_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""显示宠物的信息"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I have a "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"'s name is "</span> <span class="token operator">+</span> pet_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+
+describe_pet<span class="token punctuation">(</span>animal_type<span class="token operator">=</span><span class="token string">'hamster'</span><span class="token punctuation">,</span>pet_name<span class="token operator">=</span><span class="token string">'harry'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># I have a hamster.</span>
+<span class="token comment" spellcheck="true"># My hamster's name is Harry.</span></code></pre>
+<p>关键字实参的顺序无关紧要，因为 Python 知道各个值该存储到哪个形参中；</p>
+<p><strong>注意</strong>：使用关键字实参时，务必准确地指出函数定义中的形参名</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>编写函数时，可给每个形参指定<strong>默认值</strong>，<br>给形参指定默认值后，可在函数调用中省略相应的实参。</p>
+<p>使用默认值可简化函数调用，还可清楚的指出函数的典型用法</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">describe_pet</span><span class="token punctuation">(</span>pet_name<span class="token punctuation">,</span>animal_type<span class="token operator">=</span><span class="token string">'dog'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""给宠物类型形参指定默认值"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nI have a "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"'s name is "</span> <span class="token operator">+</span> pet_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+
+describe_pet<span class="token punctuation">(</span>pet_name<span class="token operator">=</span><span class="token string">'wille'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># I have a dog.</span>
+<span class="token comment" spellcheck="true"># My dog's name is Wille.</span></code></pre>
+<p><strong>注意</strong>：指定默认值的形参必须放在未指定默认值的形参后面；<br>在这个函数的定义中，修改了形参的排列顺序。由于给 animal_type 指定了默认值，无需通过实参来指定动物类型，因此在函数调用中只包含一个实参——宠物的名字。然而，Python 依然将这个实参视为位置实参，因此如果函数调用中只包含宠物的名字，这个实参将关联到函数定义中的第一个形参。这就是需要将 pet_name 放在形参列表开头的原因所在。</p>
+<p>如果要描述的动物不是小狗，可使用类似于下面的函数调用：</p>
+<pre class=" language-python"><code class="language-python">describe_pet<span class="token punctuation">(</span>pet_name<span class="token operator">=</span><span class="token string">'harry'</span><span class="token punctuation">,</span>animal_type<span class="token operator">=</span><span class="token string">'hamster'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># I have a hamster.</span>
+<span class="token comment" spellcheck="true"># My hamster's name is Harry.</span></code></pre>
+<p><strong>注意</strong>：使用默认值时，在形参列表中必须先列出没有默认值的形参，再列出有默认值的实参。</p>
+<h3 id="等效函数调用"><a href="#等效函数调用" class="headerlink" title="等效函数调用"></a>等效函数调用</h3><p>鉴于可混合使用<strong>位置实参</strong>、<strong>关键字实参</strong>和<strong>默认值</strong>，通常有多种等效的函数调用方式：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">describe_pet</span><span class="token punctuation">(</span>pet_name<span class="token punctuation">,</span>animal_type<span class="token operator">=</span><span class="token string">'dog'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""显示宠物的信息"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nI have a "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My "</span> <span class="token operator">+</span> animal_type <span class="token operator">+</span> <span class="token string">"'s name is "</span> <span class="token operator">+</span> pet_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 一条名为Willie的小狗</span>
+describe_pet<span class="token punctuation">(</span><span class="token string">'willie'</span><span class="token punctuation">)</span>
+describe_pet<span class="token punctuation">(</span>pet_name<span class="token operator">=</span><span class="token string">'willie'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 一只名为Harry的仓鼠</span>
+describe_pet<span class="token punctuation">(</span><span class="token string">'harry'</span><span class="token punctuation">,</span><span class="token string">'hamster'</span><span class="token punctuation">)</span>
+describe_pet<span class="token punctuation">(</span>pet_name<span class="token operator">=</span><span class="token string">'harry'</span><span class="token punctuation">,</span>animal_type<span class="token operator">=</span><span class="token string">'hamster'</span><span class="token punctuation">)</span>
+describe_pet<span class="token punctuation">(</span>animal_type<span class="token operator">=</span><span class="token string">'hamster'</span><span class="token punctuation">,</span>pet_name<span class="token operator">=</span><span class="token string">'harry'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># I have a dog.</span>
+<span class="token comment" spellcheck="true"># My dog's name is Wille.</span>
+<span class="token comment" spellcheck="true"># I have a dog.</span>
+<span class="token comment" spellcheck="true"># My dog's name is Wille.</span>
+<span class="token comment" spellcheck="true"># I have a hamster.</span>
+<span class="token comment" spellcheck="true"># My hamster's name is Harry.     </span>
+<span class="token comment" spellcheck="true"># I have a hamster.</span>
+<span class="token comment" spellcheck="true"># My hamster's name is Harry.</span>
+<span class="token comment" spellcheck="true"># I have a hamster.</span>
+<span class="token comment" spellcheck="true"># My hamster's name is Harry.</span></code></pre>
+<p>这些函数调用与前面的示例相同</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>函数并非总是直接显示输出，相反，它可以处理一些数据，并返回一个或一组值；</p>
+<p>函数返回的值被称为 <strong>返回值</strong>, 一般是一个变量的名字。</p>
+<p><strong>return</strong> 语句： 将值返回到调用函数的代码行。</p>
+<p><strong>返回值</strong> ：能够将程序的大部分繁重工作移到函数中去完成，从而简化主程序</p>
+<h3 id="返回简单值"><a href="#返回简单值" class="headerlink" title="返回简单值"></a>返回简单值</h3><p>下面一个函数，它接受名和姓并返回整洁的姓名：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_formatted_name</span><span class="token punctuation">(</span>first_name<span class="token punctuation">,</span>last_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""返回整洁的姓名"""</span>
+    full_name <span class="token operator">=</span> first_name <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> last_name
+    <span class="token comment" spellcheck="true"># 将full_name的值转换为首字母大写格式，并将结果返回到函数调用行</span>
+    <span class="token keyword">return</span> full_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># 下面一行就是函数调用行</span>
+musician <span class="token operator">=</span> get_formatted_name<span class="token punctuation">(</span><span class="token string">'jimi'</span><span class="token punctuation">,</span><span class="token string">'hendrix'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>musician<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Jimi Hendrix</span></code></pre>
+<h3 id="让实参变成可选的"><a href="#让实参变成可选的" class="headerlink" title="让实参变成可选的"></a>让实参变成可选的</h3><p>让实参变成可选的，使用函数就只需在必要时才提供额外的信息；</p>
+<p>可给形参指定一个默认值——空字符串，并将其移到形参列表末尾。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_formatted_name</span><span class="token punctuation">(</span>first_name<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>middle_name<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""返回整洁的姓名"""</span>
+    <span class="token keyword">if</span> middle_name<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""py将非空字符串解读为True"""</span>
+        full_name <span class="token operator">=</span> first_name <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> middle_name <span class="token operator">+</span><span class="token string">" "</span> <span class="token operator">+</span> last_name
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        full_name <span class="token operator">=</span> first_name <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> last_name
+    <span class="token keyword">return</span> full_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span>
+musician <span class="token operator">=</span> get_formatted_name<span class="token punctuation">(</span><span class="token string">'jimi'</span><span class="token punctuation">,</span><span class="token string">'hendrix'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>musician<span class="token punctuation">)</span>
+musician <span class="token operator">=</span> get_formatted_name<span class="token punctuation">(</span><span class="token string">'john'</span><span class="token punctuation">,</span><span class="token string">'hooker'</span><span class="token punctuation">,</span><span class="token string">'lee'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>musician<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Jimi Hendrix</span>
+<span class="token comment" spellcheck="true"># John Lee Hooker</span></code></pre>
+<p>可选值让函数能够处理各种不同情形的同时，确保函数调用尽可能简单。</p>
+<h3 id="返回字典"><a href="#返回字典" class="headerlink" title="返回字典"></a>返回字典</h3><p>函数可返回任何类型的值，包括列表和字典等复杂的数据结构。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">build_person</span><span class="token punctuation">(</span>first_name<span class="token punctuation">,</span>last_name<span class="token punctuation">,</span>age<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""返回一个字典，其中包含有关一个人的信息"""</span>
+    person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'first'</span><span class="token punctuation">:</span>first_name<span class="token punctuation">,</span><span class="token string">'last'</span><span class="token punctuation">:</span>last_name<span class="token punctuation">}</span>
+    <span class="token triple-quoted-string string">"""将字典的键与函数的形参绑定"""</span>
+    <span class="token keyword">if</span> age<span class="token punctuation">:</span>
+        person<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> age
+    <span class="token keyword">return</span> person
+musician <span class="token operator">=</span> build_person<span class="token punctuation">(</span><span class="token string">'jimi'</span><span class="token punctuation">,</span><span class="token string">'hendrix'</span><span class="token punctuation">,</span>age<span class="token operator">=</span><span class="token number">27</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>musician<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># {'first': 'jimi', 'last': 'hendrix', 'age': 27}</span></code></pre>
+<h3 id="结合使用函数和while循环"><a href="#结合使用函数和while循环" class="headerlink" title="结合使用函数和while循环"></a>结合使用函数和while循环</h3><p>可以将函数同任何Python结构结合起来使用；</p>
+<p>下面将结合使用函数 get_formatted_name() 和 while 循环：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_formatted_name</span><span class="token punctuation">(</span>first_name<span class="token punctuation">,</span>last_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""返回整洁的姓名"""</span>
+    full_name <span class="token operator">=</span> first_name <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> last_name
+    <span class="token keyword">return</span> full_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Please tell me your name: "</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"enter 'q' at any time to quit"</span><span class="token punctuation">)</span>
+    f_name <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"First name: "</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> f_name <span class="token operator">==</span> <span class="token string">'q'</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+    l_name <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"Last name: "</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> l_name <span class="token operator">==</span> <span class="token string">'q'</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+    formatted_name <span class="token operator">=</span> get_formatted_name<span class="token punctuation">(</span>f_name<span class="token punctuation">,</span>l_name<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello , "</span> <span class="token operator">+</span> formatted_name <span class="token operator">+</span> <span class="token string">"!"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Please tell me your name: </span>
+<span class="token comment" spellcheck="true"># enter 'q' at any time to quit</span>
+<span class="token comment" spellcheck="true"># First name: xiao</span>
+<span class="token comment" spellcheck="true"># Last name: ming</span>
+<span class="token comment" spellcheck="true"># Hello , Xiao Ming!</span>
+<span class="token comment" spellcheck="true"># Please tell me your name: </span>
+<span class="token comment" spellcheck="true"># enter 'q' at any time to quit</span>
+<span class="token comment" spellcheck="true"># First name: q # 程序结束</span></code></pre>
+<h2 id="传递列表"><a href="#传递列表" class="headerlink" title="传递列表"></a>传递列表</h2><p>向函数传递列表很有用，这种列表包含的可能是数字字符串、数字或更复杂的对象（如字典），将列表传递给函数后，函数就能直接访问其内容。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">greet_users</span><span class="token punctuation">(</span>names<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""向列表中的每位用户都发出简单的问候"""</span>
+    <span class="token keyword">for</span> name <span class="token keyword">in</span> names<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello, "</span> <span class="token operator">+</span> name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"!"</span><span class="token punctuation">)</span>
+
+user_names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hannah'</span><span class="token punctuation">,</span><span class="token string">'ty'</span><span class="token punctuation">,</span><span class="token string">'margot'</span><span class="token punctuation">]</span>
+greet_users<span class="token punctuation">(</span>user_names<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Hello, Hannah!</span>
+<span class="token comment" spellcheck="true"># Hello, Ty!</span>
+<span class="token comment" spellcheck="true"># Hello, Margot!</span></code></pre>
+<h3 id="在函数中修改列表"><a href="#在函数中修改列表" class="headerlink" title="在函数中修改列表"></a>在函数中修改列表</h3><p>将列表传递给函数后，函数就可对其进行修改；</p>
+<p>在函数中对这个列表所做的任何修改都是永久性的，这能够高效的处理大量的数据；</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#首先创建一个列表，其中包含一些要打印的设计：</span>
+<span class="token keyword">def</span> <span class="token function">print_models</span><span class="token punctuation">(</span>unprinted_designs<span class="token punctuation">,</span>completed_models<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    模拟打印每个设计，直到没有未打印的设计为止
+    打印每个设计后，都将其移到列表completed_models中
+    """</span>
+    <span class="token keyword">while</span> unprinted_designs<span class="token punctuation">:</span>
+        current_design <span class="token operator">=</span> unprinted_designs<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#模拟根据设计制作3D打印模型的过程</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Printing model: "</span> <span class="token operator">+</span> current_design<span class="token punctuation">)</span>
+        completed_models<span class="token punctuation">.</span>append<span class="token punctuation">(</span>current_design<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">show_completed_models</span><span class="token punctuation">(</span>completed_models<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""显示打印好的所有模型"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nThe following models have been printed:"</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> completed_model <span class="token keyword">in</span> completed_models<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>completed_model<span class="token punctuation">)</span>
+unprinted_designs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'iphone case'</span><span class="token punctuation">,</span><span class="token string">'robot pendant'</span><span class="token punctuation">,</span><span class="token string">'dodecahedron'</span><span class="token punctuation">]</span>
+completed_models <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+print_models<span class="token punctuation">(</span>unprinted_designs<span class="token punctuation">,</span>completed_models<span class="token punctuation">)</span>
+show_completed_models<span class="token punctuation">(</span>completed_models<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Printing model: dodecahedron</span>
+<span class="token comment" spellcheck="true"># Printing model: robot pendant</span>
+<span class="token comment" spellcheck="true"># Printing model: iphone case</span>
+
+<span class="token comment" spellcheck="true"># The following models have been printed:</span>
+<span class="token comment" spellcheck="true"># dodecahedron</span>
+<span class="token comment" spellcheck="true"># robot pendant</span>
+<span class="token comment" spellcheck="true"># iphone case</span></code></pre>
+<p>每个函数都应只负责一项具体的工作，这优于使用一个函数来完成两项工作；</p>
+<p>可以在一个函数中调用另一个步骤，这有助于将复杂的任务划分成一系列的步骤。</p>
+<h3 id="禁止函数修改列表"><a href="#禁止函数修改列表" class="headerlink" title="禁止函数修改列表"></a>禁止函数修改列表</h3><p>可以向函数传递列表的副本，这样函数所做的任何修改都只影响副本，而丝毫不影响原件。</p>
+<p>切片表示法 <strong>[:]</strong> 创建列表的副本，语法如下：<br><strong>函数名(列表名[:])</strong></p>
+<p>这样原有列表的内容将会被保留</p>
+<pre class=" language-python"><code class="language-python">print_models<span class="token punctuation">(</span>unprinted_designs<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span>completed_models<span class="token punctuation">)</span></code></pre>
+<h2 id="传递任意数量的实参"><a href="#传递任意数量的实参" class="headerlink" title="传递任意数量的实参"></a>传递任意数量的实参</h2><p>Python允许函数从调用语句中收集任意数量的实参。</p>
+<p>形参名 <strong>*args</strong>  中的星号  * 让Python创建一个名为 args 的 <strong>空元组</strong>，并将收到的所有值都封装到这个元组中。</p>
+<p>不管收到的实参是多少个，这种语法都管用。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_pizza</span><span class="token punctuation">(</span><span class="token operator">*</span>toppings<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""打印顾客点的所有配料"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>toppings<span class="token punctuation">)</span>
+make_pizza<span class="token punctuation">(</span><span class="token string">'mushrooms'</span><span class="token punctuation">,</span><span class="token string">'green peppers'</span><span class="token punctuation">,</span><span class="token string">'extra chees'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ('mushrooms', 'green peppers', 'extra chees')</span></code></pre>
+<h3 id="结合使用位置实参和任意数量实参"><a href="#结合使用位置实参和任意数量实参" class="headerlink" title="结合使用位置实参和任意数量实参"></a>结合使用位置实参和任意数量实参</h3><p>如果要让函数接受不同类型的实参，必须在函数定义中将接纳任意数量实参的形参放在最后；</p>
+<p>Python先匹配<strong>位置实参</strong>和<strong>关键字实参</strong>，再将余下的实参都收集到最后一个形参中。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_pizzas</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span><span class="token operator">*</span>toppings<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""概述要制作的比萨"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nMaking a "</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>size<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"-inch pizza with the followings:"</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> topping <span class="token keyword">in</span> toppings<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-"</span> <span class="token operator">+</span> topping<span class="token punctuation">)</span>
+        <span class="token triple-quoted-string string">"""将收到的第一个值存储在形参size中，
+        并将其他的所有值都存储在元组toppings中。
+        在函数调用中首先要指定size的实参，
+        然后根据需要指定任意数量的toppings"""</span>
+make_pizzas<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token string">'mushrooms'</span><span class="token punctuation">,</span><span class="token string">'green peppers'</span><span class="token punctuation">,</span><span class="token string">'extra cheese'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Making a 12-inch pizza with the followings:</span>
+<span class="token comment" spellcheck="true"># -mushrooms</span>
+<span class="token comment" spellcheck="true"># -green peppers</span>
+<span class="token comment" spellcheck="true"># -extra cheese</span></code></pre>
+<h3 id="使用任意数量的关键字实参"><a href="#使用任意数量的关键字实参" class="headerlink" title="使用任意数量的关键字实参"></a>使用任意数量的关键字实参</h3><p>在需要接受任意数量的信息，但预先不知道传递给函数的会是什么样的信息的情况下，可将函数编写成能够接受任意数量的<strong>键——值对</strong>，调用语句提供多少就接受多少。</p>
+<p>形参 <strong>**args</strong> 中的两个星号 ** 让Python创建一个名为 args 的<strong>空字典</strong>，并将收到的所有键——值对都封装到这个字典中。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">build_profile</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span>last<span class="token punctuation">,</span><span class="token operator">**</span>user_info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""创建一个字典，其中包含我们知道的有关用户的一切"""</span>
+    profile <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    profile<span class="token punctuation">[</span><span class="token string">'first'</span><span class="token punctuation">]</span> <span class="token operator">=</span> first
+    profile<span class="token punctuation">[</span><span class="token string">'last'</span><span class="token punctuation">]</span> <span class="token operator">=</span> last
+    <span class="token keyword">for</span> key<span class="token punctuation">,</span>value <span class="token keyword">in</span> user_info<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        profile<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> value
+    <span class="token keyword">return</span>  profile
+<span class="token comment" spellcheck="true"># 函数 build_profile() 的定义要求提供名和姓，同时允许用户根据需要提供任意数量的名称 —值对。</span>
+<span class="token comment" spellcheck="true"># 形参 **user_info 中的两个星号让Python创建一个名为 user_info 的空字典，并将收到的所有名称 — 值对都封装到这个字典中。</span>
+<span class="token comment" spellcheck="true"># 在这个函数中，可以像访问其他字典那样访问 user_info 中的名称 — 值对。</span>
+<span class="token comment" spellcheck="true"># 在 build_profile() 的函数体内，创建了一个名为 profile 的空字典，用于存储用户简介。</span>
+<span class="token comment" spellcheck="true"># 然后，将名和姓加入到这个字典中，因为总是会从用户那里收到这两项信息。</span>
+<span class="token comment" spellcheck="true"># 再然后，遍历字典 user_info 中的键 — 值对，并将每个键 — 值对都加入到字典 profile 中。</span>
+<span class="token comment" spellcheck="true"># 最后，将字典 profile 返回给函数调用行。</span>
+
+user_profile <span class="token operator">=</span> build_profile<span class="token punctuation">(</span><span class="token string">'zhang'</span><span class="token punctuation">,</span><span class="token string">'xiaoming'</span><span class="token punctuation">,</span>
+                             school<span class="token operator">=</span><span class="token string">'princeton'</span><span class="token punctuation">,</span>
+                             field<span class="token operator">=</span><span class="token string">'physics'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>user_profile<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># {'first': 'zhang', 'last': 'xiaoming', 'school': 'princeton', 'field': 'physics'}</span></code></pre>
+<p>在这里，返回的字典包含用户的名和姓，还有求学的地方和所学专业。</p>
+<p>调用这个函数时，不管额外提供了多少个键 — 值对，它都能正确地处理。</p>
+<p>编写函数时，可以以各种方式混合使用<strong>位置实参</strong>、<strong>关键字实参</strong>和任意数量的<strong>实参</strong>。</p>
+<h2 id="将函数存储在模块中"><a href="#将函数存储在模块中" class="headerlink" title="将函数存储在模块中"></a>将函数存储在模块中</h2><p>函数的优点之一是：使用它们可以将代码块与主程序分离；</p>
+<p>通过给函数指定描述性名称，可让主程序容易理解的多；</p>
+<p>还可以更进一步，将函数存储在被称为 <strong>模块</strong> 的 <strong>独立文件</strong> 中，再将模块导入到主程序中；</p>
+<p><strong>import</strong>  语句 允许在当前运行的程序文件中使用模块中的代码。</p>
+<h3 id="导入整个模块"><a href="#导入整个模块" class="headerlink" title="导入整个模块"></a>导入整个模块</h3><p>要让函数是可导入的，得先创建模块；</p>
+<p>模块是扩展名为 <strong>.py</strong> 的文件，包含要导入到程序中的代码；</p>
+<p>要在同一个文件夹下创建程序和模块；</p>
+<p>例如，现在有一个程序，在这个程序的文件夹中有一个 <strong>mkpizza.py</strong> 的文件（后面的示例中也会用到此文件），文件内容如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_pizzas</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span><span class="token operator">*</span>toppings<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""概述要制作的比萨"""</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\nMaking a "</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>size<span class="token punctuation">)</span> <span class="token operator">+</span>
+          <span class="token string">"-inch pizza with the followings:"</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> topping <span class="token keyword">in</span> toppings<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"-"</span> <span class="token operator">+</span> topping<span class="token punctuation">)</span></code></pre>
+<p>如果想要在程序中使用 mkpizza 模块中的代码，可以使用下面的代码：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> mkpizza</code></pre>
+<p>Python读取这个文件时，代码行 <strong>import mkpizza</strong> 让Python打开文件 mkpizza.py，并将其中所有的函数代码都复制到这个程序中。</p>
+<p>调用被导入的模块中的函数，可指定模块名和函数名，并用句点分隔它们：<br><strong>模块名.函数名(参数)</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> mkpizza
+mkpizza<span class="token punctuation">.</span>make_pizza<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token string">'mushrooms'</span><span class="token punctuation">,</span> <span class="token string">'green peppers'</span><span class="token punctuation">,</span><span class="token string">'extra cheese'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Making a 16-inch pizza with the following toppings:</span>
+<span class="token comment" spellcheck="true"># -mushrooms</span>
+<span class="token comment" spellcheck="true"># -green peppers</span>
+<span class="token comment" spellcheck="true"># -extra cheese</span></code></pre>
+<p>这是一种导入方法：只需编写一条 <strong>import</strong> 语句并在其中指定模块名，就可在程序中使用该模块中的所有函数。</p>
+<h3 id="导入特定的函数"><a href="#导入特定的函数" class="headerlink" title="导入特定的函数"></a>导入特定的函数</h3><p>导入模块中的特定函数，这种导入方法如下：<br><strong>from 模块名 import 函数名</strong></p>
+<p>还可通过用逗号分隔函数名，根据需要从模块中导入任意数量的函数：<br><strong>from 模块名 import 函数名1,函数名2,函数名3</strong><br>若使用这种语法，调用函数时就无需使用句点。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> mkpizza <span class="token keyword">import</span> make_pizza
+make_pizza<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token string">'mushrooms'</span><span class="token punctuation">,</span><span class="token string">'green peppers'</span><span class="token punctuation">,</span><span class="token string">'extra cheese'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Making a 12-inch pizza with the following toppings:</span>
+<span class="token comment" spellcheck="true"># -mushrooms</span>
+<span class="token comment" spellcheck="true"># -green peppers</span>
+<span class="token comment" spellcheck="true"># -extra cheese</span></code></pre>
+<p>由于在 <strong>import</strong> 语句中显式的导入了函数，因此调用它时只需指定其名称。</p>
+<h3 id="使用-as-给函数指定别名"><a href="#使用-as-给函数指定别名" class="headerlink" title="使用 as 给函数指定别名"></a>使用 as 给函数指定别名</h3><p>如果要导入的函数的名称可能与程序中现有的名称冲突，或者函数的名称太长，可指定简短而独一无二的 <strong>别名</strong>——函数的另一个名称 ，类似于外号；</p>
+<p>需在导入函数时这样做，指定别名的语法如下：<br><strong>from 模块名 import 函数名 as 别名</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> mkpizza <span class="token keyword">import</span> make_pizza <span class="token keyword">as</span> mp
+<span class="token triple-quoted-string string">"""将函数make_pizza()重命名为mp()"""</span>
+mp<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token string">'mushrooms'</span><span class="token punctuation">,</span><span class="token string">'green peppers'</span><span class="token punctuation">,</span><span class="token string">'extra cheese'</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">"""
+需要调用make_pizza()时，可简写成mp()，
+而Python将运行make_pizza()中的代码，
+这可避免与这个程序可能包含的函数make_pizza()混淆
+"""</span>
+<span class="token comment" spellcheck="true"># Making a 20-inch pizza with the following toppings:</span>
+<span class="token comment" spellcheck="true"># -mushrooms</span>
+<span class="token comment" spellcheck="true"># -green peppers</span>
+<span class="token comment" spellcheck="true"># -extra cheese</span></code></pre>
+<h3 id="使用-as-给模块指定别名"><a href="#使用-as-给模块指定别名" class="headerlink" title="使用 as 给模块指定别名"></a>使用 as 给模块指定别名</h3><p>通过给模块指定简短的别名，能够更轻松地调用模块中的函数；</p>
+<p>给模块指定别名的通用语法如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> mkpizza <span class="token keyword">as</span> p
+p<span class="token punctuation">.</span>make_pizza<span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span><span class="token string">'mushrooms'</span><span class="token punctuation">,</span><span class="token string">'green peppers'</span><span class="token punctuation">,</span><span class="token string">'extra cheese'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Making a 19-inch pizza with the following toppings:</span>
+<span class="token comment" spellcheck="true"># -mushrooms</span>
+<span class="token comment" spellcheck="true"># -green peppers</span>
+<span class="token comment" spellcheck="true"># -extra cheese</span></code></pre>
+<h3 id="导入模块中的所有函数"><a href="#导入模块中的所有函数" class="headerlink" title="导入模块中的所有函数"></a>导入模块中的所有函数</h3><p>使用星号 * 运算符可让Python导入模块中的所有函数；</p>
+<p>语法如下：<br><strong>from 模块名 import *</strong> </p>
+<p><strong>import</strong> 语句中的星号让Python将模块中的每个函数都复制到这个程序文件中，由于导入了每个函数，因此可通过函数名来调用每个函数，而无需使用句点表示法：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> mkpizza <span class="token keyword">import</span> <span class="token operator">*</span>
+make_pizza<span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token string">'mushrooms'</span><span class="token punctuation">,</span><span class="token string">'green peppers'</span><span class="token punctuation">,</span><span class="token string">'extra cheese'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Making a 18-inch pizza with the following toppings:</span>
+<span class="token comment" spellcheck="true"># -mushrooms</span>
+<span class="token comment" spellcheck="true"># -green peppers</span>
+<span class="token comment" spellcheck="true"># -extra cheese</span></code></pre>
+<p>然而，使用并非自己编写的大型模块时，最好不要采用这种导入方法， 如果模块中有函数名称与自己项目中使用的名称相同，可能导致意想不到的结果：Python可能遇到多个名称相同的函数或变量，进而覆盖函数，不是分别导入所有的函数；</p>
+<p>最佳的做法是：要么只导入需要使用的函数，要么导入整个模块并使用句点表示法</p>
+<h2 id="使用-global-声明全局变量"><a href="#使用-global-声明全局变量" class="headerlink" title="使用 global 声明全局变量"></a>使用 global 声明全局变量</h2><p><strong>global</strong> 语句是适用于当前整个代码块的声明，它是 <strong>全局变量</strong> 的标识符；</p>
+<p><strong>global</strong> 中出现的名字不能在 <strong>global</strong> 之前的代码中使用；</p>
+<p>在 <strong>global</strong> 中出现的名字不能作为<strong>形参</strong>，不能作为循坏的<strong>控制对象</strong>，不能在<strong>类定义</strong>、<strong>函数定义</strong>，<strong>import</strong> 语句中出现；</p>
+<p><strong>global</strong>： 将变量定义为<strong>全局变量</strong>，可以通过定义为全局变量，实现在函数内部改变变量值；</p>
+<p>一个 global 语句可以同时定义多个变量，如 <strong>global x,y,z</strong></p>
+<p><strong>global</strong> 语句的作用：<br>    在编写程序的时候，如果想为一个在函数外的变量重新赋值，并且这个变量会作用于许多函数中时，就需要告诉python这个变量的作用域是全局变量，此时用 <strong>global</strong> 语句就可以变成这个任务，也就是说没有用 <strong>global</strong> 语句的情况下，是不能修改全局变量的</p>
+<pre class=" language-python"><code class="language-python">x <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">def</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> x
+    x <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+a<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 2</span>
+<span class="token comment" spellcheck="true"># 2</span></code></pre>
+<p>如果想在函数使用某一变量后再对其进行修改，怎么让函数中使用的变量是模块层定义的那个全局变量而不是函数内部的局部变量呢？<br>这里就可以用到 <strong>global修饰符</strong> 了：</p>
+<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">4</span>
+<span class="token keyword">def</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">global</span> a
+    <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+    a <span class="token operator">=</span> <span class="token number">12</span>
+h<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 4</span>
+<span class="token comment" spellcheck="true"># 12</span></code></pre>
+<h2 id="匿名函数-lambda"><a href="#匿名函数-lambda" class="headerlink" title="匿名函数 lambda"></a>匿名函数 lambda</h2><p><strong>lambda</strong> 函数，即 <strong>Lambda 表达式</strong>（lambda expression），是一个 <strong>匿名函数</strong>（不存在函数名的函数）。</p>
+<p><strong>lambda</strong> 只是一个表达式，函数体比 <strong>def</strong> 简单很多；</p>
+<p> <strong>lambda</strong> 的主体是一个<strong>表达式</strong>，而不是一个代码块。仅仅能在 <strong>lambda 表达式</strong>中封装有限的逻辑进去；</p>
+<p><strong>lambda</strong> 函数拥有自己的命名空间，且不能访问自有参数列表之外或全局命名空间里的参数；</p>
+<p>虽然 <strong>lambda</strong> 函数看起来只能写一行，却不等同于C或C++的内联函数，后者的目的是调用小函数时不占用栈内存从而增加运行效率。</p>
+<p><strong>Lambda</strong> 函数的语法只包含一个语句，如下：<br><strong>lambda [arg1[,arg2,······argn]] : expression</strong><br>即：<strong>lambda 参数:表达式</strong><br>参数： 可选，通常以逗号分隔的变量表达式形式，也就是<strong>位置参数</strong>；<br>表达式：不能包含<strong>循环</strong>、<strong>return</strong>、<strong>elif</strong>，可以包含 <strong>if</strong>,<strong>else</strong></p>
+<p>例：</p>
+<pre class=" language-python"><code class="language-python">L <span class="token operator">=</span> <span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token operator">*</span>x
+<span class="token keyword">print</span><span class="token punctuation">(</span>L<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 25</span>
+
+<span class="token comment" spellcheck="true">#匿名函数的展开:</span>
+<span class="token keyword">def</span> <span class="token function">M</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> x<span class="token operator">*</span>x
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 25</span></code></pre>
+<p>包含 <strong>if-else</strong> 的 l<strong>ambda</strong>：</p>
+<pre class=" language-python"><code class="language-python">h <span class="token operator">=</span> <span class="token keyword">lambda</span> x <span class="token punctuation">:</span> <span class="token string">'x>10'</span> <span class="token keyword">if</span> x<span class="token operator">></span><span class="token number">10</span> <span class="token keyword">else</span> <span class="token string">'x&lt;10'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>h<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># x&lt;10</span>
+
+<span class="token comment" spellcheck="true">#函数实现</span>
+<span class="token keyword">def</span> <span class="token function">H</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> x <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'x>10'</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'x&lt;10'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>H<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># x&lt;10</span></code></pre>
+<p>使用多个参数：</p>
+<pre class=" language-python"><code class="language-python">sum <span class="token operator">=</span> <span class="token keyword">lambda</span> arg1<span class="token punctuation">,</span>arg2<span class="token punctuation">:</span> arg1 <span class="token operator">+</span> arg2
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"（lambda函数）相加后的值为："</span><span class="token punctuation">,</span>sum<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># （lambda函数）相加后的值为： 30</span>
+
+<span class="token comment" spellcheck="true"># 上面等同于下面</span>
+<span class="token keyword">def</span> <span class="token function">sm</span><span class="token punctuation">(</span>arg1<span class="token punctuation">,</span>arg2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> arg1 <span class="token operator">+</span> arg2
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"（函数）相加后的值为："</span><span class="token punctuation">,</span>sm<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># （函数）相加后的值为： 30</span></code></pre>
+<h2 id="函数编写指南"><a href="#函数编写指南" class="headerlink" title="函数编写指南"></a>函数编写指南</h2><p>编写函数时，需要牢记几个细节：</p>
+<ul>
+<li>应给函数指定<strong>描述性名称</strong>，且只在其中使用小写字母和下划线。描述性名称可帮助你和别人明白代码想要做什么。给模块命名时也应遵循上述约定。</li>
+<li>每个函数都应包含简要地阐述其功能的<strong>注释</strong>，该注释应紧跟在函数定义后面，并采用文档字符串格式。文档良好的函数让其他程序员只需阅读文档字符串中的描述就能够使用它，他们完全可以相信代码如描述的那样运行；只要知道函数的名称、需要的实参以及返回值的类型，就能在自己的程序中使用它。</li>
+<li>给形参指定默认值时，等号两边不要有空格：<br><strong>def 函数名(形参1，形参2=’默认值’)</strong><br>对于函数调用中的关键字实参，也应遵循这种约定：<br><strong>函数名(实参1，实参2=’值’)</strong></li>
+<li>如果程序或模块包含多个函数，可使用两个空行将相邻的函数分开，这样将更容易知道前一个函数在什么地方结束，下一个函数从什么地方开始。所有的 <strong>import</strong> 语句都应放在文件开头，唯一例外的情形是，在文件开头使用了注释来描述整个程序。</li>
+</ul>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-31T18:05:29+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>更新于 2020年3月31日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://qiuxchao.github.io/2019/08/12/python_ji_chu_han_shu/&title=Python基础——函数 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qiuxchao.github.io/2019/08/12/python_ji_chu_han_shu/&title=Python基础——函数 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3aQW7jQAwEQP//095rgoWcblJjJ0DpZCSSPDUHUW7y8YiP55fj9X//P/Pq2ufoeJw48PDw8BZLf73Eq+Um7Nf3yTcuXzMeHh7ead7VrfNl5Z+visTVetoNxcPDw/ttvPwluy0VybsxHh4e3t/i5cjXi85LTlJs8PDw8D7Fa6PYPJbdLL3dCDw8PLz38Davs5/6fKS/h4eHh7fuqucP3HxBs/IzHDLAw8PDO8CbjQ60j+x7t6wOkfHw8PBu5eUP5XyIqm2AtYFysR14eHh4x3ib9tUmzmiDhrY84OHh4Z3g3bWUNnTIr9oPN+Dh4eGd4LVhxIyaA5LtSF738fDw8E7wkpfUJFZICsAstljdBw8PD+8Yb9PCT75+hmmbbXh4eHif5bXRwGa4Kv/eeqQADw8P7wCvbd7ncermqs3QwA9X4eHh4R3gzZbYloHZwz1PpvHw8PBO82YP7nYsYJYStCUkyqrx8PDwbuK1P/434cIM0LbH8PDw8M7x2p/3z/jIX8GTErIPTfDw8PD2vHYgoH2NboPa/JwoOMbDw8N7I28T2raP+Lxg5O204XLx8PDwYl4bNNw7ULWHXa4fDw8P7wBveFIcp+YjCLNr60KFh4eHdytvUxjyltgwVlj8BQ8PD+8EL2q3l+UhDybajat7enh4eHjHeElbK/mc/zcpP8n9f6Di4eHhvZ3XRg95kZiNI9xcGPDw8PBK3rM8kod7vintmXnL7Vt/Dw8PD+9W3iw+OBFG5G2wnI2Hh4d3jteOUrXtq/2d28KAh4eH9x5eMoDVFoa2lbVvvxWjA3h4eHhv591bSGYBRz1NhoeHh/creTl4Vjzq0BYPDw/vGC9fXPsFz/XxOsZdDRDg4eHhjXizH/x5g794/Y0bYG1cgoeHh3cT7x/qMI2qzuqS7AAAAABJRU5ErkJggg==' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
+        
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://qiuxchao.github.io/2019/08/12/python_ji_chu_han_shu/&title=Python基础——函数 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3aQW7jQAwEQP//095rgoWcblJjJ0DpZCSSPDUHUW7y8YiP55fj9X//P/Pq2ufoeJw48PDw8BZLf73Eq+Um7Nf3yTcuXzMeHh7ead7VrfNl5Z+visTVetoNxcPDw/ttvPwluy0VybsxHh4e3t/i5cjXi85LTlJs8PDw8D7Fa6PYPJbdLL3dCDw8PLz38Davs5/6fKS/h4eHh7fuqucP3HxBs/IzHDLAw8PDO8CbjQ60j+x7t6wOkfHw8PBu5eUP5XyIqm2AtYFysR14eHh4x3ib9tUmzmiDhrY84OHh4Z3g3bWUNnTIr9oPN+Dh4eGd4LVhxIyaA5LtSF738fDw8E7wkpfUJFZICsAstljdBw8PD+8Yb9PCT75+hmmbbXh4eHif5bXRwGa4Kv/eeqQADw8P7wCvbd7ncermqs3QwA9X4eHh4R3gzZbYloHZwz1PpvHw8PBO82YP7nYsYJYStCUkyqrx8PDwbuK1P/434cIM0LbH8PDw8M7x2p/3z/jIX8GTErIPTfDw8PD2vHYgoH2NboPa/JwoOMbDw8N7I28T2raP+Lxg5O204XLx8PDwYl4bNNw7ULWHXa4fDw8P7wBveFIcp+YjCLNr60KFh4eHdytvUxjyltgwVlj8BQ8PD+8EL2q3l+UhDybajat7enh4eHjHeElbK/mc/zcpP8n9f6Di4eHhvZ3XRg95kZiNI9xcGPDw8PBK3rM8kod7vintmXnL7Vt/Dw8PD+9W3iw+OBFG5G2wnI2Hh4d3jteOUrXtq/2d28KAh4eH9x5eMoDVFoa2lbVvvxWjA3h4eHhv591bSGYBRz1NhoeHh/creTl4Vjzq0BYPDw/vGC9fXPsFz/XxOsZdDRDg4eHhjXizH/x5g794/Y0bYG1cgoeHh3cT7x/qMI2qzuqS7AAAAABJRU5ErkJggg==' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
+        
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                          <h4>
+                              <a href="/2019/08/25/python_zhong_de_bian_ma_wen_ti/" rel="prev" title="Python中的编码问题">
+                                
+                                    Python中的编码问题
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Python/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2019/07/28/python_ji_chu_input_he_while_xun_huan/" rel="prev" title="Python基础——用户输入input和while循环">
+                                  
+                                      Python基础——用户输入input和while循环
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Python/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Python基础——函数',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/qiuxchao/CDN@1.0/toux.jpeg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Qxc's Station</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="/2915241235@qq.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/qiuxchao"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=329980085"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Welcome</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>欢迎来到本站！！！<br><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/img1.jpg" alt=""></p>
+
+  </div>
+</section>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义函数"><span class="toc-text">定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#向函数传递信息"><span class="toc-text">向函数传递信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传递实参"><span class="toc-text">传递实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位置实参"><span class="toc-text">位置实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字实参"><span class="toc-text">关键字实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认值"><span class="toc-text">默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#等效函数调用"><span class="toc-text">等效函数调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#返回值"><span class="toc-text">返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#返回简单值"><span class="toc-text">返回简单值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#让实参变成可选的"><span class="toc-text">让实参变成可选的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回字典"><span class="toc-text">返回字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结合使用函数和while循环"><span class="toc-text">结合使用函数和while循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传递列表"><span class="toc-text">传递列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在函数中修改列表"><span class="toc-text">在函数中修改列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止函数修改列表"><span class="toc-text">禁止函数修改列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传递任意数量的实参"><span class="toc-text">传递任意数量的实参</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#结合使用位置实参和任意数量实参"><span class="toc-text">结合使用位置实参和任意数量实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用任意数量的关键字实参"><span class="toc-text">使用任意数量的关键字实参</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将函数存储在模块中"><span class="toc-text">将函数存储在模块中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导入整个模块"><span class="toc-text">导入整个模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入特定的函数"><span class="toc-text">导入特定的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-as-给函数指定别名"><span class="toc-text">使用 as 给函数指定别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-as-给模块指定别名"><span class="toc-text">使用 as 给模块指定别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入模块中的所有函数"><span class="toc-text">导入模块中的所有函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-global-声明全局变量"><span class="toc-text">使用 global 声明全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名函数-lambda"><span class="toc-text">匿名函数 lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数编写指南"><span class="toc-text">函数编写指南</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/categories/"
+    title="blog/categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Git/" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Js/" href="/categories/Js/"><div class='name'>Js</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/Js/Ajax/" href="/categories/Js/Ajax/"><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/jQuery/" href="/categories/jQuery/"><div class='name'>jQuery</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/uni-app/" href="/categories/uni-app/"><div class='name'>uni-app</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"><div class='name'>算法</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%BD%91%E7%BB%9C/" href="/categories/%E7%BD%91%E7%BB%9C/"><div class='name'>网络</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Js/" style="font-size: 17.33px; color: #828282">Js</a> <a href="/tags/Python/" style="font-size: 24px; color: #555">Python</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/uni-app/" style="font-size: 14px; color: #999">uni-app</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20.67px; color: #6c6c6c">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">网络</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="/2915241235@qq.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/qiuxchao"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=329980085"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("08/10/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@20.2/js/backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+    
+      <script src="/js/volantis.js"></script>
+    
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'false' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "n0TTWl2VyPosl8Rd7QY8rVAK-gzGzoHsz",
+    appKey: "dfg3Lsat42X2duNoth6bhtHv",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  <script src="/js/app.js"></script>
+
+
+  <script src="/js/search.js"></script>
+
+
+  
+    <script src="/js/commentTyping.js"></script>
+  
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+
+<!-- 数字雨
+<canvas id="canvas" width="1440" height="900" ></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+</body>
+</html> -->

@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>ES6异步解决方案  Promise | Qxc&#39;s Station</title>
+  
+  <meta name="keywords" content="python, JavaScript,Ajax,Git,算法">
+  
+  
+  <meta name="description" content="技术博客">
+  
+
+  
+  <link rel="alternate" href="/atom.xml" title="Qxc's Station">
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png">
+  
+
+  
+    <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<link rel="alternate" href="/atom.xml" title="Qxc's Station" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>QiuXc's Station</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;主页
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/projects/"
+            
+            
+            id="projects">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" target="_self" href='/' >
+        
+          Qxc's Station
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2020/02/05/es6_yi_bu_jie_jue_fang_an_promise/">
+        ES6异步解决方案  Promise
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://qiuxchao.github.io" rel="nofollow">
+        
+          <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg">
+        
+        <p>Qiu Xc</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-05</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Js/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Js</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>3分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="ES6异步解决方案-Promise"><a href="#ES6异步解决方案-Promise" class="headerlink" title="ES6异步解决方案  Promise"></a>ES6异步解决方案  Promise</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>JS经常会遇到一些<strong>异步任务</strong>，所谓异步任务，就是需要经过一段时间 或 当某个时机到达后才能得到结果的任务</p>
+<p>例如：</p>
+<ul>
+<li>使用ajax请求服务器，当服务器完成响应后拿到响应结果</li>
+<li>监听按钮是否被点击，当按钮被点击后拿到某个文本框的值</li>
+<li>使用setTimeout等待一段时间，当时间到达后做某些事情</li>
+</ul>
+<p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。</p>
+<p>另外，过去常常使用回调的方式来处理异步场景，这种方式又容易产生回调地狱（callback hell）</p>
+<p>ES6总结了各种异步场景，并提取出一种通用的异步模型</p>
+<h2 id="ES6的异步处理模型"><a href="#ES6的异步处理模型" class="headerlink" title="ES6的异步处理模型"></a>ES6的异步处理模型</h2><p>ES6将异步场景分为<strong>两个阶段</strong>和<strong>三种状态</strong></p>
+<p>两个阶段：unsettled（未决） 和 settled（已决）<br>三种状态：pending（挂起）、resolved（完成）、rejected（失败）</p>
+<p>他们的关系图如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/sjxh/assets2/2019-12-25-15-30-33.png" alt=""></p>
+<p>当任务处于<strong>未决阶段</strong>时，它一定是 <strong>pending 挂起状态</strong>，表示任务从开始到拿到结果之间的过程。比如：网络完成了各种配置，也发送了请求，但是请求结果还没有拿到。</p>
+<p>当任务处于 <strong>已决阶段</strong>时，它只能是 <strong>resolved</strong> 和 <strong>rejected</strong>两种状态的一种，表示任务有了一个结果。比如：从服务器拿到了数据（resolved）、网络不好没有拿到数据（rejected）</p>
+<p>任务开始时，始终是未决阶段，那任务如何才能走向已决阶段呢？</p>
+<p>ES6认为，任务在未决阶段的时候，有能力将其<strong>推向</strong>已决。比如，当从服务器拿到数据后，我们就从未决阶段推向已决的resolved状态，如果网络不好，导致出错了，我们就从未决阶段推向已决的rejected状态</p>
+<p>我们把<strong>从未决推向已决的resolved状态的过程，叫做resolve</strong>，<strong>从未决推向已决的rejected状态的过程，叫做reject</strong>，如下图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/sjxh/assets2/2019-12-25-15-40-43.png" alt=""></p>
+<p>这种状态和阶段的变化是不可逆的，也就是说，一旦推向了已决，就无法重新改变状态</p>
+<p>任务从未决到已决时，可能附带一些数据，比如：跑步完成后的用时、网络请求后从服务器拿到的数据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/sjxh/assets2/2019-12-25-15-45-10.png" alt=""></p>
+<p>任务已决后（有了结果），可能需要进一步做后续处理，如果任务成功了（resolved），有后续处理，如果任务失败了（rejected），仍然可能有后续处理</p>
+<p>我们把针对resolved的后续处理，称之为thenable，针对rejected的后续处理，称之为catchable</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/sjxh/assets2/2019-12-25-15-48-58.png" alt=""></p>
+<h2 id="Promise的基本使用"><a href="#Promise的基本使用" class="headerlink" title="Promise的基本使用"></a>Promise的基本使用</h2><p>ES官方制定了一个全新的API来适配上面提到的异步模型，这个API即Promise</p>
+<p>Promise是一个构造函数，通过<code>new Promise()</code>可以创建一个任务对象，构造函数的参数是一个函数，用于处理未决阶段的事务，该函数的执行是立即同步执行的。在函数中，可以通过两个参数自主的在合适的时候将任务推向已决阶段</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> pro <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//未决阶段的代码，这些代码将立即执行</span>
+    <span class="token comment" spellcheck="true">//...</span>
+    <span class="token comment" spellcheck="true">//在合适的时候，将任务推向已决</span>
+    <span class="token comment" spellcheck="true">//resolve(数据)：将任务推向resovled状态，并附加一些数据</span>
+    <span class="token comment" spellcheck="true">//reject(数据)：将任务推向rejected状态，并附加一些数据</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p><strong>注意</strong></p>
+<ol>
+<li>任务一旦进入已决后，所有企图改变任务状态的代码都将失效</li>
+<li>以下代码可以让任务到达rejected状态<ol>
+<li>调用reject</li>
+<li>代码执行报错</li>
+<li>抛出错误</li>
+</ol>
+</li>
+</ol>
+<p>拿到Promise对象后，可以通过then方法指定后续处理</p>
+<pre class=" language-js"><code class="language-js">pro<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>thenable<span class="token punctuation">,</span> catchable<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//或</span>
+pro<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>thenable<span class="token punctuation">)</span>
+pro<span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>catchable<span class="token punctuation">)</span></code></pre>
+<p>无论是thenable还是catchable，均是下面格式的函数</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//data为状态数据</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>注意：后续处理函数一定是异步函数，并且放到微队列中</strong></p>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-26T10:00:09+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>更新于 2020年4月26日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Js/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Js</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://qiuxchao.github.io/2020/02/05/es6_yi_bu_jie_jue_fang_an_promise/&title=ES6异步解决方案  Promise | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qiuxchao.github.io/2020/02/05/es6_yi_bu_jie_jue_fang_an_promise/&title=ES6异步解决方案  Promise | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3awW6kMBAE0Pz/T+9Ke4oUDVPVbW8S6XEaAQM8DnZT7o+PePvzb/v8+/OeV+d8Pfp1e3X0ef/hDQ8PD2/06Mntn3mn7tg+w5tXgIeHh3eNl0wGm9eRTzmbM/Hw8PB+Gu+ZkdxscwU8PDy838jLC+X8+s8FMR4eHt5P5s1i1nbQj+KDx/MvZi14eHh4MW+2APa9v6+v7+Hh4eEdWojKp4e2ZG8nkujZ8PDw8C7wNq0Am5A3DyBmhXuUkeDh4eGNeG0Q8PxAbcSw3/+m6MfDw8O7wJuFsC1p33Zw4Ew8PDy8o7xkuG8X/vN2q+f9s6YEPDw8vHu89uHyxz314pJp6eW/8PDw8K7x9nFtvrg1nLtm4S8eHh7eNV672J/EuLPVqNkC2PBbAQ8PD+8QL9+zL443R+swAg8PD+8Qb/apP8Ofak498PWAh4eHt+blw3Q73Odhx2wyWGXVeHh4eCNeWwrPwt99y8JwUQ0PDw/vMi8pW/Nz2iW02cJY0TqAh4eHd5SXtwLMCuXkOsnvuijHw8PDu8DLC+s8kti0YSVFfF1w4+Hh4V3mtQN0G922D5q3Z728Ox4eHt4F3qbYnfE2k83wKB4eHt4hXj5MJ8VxXjrnwfEq2sDDw8O7wGuj2M2SWPvfzcvCw8PD+5+8/FO/nTbyloJ2GSyPkvHw8PBO8ZJBtg0O8iu0/2rLdDw8PLx7vNk00C6kbfBtgxceHh7eDd4mMsgXtNppI7/Xm9IcDw8P7wIv32bRwCy8mDWEDWF4eHh4I95sgL73Oy/Eow8APDw8vGu8djJoZ5ik8J3NXXh4eHi/kZc0B+TBcRtnvHndeHh4eN/KawPfWdSbXyeKPPDw8PCu8fIWqzY4aKeWs40FeHh4eDd4bZTQDvc3WgSONQ3g4eHhdby/e/4r8JaOY60AAAAASUVORK5CYII=' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
+        
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://qiuxchao.github.io/2020/02/05/es6_yi_bu_jie_jue_fang_an_promise/&title=ES6异步解决方案  Promise | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3awW6kMBAE0Pz/T+9Ke4oUDVPVbW8S6XEaAQM8DnZT7o+PePvzb/v8+/OeV+d8Pfp1e3X0ef/hDQ8PD2/06Mntn3mn7tg+w5tXgIeHh3eNl0wGm9eRTzmbM/Hw8PB+Gu+ZkdxscwU8PDy838jLC+X8+s8FMR4eHt5P5s1i1nbQj+KDx/MvZi14eHh4MW+2APa9v6+v7+Hh4eEdWojKp4e2ZG8nkujZ8PDw8C7wNq0Am5A3DyBmhXuUkeDh4eGNeG0Q8PxAbcSw3/+m6MfDw8O7wJuFsC1p33Zw4Ew8PDy8o7xkuG8X/vN2q+f9s6YEPDw8vHu89uHyxz314pJp6eW/8PDw8K7x9nFtvrg1nLtm4S8eHh7eNV672J/EuLPVqNkC2PBbAQ8PD+8QL9+zL443R+swAg8PD+8Qb/apP8Ofak498PWAh4eHt+blw3Q73Odhx2wyWGXVeHh4eCNeWwrPwt99y8JwUQ0PDw/vMi8pW/Nz2iW02cJY0TqAh4eHd5SXtwLMCuXkOsnvuijHw8PDu8DLC+s8kti0YSVFfF1w4+Hh4V3mtQN0G922D5q3Z728Ox4eHt4F3qbYnfE2k83wKB4eHt4hXj5MJ8VxXjrnwfEq2sDDw8O7wGuj2M2SWPvfzcvCw8PD+5+8/FO/nTbyloJ2GSyPkvHw8PBO8ZJBtg0O8iu0/2rLdDw8PLx7vNk00C6kbfBtgxceHh7eDd4mMsgXtNppI7/Xm9IcDw8P7wIv32bRwCy8mDWEDWF4eHh4I95sgL73Oy/Eow8APDw8vGu8djJoZ5ik8J3NXXh4eHi/kZc0B+TBcRtnvHndeHh4eN/KawPfWdSbXyeKPPDw8PCu8fIWqzY4aKeWs40FeHh4eDd4bZTQDvc3WgSONQ3g4eHhdby/e/4r8JaOY60AAAAASUVORK5CYII=' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
+        
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                          <h4>
+                              <a href="/2020/02/07/js_mo_kuai_hua/" rel="prev" title="模块化">
+                                
+                                    模块化
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Js/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Js</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2020/02/05/suan_fa_pai_xu_he_cha_zhao/" rel="prev" title="排序和查找">
+                                  
+                                      排序和查找
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E7%AE%97%E6%B3%95/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 算法</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'ES6异步解决方案  Promise',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/qiuxchao/CDN@1.0/toux.jpeg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Qxc's Station</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="/2915241235@qq.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/qiuxchao"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=329980085"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Welcome</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>欢迎来到本站！！！<br><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/img1.jpg" alt=""></p>
+
+  </div>
+</section>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6异步解决方案-Promise"><span class="toc-text">ES6异步解决方案  Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6的异步处理模型"><span class="toc-text">ES6的异步处理模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise的基本使用"><span class="toc-text">Promise的基本使用</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/categories/"
+    title="blog/categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Git/" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Js/" href="/categories/Js/"><div class='name'>Js</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/Js/Ajax/" href="/categories/Js/Ajax/"><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/jQuery/" href="/categories/jQuery/"><div class='name'>jQuery</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/uni-app/" href="/categories/uni-app/"><div class='name'>uni-app</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"><div class='name'>算法</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%BD%91%E7%BB%9C/" href="/categories/%E7%BD%91%E7%BB%9C/"><div class='name'>网络</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Js/" style="font-size: 17.33px; color: #828282">Js</a> <a href="/tags/Python/" style="font-size: 24px; color: #555">Python</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/uni-app/" style="font-size: 14px; color: #999">uni-app</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20.67px; color: #6c6c6c">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">网络</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="/2915241235@qq.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/qiuxchao"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=329980085"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("08/10/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@20.2/js/backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+    
+      <script src="/js/volantis.js"></script>
+    
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'false' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "n0TTWl2VyPosl8Rd7QY8rVAK-gzGzoHsz",
+    appKey: "dfg3Lsat42X2duNoth6bhtHv",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  <script src="/js/app.js"></script>
+
+
+  <script src="/js/search.js"></script>
+
+
+  
+    <script src="/js/commentTyping.js"></script>
+  
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+
+<!-- 数字雨
+<canvas id="canvas" width="1440" height="900" ></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+</body>
+</html> -->

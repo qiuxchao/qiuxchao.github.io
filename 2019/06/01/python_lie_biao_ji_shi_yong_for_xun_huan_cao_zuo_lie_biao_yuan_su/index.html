@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Python基础——列表和for循环 | Qxc&#39;s Station</title>
+  
+  <meta name="keywords" content="python, JavaScript,Ajax,Git,算法">
+  
+  
+  <meta name="description" content="技术博客">
+  
+
+  
+  <link rel="alternate" href="/atom.xml" title="Qxc's Station">
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png">
+  
+
+  
+    <link rel="stylesheet" href="/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<link rel="alternate" href="/atom.xml" title="Qxc's Station" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+  
+  
+  <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" target="_self" href='/' >
+        
+          Qxc's Station
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;主页
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogcategories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogtags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/blog/archives/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="blogarchives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="搜索" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2019/06/01/python_lie_biao_ji_shi_yong_for_xun_huan_cao_zuo_lie_biao_yuan_su/">
+        Python基础——列表和for循环
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://qiuxchao.github.io" rel="nofollow">
+        
+          <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg">
+        
+        <p>Qiu Xc</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-06-01</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Python/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>Python</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>2.1k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>9分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h1 id="Python基础——列表和for循环"><a href="#Python基础——列表和for循环" class="headerlink" title="Python基础——列表和for循环"></a>Python基础——列表和for循环</h1><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表由一系列按特定顺序排列的<strong>元素</strong>组成；<br>用方括号 <strong>[ ]</strong> 来表示列表，并用逗号来分隔其中的元素；</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 创建一个简单的列表</span>
+bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">,</span><span class="token string">'specialized'</span><span class="token punctuation">]</span></code></pre>
+<h3 id="访问列表元素"><a href="#访问列表元素" class="headerlink" title="访问列表元素"></a>访问列表元素</h3><p>列表是<strong>有序集合</strong>，因此要访问列表的任何元素，只需将该元素的位置或索引告诉Python即可；</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 打印列表中第一个元素</span>
+bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">,</span><span class="token string">'specialized'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># trek</span></code></pre>
+<h3 id="第一个列表元素的索引为0，而不是1"><a href="#第一个列表元素的索引为0，而不是1" class="headerlink" title="第一个列表元素的索引为0，而不是1"></a>第一个列表元素的索引为0，而不是1</h3><p>列表的第一个元素的索引是 <strong>0</strong>；<br>通过将索引指定为 <strong>-1</strong> ，可让Python返回最后一个列表元素.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">,</span><span class="token string">'specialized'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Specialized</span></code></pre>
+<h3 id="使用列表中的值"><a href="#使用列表中的值" class="headerlink" title="使用列表中的值"></a>使用列表中的值</h3><pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">,</span><span class="token string">'specialized'</span><span class="token punctuation">]</span>
+message <span class="token operator">=</span> <span class="token string">"My first bicycle was a "</span> <span class="token operator">+</span> bicycles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># My first bicycle was a Trek.</span>
+<span class="token comment" spellcheck="true"># ['trek', 'cannondale', 'redline', 'specialized']</span></code></pre>
+<h2 id="修改、添加和删除元素"><a href="#修改、添加和删除元素" class="headerlink" title="修改、添加和删除元素"></a>修改、添加和删除元素</h2><h3 id="修改列表元素"><a href="#修改列表元素" class="headerlink" title="修改列表元素"></a>修改列表元素</h3><p>可直接使用列表的索引修改元素.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">,</span><span class="token string">'specialized'</span><span class="token punctuation">]</span>
+bicycles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'ducati'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['ducati', 'cannondale', 'redline', 'specialized']</span></code></pre>
+<h3 id="在列表中添加元素"><a href="#在列表中添加元素" class="headerlink" title="在列表中添加元素"></a>在列表中添加元素</h3><p><strong>append()</strong>：在列表末尾添加元素.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+bicycles<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'trek'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['trek']</span>
+bicycles<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'cannondale'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['trek', 'cannondale']</span>
+bicycles<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'redline'</span><span class="token punctuation">)</span>
+bicycles<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'specialized'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['trek', 'cannondale', 'redline', 'specialized']</span></code></pre>
+<p><strong>insert()</strong>：可在列表的任意位置添加新元素，需要指定新元素的索引和值；<br>这种操作将列表中既有的每个元素都右移一个位置.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">]</span>
+bicycles<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'specialized'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['specialized', 'trek', 'cannondale', 'redline']</span></code></pre>
+<h3 id="从列表中删除元素"><a href="#从列表中删除元素" class="headerlink" title="从列表中删除元素"></a>从列表中删除元素</h3><p><strong>del</strong> 语句 : 将元素从列表中删除后，就无法再访问它.<br>如果知道要删除的元素在列表中的位置，可使用 <strong>del</strong> 语句.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">]</span>
+<span class="token keyword">del</span> bicycles<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># ['cannondale', 'redline']</span></code></pre>
+<p><strong>pop()</strong>：默认删除列表末尾的元素，并让你能够接着使用它.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 从这个列表中删除末尾的值，并将其存储到变量 popped_bicycle 中</span>
+popped_bicycle <span class="token operator">=</span> bicycles<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>popped_bicycle<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['trek', 'cannondale']</span>
+<span class="token comment" spellcheck="true"># redline</span></code></pre>
+<p>还可以使用 <strong>pop()</strong> 来删除列表中任何位置的元素，只需在括号中指定要删除的元素的索引即可.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">]</span>
+first_owned <span class="token operator">=</span> bicycles<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'The first bicycle I owned was a  '</span> <span class="token operator">+</span> first_owned<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># The first bicycle I owned was a  Trek.</span></code></pre>
+<p>如果你要从列表中删除一个元素，且不再以任何方式使用它，就使用 <strong>del</strong> 语句；<br>如果你要在删除元素后还能继续使用它，就使用方法 <strong>pop()</strong></p>
+<h4 id="根据值删除元素"><a href="#根据值删除元素" class="headerlink" title="根据值删除元素"></a>根据值删除元素</h4><p><strong>remove()</strong>：可根据列表中元素的值删除元素.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+bicycles<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">'trek'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['trek', 'cannondale', 'redline']</span>
+<span class="token comment" spellcheck="true"># ['cannondale', 'redline']</span></code></pre>
+<p>使用 <strong>remove()</strong> 从列表中删除元素时，也可接着使用它的值.</p>
+<pre class=" language-python"><code class="language-python">bicycles <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'trek'</span><span class="token punctuation">,</span><span class="token string">'cannondale'</span><span class="token punctuation">,</span><span class="token string">'redline'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+too_expensive <span class="token operator">=</span> <span class="token string">'trek'</span>
+bicycles<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>too_expensive<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bicycles<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n "</span> <span class="token operator">+</span> too_expensive<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" is too expensive for me."</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['trek', 'cannondale', 'redline']</span>
+<span class="token comment" spellcheck="true"># ['cannondale', 'redline']</span>
+
+<span class="token comment" spellcheck="true"># Trek is too expensive for me.</span></code></pre>
+<p>方法 <strong>remove()</strong> 只删除第一个指定的值；<br>如果要删除的值可能在列表中出现多次，就需要使用循环来判断是否删除了所有这样的值.</p>
+<h2 id="组织列表"><a href="#组织列表" class="headerlink" title="组织列表"></a>组织列表</h2><h3 id="对列表进行永久性排序"><a href="#对列表进行永久性排序" class="headerlink" title="对列表进行永久性排序"></a>对列表进行永久性排序</h3><p><strong>sort()</strong>：按字母顺序排序.</p>
+<pre class=" language-python"><code class="language-python">cars <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'bmw'</span><span class="token punctuation">,</span><span class="token string">'audi'</span><span class="token punctuation">,</span><span class="token string">'toyota'</span><span class="token punctuation">,</span><span class="token string">'subaru'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+cars<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['bmw', 'audi', 'toyota', 'subaru']</span>
+<span class="token comment" spellcheck="true"># ['audi', 'bmw', 'subaru', 'toyota']</span></code></pre>
+<p>按与字母顺序相反的顺序排列列表元素，<br>只需向 <strong>sort()</strong> 方法传递参数 <strong>reverse=True</strong></p>
+<pre class=" language-python"><code class="language-python">cars <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'bmw'</span><span class="token punctuation">,</span><span class="token string">'audi'</span><span class="token punctuation">,</span><span class="token string">'toyota'</span><span class="token punctuation">,</span><span class="token string">'subaru'</span><span class="token punctuation">]</span>
+cars<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['toyota', 'subaru', 'bmw', 'audi']</span></code></pre>
+<h3 id="对列表进行临时排序"><a href="#对列表进行临时排序" class="headerlink" title="对列表进行临时排序"></a>对列表进行临时排序</h3><p><strong>sorted()</strong>：按特定的顺序临时显示列表元素.</p>
+<pre class=" language-python"><code class="language-python">cars <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'bmw'</span><span class="token punctuation">,</span><span class="token string">'audi'</span><span class="token punctuation">,</span><span class="token string">'toyota'</span><span class="token punctuation">,</span><span class="token string">'subaru'</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 首先按原始顺序打印列表</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Here is the original list:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 再按字母顺序显示该列表</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Here is the sorted list:"</span> <span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sorted<span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 再次进行核实，确认列表元素的排列顺序与以前相同</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Here is the original list again:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Here is the original list:</span>
+<span class="token comment" spellcheck="true"># ['bmw', 'audi', 'toyota', 'subaru']</span>
+<span class="token comment" spellcheck="true"># Here is the sorted list:</span>
+<span class="token comment" spellcheck="true"># ['audi', 'bmw', 'subaru', 'toyota']</span>
+<span class="token comment" spellcheck="true"># Here is the sorted list:</span>
+<span class="token comment" spellcheck="true"># ['audi', 'bmw', 'subaru', 'toyota']</span></code></pre>
+<p>注意，调用函数 <strong>sorted()</strong> 后，列表元素的排列顺序并没有变；<br>如果要按与字母顺序相反的顺序显示列表，<br>也可向函数 <strong>sorted()</strong> 传递参数 <strong>reverse=True</strong></p>
+<pre class=" language-python"><code class="language-python">cars <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'bmw'</span><span class="token punctuation">,</span><span class="token string">'audi'</span><span class="token punctuation">,</span><span class="token string">'toyota'</span><span class="token punctuation">,</span><span class="token string">'subaru'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sorted<span class="token punctuation">(</span>cars<span class="token punctuation">,</span>reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['toyota', 'subaru', 'bmw', 'audi']</span></code></pre>
+<h3 id="倒着打印列表"><a href="#倒着打印列表" class="headerlink" title="倒着打印列表"></a>倒着打印列表</h3><p>方法 <strong>reverse()</strong>：反转列表元素的排列顺序.</p>
+<pre class=" language-python"><code class="language-python">cars <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'bmw'</span><span class="token punctuation">,</span><span class="token string">'audi'</span><span class="token punctuation">,</span><span class="token string">'toyota'</span><span class="token punctuation">,</span><span class="token string">'subaru'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+cars<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># ['bmw', 'audi', 'toyota', 'subaru']</span>
+<span class="token comment" spellcheck="true"># ['subaru', 'toyota', 'audi', 'bmw']</span></code></pre>
+<p>方法 <strong>reverse()</strong> 永久性地修改列表元素的排列顺序，但可随时恢复到原来的排列顺序，为此只需对列表再次调用 <strong>reverse()</strong> 即可.</p>
+<h3 id="确定列表的长度"><a href="#确定列表的长度" class="headerlink" title="确定列表的长度"></a>确定列表的长度</h3><p>函数 <strong>len()</strong>：快速获悉列表的长度.</p>
+<pre class=" language-python"><code class="language-python">cars <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'bmw'</span><span class="token punctuation">,</span><span class="token string">'audi'</span><span class="token punctuation">,</span><span class="token string">'toyota'</span><span class="token punctuation">,</span><span class="token string">'subaru'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str<span class="token punctuation">(</span>len<span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 4</span></code></pre>
+<h2 id="操作列表"><a href="#操作列表" class="headerlink" title="操作列表"></a>操作列表</h2><h3 id="遍历整个列表"><a href="#遍历整个列表" class="headerlink" title="遍历整个列表"></a>遍历整个列表</h3><p>使用Python中的 <strong>for</strong> 循环,对列表中的每个元素都执行相同的操作.<br><strong>for</strong> 变量名 <strong>in</strong> 列表：从列表中取出一个元素，存储在变量中.<br>对于位于 <strong>for</strong> 语句后面且属于循环组成部分的代码行，一定要<strong>缩进</strong>.</p>
+<pre class=" language-python"><code class="language-python">magicians <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'alice'</span><span class="token punctuation">,</span><span class="token string">'david'</span><span class="token punctuation">,</span><span class="token string">'carolina'</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 对于列表中每一个元素都打印出两条消息</span>
+<span class="token keyword">for</span> magician <span class="token keyword">in</span> magicians<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>magician<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", that was a great trick!"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"I can't wait to see your next trick, "</span> <span class="token operator">+</span> magician<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".\n"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Thank you, everyone. That was a great magic show!"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Alice, that was a great trick!</span>
+<span class="token comment" spellcheck="true"># I can't wait to see your next trick, Alice.</span>
+
+<span class="token comment" spellcheck="true"># David, that was a great trick!</span>
+<span class="token comment" spellcheck="true"># I can't wait to see your next trick, David.</span>
+
+<span class="token comment" spellcheck="true"># Carolina, that was a great trick!</span>
+<span class="token comment" spellcheck="true"># I can't wait to see your next trick, Carolina.</span>
+
+<span class="token comment" spellcheck="true"># Thank you, everyone. That was a great magic show!  </span></code></pre>
+<h3 id="创建数值列表"><a href="#创建数值列表" class="headerlink" title="创建数值列表"></a>创建数值列表</h3><p>使用函数 <strong>range()</strong> 打印一系列的数字.</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">for</span> value <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 1</span>
+<span class="token comment" spellcheck="true"># 2</span>
+<span class="token comment" spellcheck="true"># 3</span>
+<span class="token comment" spellcheck="true"># 4</span>
+<span class="token comment" spellcheck="true"># 5</span></code></pre>
+<p>使用  <strong>range()</strong> 和 <strong>list()</strong> 创建数字列表；<br>还可使用 <strong>list()</strong> 将 <strong>range()</strong> 的结果直接转换为列表.</p>
+<pre class=" language-python"><code class="language-python">numbers <span class="token operator">=</span> list<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># [1, 2, 3, 4, 5]</span></code></pre>
+<p>使用函数 <strong>range()</strong> 时，可指定步长；<br>打印 1-10 内的偶数.</p>
+<pre class=" language-python"><code class="language-python">even_numbers <span class="token operator">=</span> list<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>even_numbers<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># [2, 4, 6, 8, 10]</span></code></pre>
+<p>将前10个整数的平方加入到一个列表中.</p>
+<pre class=" language-python"><code class="language-python">squares <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> value <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    squares<span class="token punctuation">.</span>append<span class="token punctuation">(</span>value<span class="token operator">**</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>squares<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span></code></pre>
+<h3 id="对数字列表进行简单的统计计算"><a href="#对数字列表进行简单的统计计算" class="headerlink" title="对数字列表进行简单的统计计算"></a>对数字列表进行简单的统计计算</h3><p>最小值 <strong>min()</strong></p>
+<pre class=" language-python"><code class="language-python">digits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>min<span class="token punctuation">(</span>digits<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 0</span></code></pre>
+<p>最大值 <strong>max()</strong></p>
+<pre class=" language-python"><code class="language-python">digits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>max<span class="token punctuation">(</span>digits<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 9</span></code></pre>
+<p>求和 <strong>sum()</strong></p>
+<pre class=" language-python"><code class="language-python">digits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum<span class="token punctuation">(</span>digits<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 45</span></code></pre>
+<h3 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h3><p>列表解析将 <strong>for</strong> 循环和创建新元素的代码合并成一行，并自动附加新元素.</p>
+<pre class=" language-python"><code class="language-python">squares <span class="token operator">=</span> <span class="token punctuation">[</span>value<span class="token operator">**</span><span class="token number">2</span> <span class="token keyword">for</span> value <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>squares<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span></code></pre>
+<h3 id="处理列表的一部分——切片"><a href="#处理列表的一部分——切片" class="headerlink" title="处理列表的一部分——切片"></a>处理列表的一部分——切片</h3><p>处理列表的部分元素——Python称之为 <strong>切片</strong>.</p>
+<pre class=" language-python"><code class="language-python">players <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'charles'</span><span class="token punctuation">,</span><span class="token string">'martina'</span><span class="token punctuation">,</span><span class="token string">'michael'</span><span class="token punctuation">,</span><span class="token string">'florence'</span><span class="token punctuation">,</span><span class="token string">'eli'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>players<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#打印列表前三个元素</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#打印列表2~4个元素</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#没有指定起始索引，python从列表开头开始提取</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#让切片终止于列表末尾，可省略终止索引</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>players<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#打印列表末尾三个元素</span>
+<span class="token comment" spellcheck="true"># ['charles', 'martina', 'michael', 'florence', 'eli']</span>
+<span class="token comment" spellcheck="true"># ['charles', 'martina', 'michael']</span>
+<span class="token comment" spellcheck="true"># ['martina', 'michael', 'florence']</span>
+<span class="token comment" spellcheck="true"># ['charles', 'martina', 'michael', 'florence']</span>
+<span class="token comment" spellcheck="true"># ['michael', 'florence', 'eli']</span>
+<span class="token comment" spellcheck="true"># ['michael', 'florence', 'eli']</span></code></pre>
+<p>遍历切片.</p>
+<pre class=" language-python"><code class="language-python">players <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'charles'</span><span class="token punctuation">,</span><span class="token string">'martina'</span><span class="token punctuation">,</span><span class="token string">'michael'</span><span class="token punctuation">,</span><span class="token string">'florence'</span><span class="token punctuation">,</span><span class="token string">'eli'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Here are the first three players on my team:"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> player <span class="token keyword">in</span> players<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>player<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Here are the first three players on my team:</span>
+<span class="token comment" spellcheck="true"># Charles</span>
+<span class="token comment" spellcheck="true"># Martina</span>
+<span class="token comment" spellcheck="true"># Michael</span></code></pre>
+<h3 id="复制列表"><a href="#复制列表" class="headerlink" title="复制列表"></a>复制列表</h3><p>要复杂列表，可创建一个包含整个列表的切片，方法是同时省略起始索引和终止索引  <strong>[:]</strong>；<br>这让Python创建一个始于第一个元素，终止于最后一个元素的切片，即复制整个列表.</p>
+<pre class=" language-python"><code class="language-python">my_foods <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'pizza'</span><span class="token punctuation">,</span><span class="token string">'falafel'</span><span class="token punctuation">,</span><span class="token string">'carrot cake'</span><span class="token punctuation">]</span>
+friend_foods <span class="token operator">=</span> my_foods<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My favorite foods are:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_foods<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My friend's favorite foods are:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>friend_foods<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># My favorite foods are:</span>
+<span class="token comment" spellcheck="true"># ['pizza', 'falafel', 'carrot cake']</span>
+<span class="token comment" spellcheck="true"># My friend's favorite foods are:</span>
+<span class="token comment" spellcheck="true"># ['pizza', 'falafel', 'carrot cake']</span></code></pre>
+<p>为核实我们确实有两个列表，下面在每个列表中都添加一种食品，并核实每个列表都记录了相应人员喜欢的食品.</p>
+<pre class=" language-python"><code class="language-python">my_foods<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'cannoli'</span><span class="token punctuation">)</span>
+friend_foods<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'ice cream'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My favorite foods are:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_foods<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"My friend's favorite foods are:"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>friend_foods<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># My favorite foods are:</span>
+<span class="token comment" spellcheck="true"># ['pizza', 'falafel', 'carrot cake', 'cannoli']</span>
+<span class="token comment" spellcheck="true"># My friend's favorite foods are:</span>
+<span class="token comment" spellcheck="true"># ['pizza', 'falafel', 'carrot cake', 'ice cream']</span></code></pre>
+<p>如果直接 friend_foods = my_foods ，这行不通，这样只是把两个变量指向一个列表；<br>复制是把一个列表复制到另一个列表中，因此可以有两个部分相同的列表.</p>
+<h3 id="extend-函数"><a href="#extend-函数" class="headerlink" title="extend() 函数"></a>extend() 函数</h3><p><strong>extend()</strong> 函数用于在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）.<br><strong>extend()</strong> 语法： <strong>list.extend(seq)</strong><br>参数 <strong>seq</strong> – 元素列表.</p>
+<pre class=" language-python"><code class="language-python">aList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">123</span><span class="token punctuation">,</span><span class="token string">'xyz'</span><span class="token punctuation">,</span><span class="token string">'zara'</span><span class="token punctuation">,</span><span class="token string">'abc'</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">]</span>
+bList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2009</span><span class="token punctuation">,</span><span class="token string">'manni'</span><span class="token punctuation">]</span>
+aList<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>bList<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Extended List: "</span><span class="token punctuation">,</span><span class="token string">'\n'</span><span class="token punctuation">,</span>aList<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># Extended List:  </span>
+<span class="token comment" spellcheck="true">#  [123, 'xyz', 'zara', 'abc', 123, 2009, 'manni']</span></code></pre>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-12T14:48:59+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>更新于 2020年3月12日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://qiuxchao.github.io/2019/06/01/python_lie_biao_ji_shi_yong_for_xun_huan_cao_zuo_lie_biao_yuan_su/&title=Python基础——列表和for循环 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qiuxchao.github.io/2019/06/01/python_lie_biao_ji_shi_yong_for_xun_huan_cao_zuo_lie_biao_yuan_su/&title=Python基础——列表和for循环 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD6ElEQVR42u3aQW4bQQwEwPz/0w6QUwDbq26Sdhyg9iQo0mqmNkCb5Pz6FV9vf66/X7+/8m/ln/ns9fs7PH/3+MKBAwcOHMFWnzeZf+azpSSIye8+3z+/z6cPEgcOHDhwHHEkMblZyvO28/eTVeWhiwMHDhw4/i3HV0Tvcw01e2Bt+YcDBw4cOH4CR9thmzUiZ8GMAwcOHDh+Akcemfm282IvKcaeWffNTRw4cODAccUxO9Dwf73+8vMdOHDgwIEjiJ/8CELe2stDNC+68mHVi33hwIEDB441x2aJbZm0bxTOiOuDDjhw4MCBY81xWwhtUDbxPGsprp4DDhw4cOAojxG0Bw5m6HuadrAUYeHAgQMHjhHHvkhrl5V/9wo0bxriwIEDB449RxuW+cgnT648YvMYnj1mHDhw4MCx55gVPJum2+xgxGbDz7gflHA4cODAgWPBkW+4LcNmTb02SvMHWRdvOHDgwIFjzZG3z25HR23J166n5caBAwcOHHuO9vBcOyKaNfvyOM/DFQcOHDhwfA9HW7a1rb2EJmrbLQZR0VE5HDhw4MBxxJF/dAa3p9n37vJBFA4cOHDg2HO01V4eirPicBarV8GMAwcOHDj2HJuN5fGc3/+qmXjwSHDgwIEDR/kr+dAoL8Dy0VTbcEyagDnTB+/jwIEDB44jjs0Bgvxww+bAREKwWT8OHDhw4PgKjjZo86hrgzDf/OzzL0o4HDhw4MBxytE219ri7SqMZ2t+8dhw4MCBA8eaI2/GFS22UejODiLM1h+NqXDgwIEDx4ij0Cq3NDtynaznrbyK4MeBAwcOHGuO/Geeb5GPf/Z/F8yiPf/TAQcOHDhwbDjqwUwQpZvltpHctgJf/L/AgQMHDhxrjnxjebMvL+2SYwp50TX77ouBEw4cOHDgGHHki36Ow1nQbsZFmxhOmqE4cODAgaPl2CxodqytvdrAnj1CHDhw4MBxxTFrBW6OvuXNwSTO29UWDwkHDhw4cKw52sFP2/jLQ/T22MQq8nHgwIEDR8mx+YGzoc563HVWjuLAgQMHjiOOdk6VNNpmZPkDuCop6+THgQMHDhzB3pOlt69X5ykWa5jdM5rF4cCBAweOgOOtvPIBVTsKSmJ79ov5enDgwIEDx57jKqtnpVc7NLpFXF04cODAgWMx8mnDbL+xWYNvE7TRLA4HDhw4cJQcs3D97J3b5t0svIdtShw4cODA8e0cVwSzoP26YMaBAwcOHN/P0XbS8lFW8gCSf00e1Qs+HDhw4MBxxNE2B/PtJa3D54KtHVm1TcODXikOHDhw4CiPOzwvZXbTdsSV/HFwO9bCgQMHDhwlx2+rcOeCmrbAvgAAAABJRU5ErkJggg==' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/wechat.png">
+        
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://qiuxchao.github.io/2019/06/01/python_lie_biao_ji_shi_yong_for_xun_huan_cao_zuo_lie_biao_yuan_su/&title=Python基础——列表和for循环 | Qxc's Station&pics=https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+      
+        <a class='qrcode' rel="external nofollow noopener noreferrer noopener" href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD6ElEQVR42u3aQW4bQQwEwPz/0w6QUwDbq26Sdhyg9iQo0mqmNkCb5Pz6FV9vf66/X7+/8m/ln/ns9fs7PH/3+MKBAwcOHMFWnzeZf+azpSSIye8+3z+/z6cPEgcOHDhwHHEkMblZyvO28/eTVeWhiwMHDhw4/i3HV0Tvcw01e2Bt+YcDBw4cOH4CR9thmzUiZ8GMAwcOHDh+Akcemfm282IvKcaeWffNTRw4cODAccUxO9Dwf73+8vMdOHDgwIEjiJ/8CELe2stDNC+68mHVi33hwIEDB441x2aJbZm0bxTOiOuDDjhw4MCBY81xWwhtUDbxPGsprp4DDhw4cOAojxG0Bw5m6HuadrAUYeHAgQMHjhHHvkhrl5V/9wo0bxriwIEDB449RxuW+cgnT648YvMYnj1mHDhw4MCx55gVPJum2+xgxGbDz7gflHA4cODAgWPBkW+4LcNmTb02SvMHWRdvOHDgwIFjzZG3z25HR23J166n5caBAwcOHHuO9vBcOyKaNfvyOM/DFQcOHDhwfA9HW7a1rb2EJmrbLQZR0VE5HDhw4MBxxJF/dAa3p9n37vJBFA4cOHDg2HO01V4eirPicBarV8GMAwcOHDj2HJuN5fGc3/+qmXjwSHDgwIEDR/kr+dAoL8Dy0VTbcEyagDnTB+/jwIEDB44jjs0Bgvxww+bAREKwWT8OHDhw4PgKjjZo86hrgzDf/OzzL0o4HDhw4MBxytE219ri7SqMZ2t+8dhw4MCBA8eaI2/GFS22UejODiLM1h+NqXDgwIEDx4ij0Cq3NDtynaznrbyK4MeBAwcOHGuO/Geeb5GPf/Z/F8yiPf/TAQcOHDhwbDjqwUwQpZvltpHctgJf/L/AgQMHDhxrjnxjebMvL+2SYwp50TX77ouBEw4cOHDgGHHki36Ow1nQbsZFmxhOmqE4cODAgaPl2CxodqytvdrAnj1CHDhw4MBxxTFrBW6OvuXNwSTO29UWDwkHDhw4cKw52sFP2/jLQ/T22MQq8nHgwIEDR8mx+YGzoc563HVWjuLAgQMHjiOOdk6VNNpmZPkDuCop6+THgQMHDhzB3pOlt69X5ykWa5jdM5rF4cCBAweOgOOtvPIBVTsKSmJ79ov5enDgwIEDx57jKqtnpVc7NLpFXF04cODAgWMx8mnDbL+xWYNvE7TRLA4HDhw4cJQcs3D97J3b5t0svIdtShw4cODA8e0cVwSzoP26YMaBAwcOHN/P0XbS8lFW8gCSf00e1Qs+HDhw4MBxxNE2B/PtJa3D54KtHVm1TcODXikOHDhw4CiPOzwvZXbTdsSV/HFwO9bCgQMHDhwlx2+rcOeCmrbAvgAAAABJRU5ErkJggg==' target="_blank">
+        
+          <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qrcode.png">
+        
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                          <h4>
+                              <a href="/2019/06/15/python_ji_chu_zhi_if_yu_ju/" rel="prev" title="Python基础——if语句">
+                                
+                                    Python基础——if语句
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Python/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2019/05/20/python_ji_chu_zhi_ge_shi_hua_shu_chu/" rel="prev" title="Python基础——格式化输出">
+                                  
+                                      Python基础——格式化输出
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Python/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Python基础——列表和for循环',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/qiuxchao/CDN@1.0/toux.jpeg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">Qxc's Station</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="/2915241235@qq.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/qiuxchao"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=329980085"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Welcome</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>欢迎来到本站！！！<br><img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/img1.jpg" alt=""></p>
+
+  </div>
+</section>
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python基础——列表和for循环"><span class="toc-text">Python基础——列表和for循环</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#列表"><span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#访问列表元素"><span class="toc-text">访问列表元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个列表元素的索引为0，而不是1"><span class="toc-text">第一个列表元素的索引为0，而不是1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用列表中的值"><span class="toc-text">使用列表中的值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改、添加和删除元素"><span class="toc-text">修改、添加和删除元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改列表元素"><span class="toc-text">修改列表元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在列表中添加元素"><span class="toc-text">在列表中添加元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从列表中删除元素"><span class="toc-text">从列表中删除元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#根据值删除元素"><span class="toc-text">根据值删除元素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组织列表"><span class="toc-text">组织列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对列表进行永久性排序"><span class="toc-text">对列表进行永久性排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对列表进行临时排序"><span class="toc-text">对列表进行临时排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒着打印列表"><span class="toc-text">倒着打印列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确定列表的长度"><span class="toc-text">确定列表的长度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作列表"><span class="toc-text">操作列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历整个列表"><span class="toc-text">遍历整个列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数值列表"><span class="toc-text">创建数值列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对数字列表进行简单的统计计算"><span class="toc-text">对数字列表进行简单的统计计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表解析"><span class="toc-text">列表解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理列表的一部分——切片"><span class="toc-text">处理列表的一部分——切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制列表"><span class="toc-text">复制列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extend-函数"><span class="toc-text">extend() 函数</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;文章分类</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/categories/"
+    title="blog/categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Git/" href="/categories/Git/"><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Js/" href="/categories/Js/"><div class='name'>Js</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/Js/Ajax/" href="/categories/Js/Ajax/"><div class='name'>Ajax</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Python/" href="/categories/Python/"><div class='name'>Python</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/jQuery/" href="/categories/jQuery/"><div class='name'>jQuery</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/uni-app/" href="/categories/uni-app/"><div class='name'>uni-app</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"><div class='name'>算法</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E7%BD%91%E7%BB%9C/" href="/categories/%E7%BD%91%E7%BB%9C/"><div class='name'>网络</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Js/" style="font-size: 17.33px; color: #828282">Js</a> <a href="/tags/Python/" style="font-size: 24px; color: #555">Python</a> <a href="/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/tags/uni-app/" style="font-size: 14px; color: #999">uni-app</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20.67px; color: #6c6c6c">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">网络</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="/2915241235@qq.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/qiuxchao"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=329980085"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("08/10/2019 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    作为主题
+    
+      ，
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    。
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@20.2/js/backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg2.jpg", "https://i.loli.net/2020/02/08/dNJyR4LHtarTqPu.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg3.jpg", "https://cdn.jsdelivr.net/gh/qiuxchao/CDN/bg4.jpg"],
+          {
+            duration: "10000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+    
+      <script src="/js/volantis.js"></script>
+    
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'false' == true;
+  var verify = 'true' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "n0TTWl2VyPosl8Rd7QY8rVAK-gzGzoHsz",
+    appKey: "dfg3Lsat42X2duNoth6bhtHv",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'true'
+  })
+  </script>
+
+
+
+  <script src="/js/app.js"></script>
+
+
+  <script src="/js/search.js"></script>
+
+
+  
+    <script src="/js/commentTyping.js"></script>
+  
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+  
+  <!--浏览器搞笑标题-->
+<script type="text/javascript" src="/js/FunnyTitle.js"></script>
+
+<!-- 数字雨
+<canvas id="canvas" width="1440" height="900" ></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+</body>
+</html> -->

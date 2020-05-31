@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Qxc&#39;s Station</title>
+  
+  <subtitle>Qxc&#39;s Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://qiuxchao.github.io/"/>
+  <updated>2020-05-31T15:31:49.646Z</updated>
+  <id>https://qiuxchao.github.io/</id>
+  
+  <author>
+    <name>Qiu Xc</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>uni-app的基本使用</title>
+    <link href="https://qiuxchao.github.io/2020/05/05/uniapp_ji_chu_zhi_shi/"/>
+    <id>https://qiuxchao.github.io/2020/05/05/uniapp_ji_chu_zhi_shi/</id>
+    <published>2020-05-05T00:08:08.000Z</published>
+    <updated>2020-05-31T15:31:49.646Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;####uni-app的基本使用&lt;/p&gt;
+&lt;p&gt;课程介绍：&lt;/p&gt;
+&lt;p&gt;基础部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;页面外观配置&lt;/li&gt;
+&lt;li&gt;数据绑定&lt;/li&gt;
+&lt;li&gt;uni-app的生命周期&lt;/li&gt;
+&lt;li&gt;组件的使用&lt;/li&gt;
+&lt;li&gt;uni-app中样式学习&lt;/
+        
+      
+    
+    </summary>
+    
+    
+      <category term="uni-app" scheme="https://qiuxchao.github.io/categories/uni-app/"/>
+    
+    
+      <category term="uni-app" scheme="https://qiuxchao.github.io/tags/uni-app/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ajax 异步请求与数据交互</title>
+    <link href="https://qiuxchao.github.io/2020/02/20/ajax_yi_bu_qing_qiu_shu_ju_jiao_hu/"/>
+    <id>https://qiuxchao.github.io/2020/02/20/ajax_yi_bu_qing_qiu_shu_ju_jiao_hu/</id>
+    <published>2020-02-20T00:08:08.000Z</published>
+    <updated>2020-04-26T02:10:11.256Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Ajax-异步请求与数据交互&quot;&gt;&lt;a href=&quot;#Ajax-异步请求与数据交互&quot; class=&quot;headerlink&quot; title=&quot;Ajax 异步请求与数据交互&quot;&gt;&lt;/a&gt;Ajax 异步请求与数据交互&lt;/h1&gt;&lt;h2 id=&quot;1、初识-Ajax&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/categories/Js/"/>
+    
+      <category term="Ajax" scheme="https://qiuxchao.github.io/categories/Js/Ajax/"/>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/tags/Js/"/>
+    
+      <category term="Ajax" scheme="https://qiuxchao.github.io/tags/Ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>贪心算法和动态规划</title>
+    <link href="https://qiuxchao.github.io/2020/02/20/suan_fa_tan_xin_suan_fa_he_dong_tai_gui_hua/"/>
+    <id>https://qiuxchao.github.io/2020/02/20/suan_fa_tan_xin_suan_fa_he_dong_tai_gui_hua/</id>
+    <published>2020-02-20T00:08:08.000Z</published>
+    <updated>2020-04-26T01:47:08.303Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;贪心算法和动态规划&quot;&gt;&lt;a href=&quot;#贪心算法和动态规划&quot; class=&quot;headerlink&quot; title=&quot;贪心算法和动态规划&quot;&gt;&lt;/a&gt;贪心算法和动态规划&lt;/h1&gt;&lt;h2 id=&quot;贪心算法&quot;&gt;&lt;a href=&quot;#贪心算法&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图结构</title>
+    <link href="https://qiuxchao.github.io/2020/02/15/suan_fa_tu_jie_gou/"/>
+    <id>https://qiuxchao.github.io/2020/02/15/suan_fa_tu_jie_gou/</id>
+    <published>2020-02-15T00:08:08.000Z</published>
+    <updated>2020-04-26T01:46:58.623Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;图结构&quot;&gt;&lt;a href=&quot;#图结构&quot; class=&quot;headerlink&quot; title=&quot;图结构&quot;&gt;&lt;/a&gt;图结构&lt;/h1&gt;&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树形结构</title>
+    <link href="https://qiuxchao.github.io/2020/02/10/suan_fa_shu_xing_jie_gou/"/>
+    <id>https://qiuxchao.github.io/2020/02/10/suan_fa_shu_xing_jie_gou/</id>
+    <published>2020-02-10T00:08:08.000Z</published>
+    <updated>2020-04-26T01:47:14.769Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;树形结构&quot;&gt;&lt;a href=&quot;#树形结构&quot; class=&quot;headerlink&quot; title=&quot;树形结构&quot;&gt;&lt;/a&gt;树形结构&lt;/h1&gt;&lt;h2 id=&quot;树&quot;&gt;&lt;a href=&quot;#树&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>http协议</title>
+    <link href="https://qiuxchao.github.io/2020/02/09/http_xie_yi/"/>
+    <id>https://qiuxchao.github.io/2020/02/09/http_xie_yi/</id>
+    <published>2020-02-09T00:08:08.000Z</published>
+    <updated>2020-04-28T06:25:59.058Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;http协议&quot;&gt;&lt;a href=&quot;#http协议&quot; class=&quot;headerlink&quot; title=&quot;http协议&quot;&gt;&lt;/a&gt;http协议&lt;/h1&gt;&lt;h2 id=&quot;什么是服务器&quot;&gt;&lt;a href=&quot;#什么是服务器&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="网络" scheme="https://qiuxchao.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="网络" scheme="https://qiuxchao.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模块化</title>
+    <link href="https://qiuxchao.github.io/2020/02/07/js_mo_kuai_hua/"/>
+    <id>https://qiuxchao.github.io/2020/02/07/js_mo_kuai_hua/</id>
+    <published>2020-02-07T00:08:08.000Z</published>
+    <updated>2020-04-28T06:15:06.857Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;模块化&quot;&gt;&lt;a href=&quot;#模块化&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/categories/Js/"/>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/tags/Js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6异步解决方案  Promise</title>
+    <link href="https://qiuxchao.github.io/2020/02/05/es6_yi_bu_jie_jue_fang_an_promise/"/>
+    <id>https://qiuxchao.github.io/2020/02/05/es6_yi_bu_jie_jue_fang_an_promise/</id>
+    <published>2020-02-05T00:08:08.000Z</published>
+    <updated>2020-04-26T02:00:09.603Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;ES6异步解决方案-Promise&quot;&gt;&lt;a href=&quot;#ES6异步解决方案-Promise&quot; class=&quot;headerlink&quot; title=&quot;ES6异步解决方案  Promise&quot;&gt;&lt;/a&gt;ES6异步解决方案  Promise&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/categories/Js/"/>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/tags/Js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>排序和查找</title>
+    <link href="https://qiuxchao.github.io/2020/02/05/suan_fa_pai_xu_he_cha_zhao/"/>
+    <id>https://qiuxchao.github.io/2020/02/05/suan_fa_pai_xu_he_cha_zhao/</id>
+    <published>2020-02-05T00:08:08.000Z</published>
+    <updated>2020-04-26T01:47:19.284Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;排序和查找&quot;&gt;&lt;a href=&quot;#排序和查找&quot; class=&quot;headerlink&quot; title=&quot;排序和查找&quot;&gt;&lt;/a&gt;排序和查找&lt;/h1&gt;&lt;h2 id=&quot;排序算法&quot;&gt;&lt;a href=&quot;#排序算法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>事件循环</title>
+    <link href="https://qiuxchao.github.io/2020/02/03/shi_jian_xun_huan/"/>
+    <id>https://qiuxchao.github.io/2020/02/03/shi_jian_xun_huan/</id>
+    <published>2020-02-03T00:08:08.000Z</published>
+    <updated>2020-04-26T01:46:30.555Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;事件循环&quot;&gt;&lt;a href=&quot;#事件循环&quot; class=&quot;headerlink&quot; title=&quot;事件循环&quot;&gt;&lt;/a&gt;事件循环&lt;/h1&gt;&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/categories/Js/"/>
+    
+    
+      <category term="Js" scheme="https://qiuxchao.github.io/tags/Js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性结构</title>
+    <link href="https://qiuxchao.github.io/2020/01/29/suan_fa_xian_xing_jie_gou/"/>
+    <id>https://qiuxchao.github.io/2020/01/29/suan_fa_xian_xing_jie_gou/</id>
+    <published>2020-01-29T00:08:08.000Z</published>
+    <updated>2020-04-24T16:06:05.883Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;线性结构&quot;&gt;&lt;a href=&quot;#线性结构&quot; class=&quot;headerlink&quot; title=&quot;线性结构&quot;&gt;&lt;/a&gt;线性结构&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;数据结构和算法概述&quot;&gt;&lt;a href=&quot;#数据结构和算法概述&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://qiuxchao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery 所有选择器</title>
+    <link href="https://qiuxchao.github.io/2020/01/15/jquery_suo_you_xuan_ze_qi/"/>
+    <id>https://qiuxchao.github.io/2020/01/15/jquery_suo_you_xuan_ze_qi/</id>
+    <published>2020-01-15T00:08:08.000Z</published>
+    <updated>2020-04-26T02:07:53.243Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;jQuery-所有选择器&quot;&gt;&lt;a href=&quot;#jQuery-所有选择器&quot; class=&quot;headerlink&quot; title=&quot;jQuery 所有选择器&quot;&gt;&lt;/a&gt;jQuery 所有选择器&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;基本选择器&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="jQuery" scheme="https://qiuxchao.github.io/categories/jQuery/"/>
+    
+    
+      <category term="jQuery" scheme="https://qiuxchao.github.io/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Git进行版本控制</title>
+    <link href="https://qiuxchao.github.io/2019/12/09/shi_yong_git_jin_xing_ban_ben_kong_zhi/"/>
+    <id>https://qiuxchao.github.io/2019/12/09/shi_yong_git_jin_xing_ban_ben_kong_zhi/</id>
+    <published>2019-12-09T00:08:08.000Z</published>
+    <updated>2020-04-26T02:12:17.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;使用Git进行版本控制&quot;&gt;&lt;a href=&quot;#使用Git进行版本控制&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="https://qiuxchao.github.io/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="https://qiuxchao.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python中的编码问题</title>
+    <link href="https://qiuxchao.github.io/2019/08/25/python_zhong_de_bian_ma_wen_ti/"/>
+    <id>https://qiuxchao.github.io/2019/08/25/python_zhong_de_bian_ma_wen_ti/</id>
+    <published>2019-08-25T00:08:08.000Z</published>
+    <updated>2019-12-02T04:12:22.816Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python中的编码问题&quot;&gt;&lt;a href=&quot;#Python中的编码问题&quot; class=&quot;headerlink&quot; title=&quot;Python中的编码问题&quot;&gt;&lt;/a&gt;Python中的编码问题&lt;/h1&gt;&lt;p&gt;爬取的所有网页无论何种编码格式，都应转化为
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础——函数</title>
+    <link href="https://qiuxchao.github.io/2019/08/12/python_ji_chu_han_shu/"/>
+    <id>https://qiuxchao.github.io/2019/08/12/python_ji_chu_han_shu/</id>
+    <published>2019-08-12T00:08:08.000Z</published>
+    <updated>2020-03-31T10:05:29.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;函数&lt;/strong&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础——用户输入input和while循环</title>
+    <link href="https://qiuxchao.github.io/2019/07/28/python_ji_chu_input_he_while_xun_huan/"/>
+    <id>https://qiuxchao.github.io/2019/07/28/python_ji_chu_input_he_while_xun_huan/</id>
+    <published>2019-07-28T00:08:08.000Z</published>
+    <updated>2020-03-31T10:06:26.307Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;用户输入input和while循环&quot;&gt;&lt;a href=&quot;#用户输入input和while循环&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础——元组</title>
+    <link href="https://qiuxchao.github.io/2019/07/15/python_ji_chu_shu_ju_lei_xing_zhi_yuan_zu/"/>
+    <id>https://qiuxchao.github.io/2019/07/15/python_ji_chu_shu_ju_lei_xing_zhi_yuan_zu/</id>
+    <published>2019-07-15T00:08:08.000Z</published>
+    <updated>2020-03-31T10:05:36.739Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python基础——元组&quot;&gt;&lt;a href=&quot;#Python基础——元组&quot; class=&quot;headerlink&quot; title=&quot;Python基础——元组&quot;&gt;&lt;/a&gt;Python基础——元组&lt;/h1&gt;&lt;h2 id=&quot;元组&quot;&gt;&lt;a href=&quot;#元组&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础——字典</title>
+    <link href="https://qiuxchao.github.io/2019/06/26/python_ji_chu_shu_ju_lei_xing_zhi_zi_dian/"/>
+    <id>https://qiuxchao.github.io/2019/06/26/python_ji_chu_shu_ju_lei_xing_zhi_zi_dian/</id>
+    <published>2019-06-26T00:08:08.000Z</published>
+    <updated>2020-03-31T10:05:42.673Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python基础——字典&quot;&gt;&lt;a href=&quot;#Python基础——字典&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础——if语句</title>
+    <link href="https://qiuxchao.github.io/2019/06/15/python_ji_chu_zhi_if_yu_ju/"/>
+    <id>https://qiuxchao.github.io/2019/06/15/python_ji_chu_zhi_if_yu_ju/</id>
+    <published>2019-06-15T00:08:08.000Z</published>
+    <updated>2020-03-31T10:07:13.730Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python基础——if语句&quot;&gt;&lt;a href=&quot;#Python基础——if语句&quot; class=&quot;headerlink&quot; title=&quot;Python基础——if语句&quot;&gt;&lt;/a&gt;Python基础——if语句&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;if&lt;/strong&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础——列表和for循环</title>
+    <link href="https://qiuxchao.github.io/2019/06/01/python_lie_biao_ji_shi_yong_for_xun_huan_cao_zuo_lie_biao_yuan_su/"/>
+    <id>https://qiuxchao.github.io/2019/06/01/python_lie_biao_ji_shi_yong_for_xun_huan_cao_zuo_lie_biao_yuan_su/</id>
+    <published>2019-06-01T00:08:08.000Z</published>
+    <updated>2020-03-12T06:48:59.442Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python基础——列表和for循环&quot;&gt;&lt;a href=&quot;#Python基础——列表和for循环&quot; class=&quot;headerlink&quot; title=&quot;Python基础——列表和for循环&quot;&gt;&lt;/a&gt;Python基础——列表和for循环&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
+    
+  </entry>
+  
+</feed>
