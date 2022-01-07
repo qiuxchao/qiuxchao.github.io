@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-HK,zh-TW,default">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>Python基础—函数 - 阿湫o的博客</title>
+  
+    <meta name="keywords" content="Python">
+  
+
+  
+    <meta name="description" content="本文介绍Python中的函数">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿湫o的博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png">
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png'></i>
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>深色模式
+                </a>
+              <li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="啾啾啾，搜索一下~" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>深色模式
+                </a>
+              <li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">阿湫o</p>
+    
+    
+      <p class="subtitle">一只前端崽</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Python基础—函数
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg">
+    <p>阿湫o</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Python/">Python</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：5.8k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：23分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年8月12日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Python基础—函数" data-path="/2019/08/12/Python%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p><strong>函数</strong> 是带名字的代码块，用于完成具体的工作，要执行函数定义的特定任务，可调用该函数；</p>
+<p>需要在程序中多次执行同一项任务时，无需反复编写完成该任务的代码，而只需调用执行该任务的函数，让 Python 运行其中的代码即可；</p>
+<p>将函数存储在被称为 <strong>模块</strong> 的独立文件中，可以让主程序文件的组织更为有序</p>
+<h2 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h2><p>关键字 <strong>def</strong> ：定义一个函数；</p>
+<p><strong>def 函数名()</strong> ：向 Python 指出了函数名，还能在括号中指出函数为完成其任务需要什么样的信息；</p>
+<p>紧跟在 <strong>def 函数名():</strong> 后面的所有缩进构成了 <strong>函数体</strong>；</p>
+<p><strong>函数调用</strong> 让 Python 执行函数中的代码，调用函数可依次指定函数名以及用括号括起的必要信息</p>
+<pre><code class="python">def greet_user():
+    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot;
+    print(&quot;Hello!&quot;)
+greet_user()
+# Hello!
+</code></pre>
+<p>文档字符串用三引号括起,Python 使用它们来生成有关程序中函数的注释</p>
+<pre><code class="python">&quot;&quot;&quot;这是一个文档字符串(docstring)&quot;&quot;&quot;
+</code></pre>
+<h3 id="向函数传递信息"><a href="#向函数传递信息" class="headerlink" title="向函数传递信息"></a>向函数传递信息</h3><pre><code class="python">def greet_user(username):
+    &quot;&quot;&quot;显示简单的问候语，括号里面定义一个变量&quot;&quot;&quot;
+    print(&quot;Hello, &quot; + username.title() + &quot;!&quot;)
+greet_user(&#39;qxc&#39;)
+# Hello, Qxc!
+</code></pre>
+<p><strong>实参和形参</strong>：<br>上面定义函数 greet_user() 时，要求给变量 username 指定一个值。调用这个函数并提供这种信息（人名）时，它将打印相应的问候语。</p>
+<p>在函数 greet_user() 的定义中，变量 username 是一个 形参 ——函数完成其工作所需的一项信息。在代码 greet_user(‘jesse’) 中，值 ‘jesse’ 是一个实参。实参是调用函数时传递给函数的信<br>息。调用函数时，将要让函数使用的信息放在括号内。在 greet_user(‘jesse’) 中，将实参<br>‘jesse’ 传递给了函数 greet_user() ，这个值被存储在形参 username 中。</p>
+<h3 id="传递实参"><a href="#传递实参" class="headerlink" title="传递实参"></a>传递实参</h3><p>鉴于函数定义中可能包含多个<strong>形参</strong>，因此函数调用中也可能包含多个<strong>实参</strong>。</p>
+<p>向函数传递实参的方式有很多：<br><strong>位置实参</strong>：要求实参的顺序与形参的顺序相同；<br><strong>关键字实参</strong>：其中每个实参都由变量名和值组成；<br>还可使用字典和列表。</p>
+<h3 id="位置实参"><a href="#位置实参" class="headerlink" title="位置实参"></a>位置实参</h3><p>调用函数时，Python 必须将函数调用中的每个实参都关联到函数定义中的一个形参；<br>基于实参顺序的关联方式被称为<strong>位置实参</strong></p>
+<pre><code class="python">def describe_pet(animal_type,pet_name):
+    &quot;&quot;&quot;显示宠物的信息&quot;&quot;&quot;
+    print(&quot;I have a &quot; + animal_type + &quot;.&quot;)
+    print(&quot;My &quot; + animal_type + &quot;&#39;s name is &quot; + pet_name.title() + &quot;.&quot;)
+
+describe_pet(&#39;dog&#39;,&#39;wangwang&#39;)
+# I have a dog.
+# My dog&#39;s name is Wangwang.
+</code></pre>
+<ul>
+<li>  可以根据需要调用函数任意次，调用函数多次是一种效率极高的工作方式</li>
+</ul>
+<pre><code class="python">describe_pet(&#39;cat&#39;,&#39;miaomiao&#39;)
+# I have a cat.
+# My cat&#39;s name is Miaomiao.
+</code></pre>
+<ul>
+<li>  使用位置实参来调用函数时，如果实参的顺序不正确，结果会出乎意料</li>
+</ul>
+<h3 id="关键字实参"><a href="#关键字实参" class="headerlink" title="关键字实参"></a>关键字实参</h3><p><strong>关键字实参</strong> 是传递给函数的 <strong>名称——值</strong> 对；<br>直接在实参中将名称和值关联起来，因此向函数传递实参时不会混淆</p>
+<pre><code class="python">def describe_pet(animal_type,pet_name):
+    &quot;&quot;&quot;显示宠物的信息&quot;&quot;&quot;
+    print(&quot;I have a &quot; + animal_type + &quot;.&quot;)
+    print(&quot;My &quot; + animal_type + &quot;&#39;s name is &quot; + pet_name.title() + &quot;.&quot;)
+
+describe_pet(animal_type=&#39;hamster&#39;,pet_name=&#39;harry&#39;)
+# I have a hamster.
+# My hamster&#39;s name is Harry.
+</code></pre>
+<p>关键字实参的顺序无关紧要，因为 Python 知道各个值该存储到哪个形参中；</p>
+<p><strong>注意</strong>：使用关键字实参时，务必准确地指出函数定义中的形参名</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>编写函数时，可给每个形参指定<strong>默认值</strong>，<br>给形参指定默认值后，可在函数调用中省略相应的实参。</p>
+<p>使用默认值可简化函数调用，还可清楚的指出函数的典型用法</p>
+<pre><code class="python">def describe_pet(pet_name,animal_type=&#39;dog&#39;):
+    &quot;&quot;&quot;给宠物类型形参指定默认值&quot;&quot;&quot;
+    print(&quot;\nI have a &quot; + animal_type + &quot;.&quot;)
+    print(&quot;My &quot; + animal_type + &quot;&#39;s name is &quot; + pet_name.title() + &quot;.&quot;)
+
+describe_pet(pet_name=&#39;wille&#39;)
+# I have a dog.
+# My dog&#39;s name is Wille.
+</code></pre>
+<p><strong>注意</strong>：指定默认值的形参必须放在未指定默认值的形参后面；<br>在这个函数的定义中，修改了形参的排列顺序。由于给 animal_type 指定了默认值，无需通过实参来指定动物类型，因此在函数调用中只包含一个实参——宠物的名字。然而，Python 依然将这个实参视为位置实参，因此如果函数调用中只包含宠物的名字，这个实参将关联到函数定义中的第一个形参。这就是需要将 pet_name 放在形参列表开头的原因所在。</p>
+<p>如果要描述的动物不是小狗，可使用类似于下面的函数调用：</p>
+<pre><code class="python">describe_pet(pet_name=&#39;harry&#39;,animal_type=&#39;hamster&#39;)
+# I have a hamster.
+# My hamster&#39;s name is Harry.
+</code></pre>
+<p><strong>注意</strong>：使用默认值时，在形参列表中必须先列出没有默认值的形参，再列出有默认值的实参。</p>
+<h3 id="等效函数调用"><a href="#等效函数调用" class="headerlink" title="等效函数调用"></a>等效函数调用</h3><p>鉴于可混合使用<strong>位置实参</strong>、<strong>关键字实参</strong>和<strong>默认值</strong>，通常有多种等效的函数调用方式：</p>
+<pre><code class="python">def describe_pet(pet_name,animal_type=&#39;dog&#39;):
+    &quot;&quot;&quot;显示宠物的信息&quot;&quot;&quot;
+    print(&quot;\nI have a &quot; + animal_type + &quot;.&quot;)
+    print(&quot;My &quot; + animal_type + &quot;&#39;s name is &quot; + pet_name.title() + &quot;.&quot;)
+
+# 一条名为Willie的小狗
+describe_pet(&#39;willie&#39;)
+describe_pet(pet_name=&#39;willie&#39;)
+# 一只名为Harry的仓鼠
+describe_pet(&#39;harry&#39;,&#39;hamster&#39;)
+describe_pet(pet_name=&#39;harry&#39;,animal_type=&#39;hamster&#39;)
+describe_pet(animal_type=&#39;hamster&#39;,pet_name=&#39;harry&#39;)
+# I have a dog.
+# My dog&#39;s name is Wille.
+# I have a dog.
+# My dog&#39;s name is Wille.
+# I have a hamster.
+# My hamster&#39;s name is Harry.
+# I have a hamster.
+# My hamster&#39;s name is Harry.
+# I have a hamster.
+# My hamster&#39;s name is Harry.
+</code></pre>
+<p>这些函数调用与前面的示例相同</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>函数并非总是直接显示输出，相反，它可以处理一些数据，并返回一个或一组值；</p>
+<p>函数返回的值被称为 <strong>返回值</strong>, 一般是一个变量的名字。</p>
+<p><strong>return</strong> 语句： 将值返回到调用函数的代码行。</p>
+<p><strong>返回值</strong> ：能够将程序的大部分繁重工作移到函数中去完成，从而简化主程序</p>
+<h3 id="返回简单值"><a href="#返回简单值" class="headerlink" title="返回简单值"></a>返回简单值</h3><p>下面一个函数，它接受名和姓并返回整洁的姓名：</p>
+<pre><code class="python">def get_formatted_name(first_name,last_name):
+    &quot;&quot;&quot;返回整洁的姓名&quot;&quot;&quot;
+    full_name = first_name + &quot; &quot; + last_name
+    # 将full_name的值转换为首字母大写格式，并将结果返回到函数调用行
+    return full_name.title()
+
+# 下面一行就是函数调用行
+musician = get_formatted_name(&#39;jimi&#39;,&#39;hendrix&#39;)
+print(musician)
+# Jimi Hendrix
+</code></pre>
+<h3 id="让实参变成可选的"><a href="#让实参变成可选的" class="headerlink" title="让实参变成可选的"></a>让实参变成可选的</h3><p>让实参变成可选的，使用函数就只需在必要时才提供额外的信息；</p>
+<p>可给形参指定一个默认值——空字符串，并将其移到形参列表末尾。</p>
+<pre><code class="python">def get_formatted_name(first_name,last_name,middle_name=&#39;&#39;):
+    &quot;&quot;&quot;返回整洁的姓名&quot;&quot;&quot;
+    if middle_name:
+        &quot;&quot;&quot;py将非空字符串解读为True&quot;&quot;&quot;
+        full_name = first_name + &quot; &quot; + middle_name +&quot; &quot; + last_name
+    else:
+        full_name = first_name + &quot; &quot; + last_name
+    return full_name.title()
+musician = get_formatted_name(&#39;jimi&#39;,&#39;hendrix&#39;)
+print(musician)
+musician = get_formatted_name(&#39;john&#39;,&#39;hooker&#39;,&#39;lee&#39;)
+print(musician)
+# Jimi Hendrix
+# John Lee Hooker
+</code></pre>
+<p>可选值让函数能够处理各种不同情形的同时，确保函数调用尽可能简单。</p>
+<h3 id="返回字典"><a href="#返回字典" class="headerlink" title="返回字典"></a>返回字典</h3><p>函数可返回任何类型的值，包括列表和字典等复杂的数据结构。</p>
+<pre><code class="python">def build_person(first_name,last_name,age=&#39;&#39;):
+    &quot;&quot;&quot;返回一个字典，其中包含有关一个人的信息&quot;&quot;&quot;
+    person = &#123;&#39;first&#39;:first_name,&#39;last&#39;:last_name&#125;
+    &quot;&quot;&quot;将字典的键与函数的形参绑定&quot;&quot;&quot;
+    if age:
+        person[&#39;age&#39;] = age
+    return person
+musician = build_person(&#39;jimi&#39;,&#39;hendrix&#39;,age=27)
+print(musician)
+# &#123;&#39;first&#39;: &#39;jimi&#39;, &#39;last&#39;: &#39;hendrix&#39;, &#39;age&#39;: 27&#125;
+</code></pre>
+<h3 id="结合使用函数和-while-循环"><a href="#结合使用函数和-while-循环" class="headerlink" title="结合使用函数和 while 循环"></a>结合使用函数和 while 循环</h3><p>可以将函数同任何 Python 结构结合起来使用；</p>
+<p>下面将结合使用函数 get_formatted_name() 和 while 循环：</p>
+<pre><code class="python">def get_formatted_name(first_name,last_name):
+    &quot;&quot;&quot;返回整洁的姓名&quot;&quot;&quot;
+    full_name = first_name + &#39; &#39; + last_name
+    return full_name.title()
+while True:
+    print(&quot;Please tell me your name: &quot;)
+    print(&quot;enter &#39;q&#39; at any time to quit&quot;)
+    f_name = input(&quot;First name: &quot;)
+    if f_name == &#39;q&#39;:
+        break
+    l_name = input(&quot;Last name: &quot;)
+    if l_name == &#39;q&#39;:
+        break
+    formatted_name = get_formatted_name(f_name,l_name)
+    print(&quot;Hello , &quot; + formatted_name + &quot;!&quot;)
+# Please tell me your name:
+# enter &#39;q&#39; at any time to quit
+# First name: xiao
+# Last name: ming
+# Hello , Xiao Ming!
+# Please tell me your name:
+# enter &#39;q&#39; at any time to quit
+# First name: q # 程序结束
+</code></pre>
+<h2 id="传递列表"><a href="#传递列表" class="headerlink" title="传递列表"></a>传递列表</h2><p>向函数传递列表很有用，这种列表包含的可能是数字字符串、数字或更复杂的对象（如字典），将列表传递给函数后，函数就能直接访问其内容。</p>
+<pre><code class="python">def greet_users(names):
+    &quot;&quot;&quot;向列表中的每位用户都发出简单的问候&quot;&quot;&quot;
+    for name in names:
+        print(&quot;Hello, &quot; + name.title() + &quot;!&quot;)
+
+user_names = [&#39;hannah&#39;,&#39;ty&#39;,&#39;margot&#39;]
+greet_users(user_names)
+# Hello, Hannah!
+# Hello, Ty!
+# Hello, Margot!
+</code></pre>
+<h3 id="在函数中修改列表"><a href="#在函数中修改列表" class="headerlink" title="在函数中修改列表"></a>在函数中修改列表</h3><p>将列表传递给函数后，函数就可对其进行修改；</p>
+<p>在函数中对这个列表所做的任何修改都是永久性的，这能够高效的处理大量的数据；</p>
+<pre><code class="python">#首先创建一个列表，其中包含一些要打印的设计：
+def print_models(unprinted_designs,completed_models):
+    &quot;&quot;&quot;
+    模拟打印每个设计，直到没有未打印的设计为止
+    打印每个设计后，都将其移到列表completed_models中
+    &quot;&quot;&quot;
+    while unprinted_designs:
+        current_design = unprinted_designs.pop()
+        #模拟根据设计制作3D打印模型的过程
+        print(&quot;Printing model: &quot; + current_design)
+        completed_models.append(current_design)
+def show_completed_models(completed_models):
+    &quot;&quot;&quot;显示打印好的所有模型&quot;&quot;&quot;
+    print(&quot;\nThe following models have been printed:&quot;)
+    for completed_model in completed_models:
+        print(completed_model)
+unprinted_designs = [&#39;iphone case&#39;,&#39;robot pendant&#39;,&#39;dodecahedron&#39;]
+completed_models = []
+print_models(unprinted_designs,completed_models)
+show_completed_models(completed_models)
+# Printing model: dodecahedron
+# Printing model: robot pendant
+# Printing model: iphone case
+
+# The following models have been printed:
+# dodecahedron
+# robot pendant
+# iphone case
+</code></pre>
+<p>每个函数都应只负责一项具体的工作，这优于使用一个函数来完成两项工作；</p>
+<p>可以在一个函数中调用另一个步骤，这有助于将复杂的任务划分成一系列的步骤。</p>
+<h3 id="禁止函数修改列表"><a href="#禁止函数修改列表" class="headerlink" title="禁止函数修改列表"></a>禁止函数修改列表</h3><p>可以向函数传递列表的副本，这样函数所做的任何修改都只影响副本，而丝毫不影响原件。</p>
+<p>切片表示法 <strong>[:]</strong> 创建列表的副本，语法如下：<br><strong>函数名(列表名[:])</strong></p>
+<p>这样原有列表的内容将会被保留</p>
+<pre><code class="python">print_models(unprinted_designs[:],completed_models)
+</code></pre>
+<h2 id="传递任意数量的实参"><a href="#传递任意数量的实参" class="headerlink" title="传递任意数量的实参"></a>传递任意数量的实参</h2><p>Python 允许函数从调用语句中收集任意数量的实参。</p>
+<p>形参名 <strong>*args</strong> 中的星号 * 让 Python 创建一个名为 args 的 <strong>空元组</strong>，并将收到的所有值都封装到这个元组中。</p>
+<p>不管收到的实参是多少个，这种语法都管用。</p>
+<pre><code class="python">def make_pizza(*toppings):
+    &quot;&quot;&quot;打印顾客点的所有配料&quot;&quot;&quot;
+    print(toppings)
+make_pizza(&#39;mushrooms&#39;,&#39;green peppers&#39;,&#39;extra chees&#39;)
+# (&#39;mushrooms&#39;, &#39;green peppers&#39;, &#39;extra chees&#39;)
+</code></pre>
+<h3 id="结合使用位置实参和任意数量实参"><a href="#结合使用位置实参和任意数量实参" class="headerlink" title="结合使用位置实参和任意数量实参"></a>结合使用位置实参和任意数量实参</h3><p>如果要让函数接受不同类型的实参，必须在函数定义中将接纳任意数量实参的形参放在最后；</p>
+<p>Python 先匹配<strong>位置实参</strong>和<strong>关键字实参</strong>，再将余下的实参都收集到最后一个形参中。</p>
+<pre><code class="python">def make_pizzas(size,*toppings):
+    &quot;&quot;&quot;概述要制作的比萨&quot;&quot;&quot;
+    print(&quot;\nMaking a &quot; + str(size) + &quot;-inch pizza with the followings:&quot;)
+    for topping in toppings:
+        print(&quot;-&quot; + topping)
+        &quot;&quot;&quot;将收到的第一个值存储在形参size中，
+        并将其他的所有值都存储在元组toppings中。
+        在函数调用中首先要指定size的实参，
+        然后根据需要指定任意数量的toppings&quot;&quot;&quot;
+make_pizzas(12,&#39;mushrooms&#39;,&#39;green peppers&#39;,&#39;extra cheese&#39;)
+# Making a 12-inch pizza with the followings:
+# -mushrooms
+# -green peppers
+# -extra cheese
+</code></pre>
+<h3 id="使用任意数量的关键字实参"><a href="#使用任意数量的关键字实参" class="headerlink" title="使用任意数量的关键字实参"></a>使用任意数量的关键字实参</h3><p>在需要接受任意数量的信息，但预先不知道传递给函数的会是什么样的信息的情况下，可将函数编写成能够接受任意数量的<strong>键——值对</strong>，调用语句提供多少就接受多少。</p>
+<p>形参 *<strong>*args</strong> 中的两个星号 ** 让 Python 创建一个名为 args 的**空字典**，并将收到的所有键——值对都封装到这个字典中。</p>
+<pre><code class="python">def build_profile(first,last,**user_info):
+    &quot;&quot;&quot;创建一个字典，其中包含我们知道的有关用户的一切&quot;&quot;&quot;
+    profile = &#123;&#125;
+    profile[&#39;first&#39;] = first
+    profile[&#39;last&#39;] = last
+    for key,value in user_info.items():
+        profile[key] = value
+    return  profile
+# 函数 build_profile() 的定义要求提供名和姓，同时允许用户根据需要提供任意数量的名称 —值对。
+# 形参 **user_info 中的两个星号让Python创建一个名为 user_info 的空字典，并将收到的所有名称 — 值对都封装到这个字典中。
+# 在这个函数中，可以像访问其他字典那样访问 user_info 中的名称 — 值对。
+# 在 build_profile() 的函数体内，创建了一个名为 profile 的空字典，用于存储用户简介。
+# 然后，将名和姓加入到这个字典中，因为总是会从用户那里收到这两项信息。
+# 再然后，遍历字典 user_info 中的键 — 值对，并将每个键 — 值对都加入到字典 profile 中。
+# 最后，将字典 profile 返回给函数调用行。
+
+user_profile = build_profile(&#39;zhang&#39;,&#39;xiaoming&#39;,
+                             school=&#39;princeton&#39;,
+                             field=&#39;physics&#39;)
+print(user_profile)
+# &#123;&#39;first&#39;: &#39;zhang&#39;, &#39;last&#39;: &#39;xiaoming&#39;, &#39;school&#39;: &#39;princeton&#39;, &#39;field&#39;: &#39;physics&#39;&#125;
+</code></pre>
+<p>在这里，返回的字典包含用户的名和姓，还有求学的地方和所学专业。</p>
+<p>调用这个函数时，不管额外提供了多少个键 — 值对，它都能正确地处理。</p>
+<p>编写函数时，可以以各种方式混合使用<strong>位置实参</strong>、<strong>关键字实参</strong>和任意数量的<strong>实参</strong>。</p>
+<h2 id="将函数存储在模块中"><a href="#将函数存储在模块中" class="headerlink" title="将函数存储在模块中"></a>将函数存储在模块中</h2><p>函数的优点之一是：使用它们可以将代码块与主程序分离；</p>
+<p>通过给函数指定描述性名称，可让主程序容易理解的多；</p>
+<p>还可以更进一步，将函数存储在被称为 <strong>模块</strong> 的 <strong>独立文件</strong> 中，再将模块导入到主程序中；</p>
+<p><strong>import</strong> 语句 允许在当前运行的程序文件中使用模块中的代码。</p>
+<h3 id="导入整个模块"><a href="#导入整个模块" class="headerlink" title="导入整个模块"></a>导入整个模块</h3><p>要让函数是可导入的，得先创建模块；</p>
+<p>模块是扩展名为 <strong>.py</strong> 的文件，包含要导入到程序中的代码；</p>
+<p>要在同一个文件夹下创建程序和模块；</p>
+<p>例如，现在有一个程序，在这个程序的文件夹中有一个 <strong>mkpizza.py</strong> 的文件（后面的示例中也会用到此文件），文件内容如下：</p>
+<pre><code class="python">def make_pizzas(size,*toppings):
+    &quot;&quot;&quot;概述要制作的比萨&quot;&quot;&quot;
+    print(&quot;\nMaking a &quot; + str(size) +
+          &quot;-inch pizza with the followings:&quot;)
+    for topping in toppings:
+        print(&quot;-&quot; + topping)
+</code></pre>
+<p>如果想要在程序中使用 mkpizza 模块中的代码，可以使用下面的代码：</p>
+<pre><code class="python">import mkpizza
+</code></pre>
+<p>Python 读取这个文件时，代码行 <strong>import mkpizza</strong> 让 Python 打开文件 mkpizza.py，并将其中所有的函数代码都复制到这个程序中。</p>
+<p>调用被导入的模块中的函数，可指定模块名和函数名，并用句点分隔它们：<br><strong>模块名.函数名(参数)</strong></p>
+<pre><code class="python">import mkpizza
+mkpizza.make_pizza(16, &#39;mushrooms&#39;, &#39;green peppers&#39;,&#39;extra cheese&#39;)
+# Making a 16-inch pizza with the following toppings:
+# -mushrooms
+# -green peppers
+# -extra cheese
+</code></pre>
+<p>这是一种导入方法：只需编写一条 <strong>import</strong> 语句并在其中指定模块名，就可在程序中使用该模块中的所有函数。</p>
+<h3 id="导入特定的函数"><a href="#导入特定的函数" class="headerlink" title="导入特定的函数"></a>导入特定的函数</h3><p>导入模块中的特定函数，这种导入方法如下：<br><strong>from 模块名 import 函数名</strong></p>
+<p>还可通过用逗号分隔函数名，根据需要从模块中导入任意数量的函数：<br><strong>from 模块名 import 函数名 1,函数名 2,函数名 3</strong><br>若使用这种语法，调用函数时就无需使用句点。</p>
+<pre><code class="python">from mkpizza import make_pizza
+make_pizza(12,&#39;mushrooms&#39;,&#39;green peppers&#39;,&#39;extra cheese&#39;)
+# Making a 12-inch pizza with the following toppings:
+# -mushrooms
+# -green peppers
+# -extra cheese
+</code></pre>
+<p>由于在 <strong>import</strong> 语句中显式的导入了函数，因此调用它时只需指定其名称。</p>
+<h3 id="使用-as-给函数指定别名"><a href="#使用-as-给函数指定别名" class="headerlink" title="使用 as 给函数指定别名"></a>使用 as 给函数指定别名</h3><p>如果要导入的函数的名称可能与程序中现有的名称冲突，或者函数的名称太长，可指定简短而独一无二的 <strong>别名</strong>——函数的另一个名称 ，类似于外号；</p>
+<p>需在导入函数时这样做，指定别名的语法如下：<br><strong>from 模块名 import 函数名 as 别名</strong></p>
+<pre><code class="python">from mkpizza import make_pizza as mp
+&quot;&quot;&quot;将函数make_pizza()重命名为mp()&quot;&quot;&quot;
+mp(20,&#39;mushrooms&#39;,&#39;green peppers&#39;,&#39;extra cheese&#39;)
+&quot;&quot;&quot;
+需要调用make_pizza()时，可简写成mp()，
+而Python将运行make_pizza()中的代码，
+这可避免与这个程序可能包含的函数make_pizza()混淆
+&quot;&quot;&quot;
+# Making a 20-inch pizza with the following toppings:
+# -mushrooms
+# -green peppers
+# -extra cheese
+</code></pre>
+<h3 id="使用-as-给模块指定别名"><a href="#使用-as-给模块指定别名" class="headerlink" title="使用 as 给模块指定别名"></a>使用 as 给模块指定别名</h3><p>通过给模块指定简短的别名，能够更轻松地调用模块中的函数；</p>
+<p>给模块指定别名的通用语法如下：</p>
+<pre><code class="python">import mkpizza as p
+p.make_pizza(19,&#39;mushrooms&#39;,&#39;green peppers&#39;,&#39;extra cheese&#39;)
+# Making a 19-inch pizza with the following toppings:
+# -mushrooms
+# -green peppers
+# -extra cheese
+</code></pre>
+<h3 id="导入模块中的所有函数"><a href="#导入模块中的所有函数" class="headerlink" title="导入模块中的所有函数"></a>导入模块中的所有函数</h3><p>使用星号 * 运算符可让 Python 导入模块中的所有函数；</p>
+<p>语法如下：<br><strong>from 模块名 import *</strong></p>
+<p><strong>import</strong> 语句中的星号让 Python 将模块中的每个函数都复制到这个程序文件中，由于导入了每个函数，因此可通过函数名来调用每个函数，而无需使用句点表示法：</p>
+<pre><code class="python">from mkpizza import *
+make_pizza(18,&#39;mushrooms&#39;,&#39;green peppers&#39;,&#39;extra cheese&#39;)
+# Making a 18-inch pizza with the following toppings:
+# -mushrooms
+# -green peppers
+# -extra cheese
+</code></pre>
+<p>然而，使用并非自己编写的大型模块时，最好不要采用这种导入方法， 如果模块中有函数名称与自己项目中使用的名称相同，可能导致意想不到的结果：Python 可能遇到多个名称相同的函数或变量，进而覆盖函数，不是分别导入所有的函数；</p>
+<p>最佳的做法是：要么只导入需要使用的函数，要么导入整个模块并使用句点表示法</p>
+<h2 id="使用-global-声明全局变量"><a href="#使用-global-声明全局变量" class="headerlink" title="使用 global 声明全局变量"></a>使用 global 声明全局变量</h2><p><strong>global</strong> 语句是适用于当前整个代码块的声明，它是 <strong>全局变量</strong> 的标识符；</p>
+<p><strong>global</strong> 中出现的名字不能在 <strong>global</strong> 之前的代码中使用；</p>
+<p>在 <strong>global</strong> 中出现的名字不能作为<strong>形参</strong>，不能作为循坏的<strong>控制对象</strong>，不能在<strong>类定义</strong>、<strong>函数定义</strong>，<strong>import</strong> 语句中出现；</p>
+<p><strong>global</strong>： 将变量定义为<strong>全局变量</strong>，可以通过定义为全局变量，实现在函数内部改变变量值；</p>
+<p>一个 global 语句可以同时定义多个变量，如 <strong>global x,y,z</strong></p>
+<p><strong>global</strong> 语句的作用：<br>在编写程序的时候，如果想为一个在函数外的变量重新赋值，并且这个变量会作用于许多函数中时，就需要告诉 python 这个变量的作用域是全局变量，此时用 <strong>global</strong> 语句就可以变成这个任务，也就是说没有用 <strong>global</strong> 语句的情况下，是不能修改全局变量的</p>
+<pre><code class="python">x = 1
+def a():
+    global x
+    x += 1
+    print(x)
+a()
+print(x)
+# 2
+# 2
+</code></pre>
+<p>如果想在函数使用某一变量后再对其进行修改，怎么让函数中使用的变量是模块层定义的那个全局变量而不是函数内部的局部变量呢？<br>这里就可以用到 <strong>global 修饰符</strong> 了：</p>
+<pre><code class="python">a = 4
+def h():
+    global a
+    print(a)
+    a = 12
+h()
+print(a)
+# 4
+# 12
+</code></pre>
+<h2 id="匿名函数-lambda"><a href="#匿名函数-lambda" class="headerlink" title="匿名函数 lambda"></a>匿名函数 lambda</h2><p><strong>lambda</strong> 函数，即 <strong>Lambda 表达式</strong>（lambda expression），是一个 <strong>匿名函数</strong>（不存在函数名的函数）。</p>
+<p><strong>lambda</strong> 只是一个表达式，函数体比 <strong>def</strong> 简单很多；</p>
+<p><strong>lambda</strong> 的主体是一个<strong>表达式</strong>，而不是一个代码块。仅仅能在 <strong>lambda 表达式</strong>中封装有限的逻辑进去；</p>
+<p><strong>lambda</strong> 函数拥有自己的命名空间，且不能访问自有参数列表之外或全局命名空间里的参数；</p>
+<p>虽然 <strong>lambda</strong> 函数看起来只能写一行，却不等同于 C 或 C++的内联函数，后者的目的是调用小函数时不占用栈内存从而增加运行效率。</p>
+<p><strong>Lambda</strong> 函数的语法只包含一个语句，如下：<br><strong>lambda [arg1[,arg2,······argn]] : expression</strong><br>即：<strong>lambda 参数:表达式</strong><br>参数： 可选，通常以逗号分隔的变量表达式形式，也就是<strong>位置参数</strong>；<br>表达式：不能包含<strong>循环</strong>、<strong>return</strong>、<strong>elif</strong>，可以包含 <strong>if</strong>,<strong>else</strong></p>
+<p>例：</p>
+<pre><code class="python">L = lambda x:x*x
+print(L(5))
+# 25
+
+#匿名函数的展开:
+def M(x):
+    return x*x
+print(M(5))
+# 25
+</code></pre>
+<p>包含 <strong>if-else</strong> 的 l<strong>ambda</strong>：</p>
+<pre><code class="python">h = lambda x : &#39;x&gt;10&#39; if x&gt;10 else &#39;x&lt;10&#39;
+print(h(5))
+# x&lt;10
+
+#函数实现
+def H(x):
+    if x &gt; 10:
+        return &#39;x&gt;10&#39;
+    else:
+        return &#39;x&lt;10&#39;
+print(H(5))
+# x&lt;10
+</code></pre>
+<p>使用多个参数：</p>
+<pre><code class="python">sum = lambda arg1,arg2: arg1 + arg2
+print(&quot;（lambda函数）相加后的值为：&quot;,sum(10,20))
+# （lambda函数）相加后的值为： 30
+
+# 上面等同于下面
+def sm(arg1,arg2):
+    return arg1 + arg2
+print(&quot;（函数）相加后的值为：&quot;,sm(10,20))
+# （函数）相加后的值为： 30
+</code></pre>
+<h2 id="函数编写指南"><a href="#函数编写指南" class="headerlink" title="函数编写指南"></a>函数编写指南</h2><p>编写函数时，需要牢记几个细节：</p>
+<ul>
+<li>  应给函数指定<strong>描述性名称</strong>，且只在其中使用小写字母和下划线。描述性名称可帮助你和别人明白代码想要做什么。给模块命名时也应遵循上述约定。</li>
+<li>  每个函数都应包含简要地阐述其功能的<strong>注释</strong>，该注释应紧跟在函数定义后面，并采用文档字符串格式。文档良好的函数让其他程序员只需阅读文档字符串中的描述就能够使用它，他们完全可以相信代码如描述的那样运行；只要知道函数的名称、需要的实参以及返回值的类型，就能在自己的程序中使用它。</li>
+<li>给形参指定默认值时，等号两边不要有空格：<br>  <strong>def 函数名(形参 1，形参 2=’默认值’)</strong><br>  对于函数调用中的关键字实参，也应遵循这种约定：<br>  <strong>函数名(实参 1，实参 2=’值’)</strong></li>
+<li>  如果程序或模块包含多个函数，可使用两个空行将相邻的函数分开，这样将更容易知道前一个函数在什么地方结束，下一个函数从什么地方开始。所有的 <strong>import</strong> 语句都应放在文件开头，唯一例外的情形是，在文件开头使用了注释来描述整个程序。</li>
+</ul>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://qiuxchao.github.io/2019/08/12/Python%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/>https://qiuxchao.github.io/2019/08/12/Python%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-01-07T16:27:11+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年1月7日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：5.8k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：23分钟</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://qiuxchao.github.io/2019/08/12/Python%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/&title=Python基础—函数 - 阿湫o的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qiuxchao.github.io/2019/08/12/Python%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/&title=Python基础—函数 - 阿湫o的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://qiuxchao.github.io/2019/08/12/Python%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0/&title=Python基础—函数 - 阿湫o的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/08/25/Python%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Python中的编码问题</p>
+          <p class='content'>Python 中的编码问题爬取的所有网页无论何种编码格式，都应转化为 utf-8 格式进行存储，与源代码编码格式不同会出现乱码。
+UTF-8 通用性比较好，是用以解决国际上字符的一种多字节编码，...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/07/28/Python%E5%9F%BA%E7%A1%80%20--%20input%E5%92%8Cwhile%E5%BE%AA%E7%8E%AF/'>
+          <p class='title'>Python基础—用户输入input和while循环<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>用户输入 input 和 while 循环通过获取用户输入并学会控制程序的运行时间，可编写出交互式程序
+函数 input()函数 input() : 让程序暂停运行，等待用户输入一些文本；获取用...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF"><span class="toc-text">向函数传递信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E5%AE%9E%E5%8F%82"><span class="toc-text">传递实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E5%AE%9E%E5%8F%82"><span class="toc-text">位置实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97%E5%AE%9E%E5%8F%82"><span class="toc-text">关键字实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E6%95%88%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-text">等效函数调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E7%AE%80%E5%8D%95%E5%80%BC"><span class="toc-text">返回简单值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A9%E5%AE%9E%E5%8F%82%E5%8F%98%E6%88%90%E5%8F%AF%E9%80%89%E7%9A%84"><span class="toc-text">让实参变成可选的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%AD%97%E5%85%B8"><span class="toc-text">返回字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E5%92%8C-while-%E5%BE%AA%E7%8E%AF"><span class="toc-text">结合使用函数和 while 循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E5%88%97%E8%A1%A8"><span class="toc-text">传递列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8"><span class="toc-text">在函数中修改列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E5%87%BD%E6%95%B0%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8"><span class="toc-text">禁止函数修改列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E4%BB%BB%E6%84%8F%E6%95%B0%E9%87%8F%E7%9A%84%E5%AE%9E%E5%8F%82"><span class="toc-text">传递任意数量的实参</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8%E4%BD%8D%E7%BD%AE%E5%AE%9E%E5%8F%82%E5%92%8C%E4%BB%BB%E6%84%8F%E6%95%B0%E9%87%8F%E5%AE%9E%E5%8F%82"><span class="toc-text">结合使用位置实参和任意数量实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%BB%E6%84%8F%E6%95%B0%E9%87%8F%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97%E5%AE%9E%E5%8F%82"><span class="toc-text">使用任意数量的关键字实参</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%87%BD%E6%95%B0%E5%AD%98%E5%82%A8%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%AD"><span class="toc-text">将函数存储在模块中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B4%E4%B8%AA%E6%A8%A1%E5%9D%97"><span class="toc-text">导入整个模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E7%89%B9%E5%AE%9A%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-text">导入特定的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-as-%E7%BB%99%E5%87%BD%E6%95%B0%E6%8C%87%E5%AE%9A%E5%88%AB%E5%90%8D"><span class="toc-text">使用 as 给函数指定别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-as-%E7%BB%99%E6%A8%A1%E5%9D%97%E6%8C%87%E5%AE%9A%E5%88%AB%E5%90%8D"><span class="toc-text">使用 as 给模块指定别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%87%BD%E6%95%B0"><span class="toc-text">导入模块中的所有函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-global-%E5%A3%B0%E6%98%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text">使用 global 声明全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0-lambda"><span class="toc-text">匿名函数 lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97"><span class="toc-text">函数编写指南</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="Python基础—函数";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+         
+<footer class="footer clearfix">
+	<br /><br />
+	 
+	<div class="aplayer-container">
+		
+
+
+	</div>
+	  
+	<br />
+	<div class="social-wrapper">
+		      
+	</div>
+	  
+	<div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+	   
+	<div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+	    本站使用
+	<a
+		href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1"
+		target="_blank"
+		class="codename"
+		>Volantis</a
+	>
+	作为主题   
+	<div class="copyright"> <p><a href="/">Copyright © 2019-2021 阿湫o</a></p>
+ </div>
+	 
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date()
+		function createtime() {
+			var grt = new Date('08/10/2019 17:38:00') //在此处修改你的建站时间，格式：月/日/年 时:分:秒
+			now.setTime(now.getTime() + 250)
+			days = (now - grt) / 1000 / 60 / 60 / 24
+			dnum = Math.floor(days)
+			hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum
+			hnum = Math.floor(hours)
+			if (String(hnum).length == 1) {
+				hnum = '0' + hnum
+			}
+			minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum
+			mnum = Math.floor(minutes)
+			if (String(mnum).length == 1) {
+				mnum = '0' + mnum
+			}
+			seconds =
+				(now - grt) / 1000 -
+				24 * 60 * 60 * dnum -
+				60 * 60 * hnum -
+				60 * mnum
+			snum = Math.round(seconds)
+			if (String(snum).length == 1) {
+				snum = '0' + snum
+			}
+			document.getElementById('timeDate').innerHTML =
+				'本站已安全运行 ' + dnum + ' 天 '
+			document.getElementById('times').innerHTML =
+				hnum + ' 小时 ' + mnum + ' 分 ' + snum + ' 秒'
+		}
+		setInterval('createtime()', 250)
+	</script>
+</footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.4.0/styles/a11y-dark.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://volantis.js.org/faqs/
+        
+        
+        
+        
+          id="https:volantisjsorgfaqs"
+        >
+        <i class='fa fa-question fa-fw'></i> 常见问题
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://volantis.js.org/examples/
+        
+        
+        
+        
+          id="https:volantisjsorgexamples"
+        >
+        <i class='fa fa-rss fa-fw'></i> 示例博客
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://volantis.js.org/contributors/
+        
+        
+        
+        
+          id="https:volantisjsorgcontributors"
+        >
+        <i class='fa fa-fan fa-spin fa-fw'></i> 加入社区
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://github.com/volantis-x/volantis-docs/
+        
+        
+        
+        
+          id="https:githubcomvolantis-xvolantis-docs"
+        >
+        <i class='fa fa-code-branch fa-fw'></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://github.com/volantis-x/hexo-theme-volantis/
+        
+        
+        
+        
+          id="https:githubcomvolantis-xhexo-theme-volantis"
+        >
+        <i class='fa fa-code-branch fa-fw'></i> 主题源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"n0TTWl2VyPosl8Rd7QY8rVAK-gzGzoHsz","appKey":"dfg3Lsat42X2duNoth6bhtHv","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://qiuxchao.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://qiuxchao.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://qiuxchao.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>
