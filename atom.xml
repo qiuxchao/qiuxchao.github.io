@@ -6,7 +6,7 @@
   <link href="https://qiuxchao.github.io/atom.xml" rel="self"/>
   
   <link href="https://qiuxchao.github.io/"/>
-  <updated>2022-01-07T08:23:54.919Z</updated>
+  <updated>2022-01-10T02:45:11.684Z</updated>
   <id>https://qiuxchao.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react-router-dom 基本教程</title>
+    <link href="https://qiuxchao.github.io/2021/07/16/react-router-dom%E6%95%99%E7%A8%8B/"/>
+    <id>https://qiuxchao.github.io/2021/07/16/react-router-dom%E6%95%99%E7%A8%8B/</id>
+    <published>2021-07-16T00:08:08.000Z</published>
+    <updated>2022-01-10T02:45:11.684Z</updated>
+    
+    
+    <summary type="html">react-router-dom 是 react 的路由模块，本文介绍了 react-router-dom 的基本使用方法。</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://qiuxchao.github.io/categories/JavaScript/"/>
+    
+    <category term="React" scheme="https://qiuxchao.github.io/categories/JavaScript/React/"/>
+    
+    <category term="react-router-dom" scheme="https://qiuxchao.github.io/categories/JavaScript/React/react-router-dom/"/>
+    
+    
+    <category term="JavaScript" scheme="https://qiuxchao.github.io/tags/JavaScript/"/>
+    
+    <category term="React" scheme="https://qiuxchao.github.io/tags/React/"/>
+    
+    <category term="react-router-dom" scheme="https://qiuxchao.github.io/tags/react-router-dom/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react-redux 基本教程</title>
+    <link href="https://qiuxchao.github.io/2021/07/12/react-redux%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/"/>
+    <id>https://qiuxchao.github.io/2021/07/12/react-redux%E5%9F%BA%E6%9C%AC%E6%95%99%E7%A8%8B/</id>
+    <published>2021-07-12T00:08:08.000Z</published>
+    <updated>2022-01-10T02:47:04.057Z</updated>
+    
+    
+    <summary type="html">react-redux 是一个用于连接 React 和 Redux 的 npm 模块，本文介绍了 react-redux 的基本使用方法。</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://qiuxchao.github.io/categories/JavaScript/"/>
+    
+    <category term="React" scheme="https://qiuxchao.github.io/categories/JavaScript/React/"/>
+    
+    <category term="react-redux" scheme="https://qiuxchao.github.io/categories/JavaScript/React/react-redux/"/>
+    
+    
+    <category term="JavaScript" scheme="https://qiuxchao.github.io/tags/JavaScript/"/>
+    
+    <category term="React" scheme="https://qiuxchao.github.io/tags/React/"/>
+    
+    <category term="react-redux" scheme="https://qiuxchao.github.io/tags/react-redux/"/>
+    
+  </entry>
   
   <entry>
     <title>TypeScript 学习总结</title>
@@ -90,7 +144,7 @@
     <link href="https://qiuxchao.github.io/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
     <id>https://qiuxchao.github.io/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</id>
     <published>2020-04-09T00:08:08.000Z</published>
-    <updated>2022-01-07T08:27:33.954Z</updated>
+    <updated>2022-01-10T02:43:47.100Z</updated>
     
     
     <summary type="html">本文是我在学习 JavaScript ES6+ 这一部分内容时知识点的记录。</summary>
@@ -132,7 +186,7 @@
     <link href="https://qiuxchao.github.io/2020/02/20/Ajax%20%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%20%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/"/>
     <id>https://qiuxchao.github.io/2020/02/20/Ajax%20%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%20%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/</id>
     <published>2020-02-20T00:08:08.000Z</published>
-    <updated>2022-01-07T08:27:37.152Z</updated>
+    <updated>2022-01-10T02:43:47.099Z</updated>
     
     
     <summary type="html">本文着重介绍Javascript Ajax异步数据请求技术。</summary>
@@ -396,44 +450,6 @@
     
     
     <summary type="html">本文介绍Python中的函数</summary>
-    
-    
-    
-    <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
-    
-    
-    <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python基础—用户输入input和while循环</title>
-    <link href="https://qiuxchao.github.io/2019/07/28/Python%E5%9F%BA%E7%A1%80%20--%20input%E5%92%8Cwhile%E5%BE%AA%E7%8E%AF/"/>
-    <id>https://qiuxchao.github.io/2019/07/28/Python%E5%9F%BA%E7%A1%80%20--%20input%E5%92%8Cwhile%E5%BE%AA%E7%8E%AF/</id>
-    <published>2019-07-28T00:08:08.000Z</published>
-    <updated>2022-01-07T08:27:15.030Z</updated>
-    
-    
-    <summary type="html">本文介绍Python中的用户输入input和while循环</summary>
-    
-    
-    
-    <category term="Python" scheme="https://qiuxchao.github.io/categories/Python/"/>
-    
-    
-    <category term="Python" scheme="https://qiuxchao.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python基础—元组</title>
-    <link href="https://qiuxchao.github.io/2019/07/15/Python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%85%83%E7%BB%84/"/>
-    <id>https://qiuxchao.github.io/2019/07/15/Python%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E5%85%83%E7%BB%84/</id>
-    <published>2019-07-15T00:08:08.000Z</published>
-    <updated>2022-01-07T08:27:08.726Z</updated>
-    
-    
-    <summary type="html">本文介绍Python中的元组</summary>
     
     
     
