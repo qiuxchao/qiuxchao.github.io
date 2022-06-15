@@ -1,0 +1,3055 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,zh-HK,zh-TW,default">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>JavaScript ES6+学习总结 - 阿湫o的博客</title>
+  
+    <meta name="keywords" content="JavaScript,ES6">
+  
+
+  
+    <meta name="description" content="本文是我在学习 JavaScript ES6+ 这一部分内容时知识点的记录。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="阿湫o的博客" type="application/atom+xml">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png">
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='https://cdn.jsdelivr.net/gh/qiuxchao/CDN/favicon.png'></i>
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>深色模式
+                </a>
+              <li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="啾啾啾，搜索一下~" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/categories/
+                  
+                  
+                  
+                    id="blogcategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/tags/
+                  
+                  
+                  
+                    id="blogtags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>深色模式
+                </a>
+              <li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">阿湫o</p>
+    
+    
+      <p class="subtitle">一只前端崽</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+    <div class='headimg-div'>
+      <a class='headimg-a'>
+        <img class='headimg' src='https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/javascript_es6.png'/>
+      </a>
+    </div>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        JavaScript ES6+学习总结
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/toux.jpeg">
+    <p>阿湫o</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/JavaScript/">JavaScript</a><span class="sep"></span><a class="category-link" href="/categories/JavaScript/ES6/">ES6</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：9.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：41分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年4月9日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="JavaScript ES6+学习总结" data-path="/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h1 id="JavaScript-ES6-学习总结"><a href="#JavaScript-ES6-学习总结" class="headerlink" title="JavaScript ES6+学习总结"></a>JavaScript ES6+学习总结</h1><p>本文是我在学习 <code>JavaScript ES6+</code> 这一部分内容时知识点的记录。<br></p>
+<blockquote>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript">MDN JavaScript Docs</a></p>
+</blockquote>
+<h2 id="let、块级作用域、const-常量"><a href="#let、块级作用域、const-常量" class="headerlink" title="let、块级作用域、const 常量"></a>let、块级作用域、const 常量</h2><h3 id="let-声明变量"><a href="#let-声明变量" class="headerlink" title="let 声明变量"></a>let 声明变量</h3><ol>
+<li>使用 <code>let</code> 定义的变量在同一作用域下不可被重复定义：</li>
+</ol>
+<pre><code class="javascript">let b = 1
+let b = 2 // 报错 语法错误：标识符“b”已经被声明
+// SyntaxError: Identifier &#39;b&#39; has already been declared
+
+let c = 1
+var c = 2 // 报错 语法错误：标识符“c”已经被声明
+// SyntaxError: Identifier &#39;c&#39; has already been declared
+</code></pre>
+<ol start="2">
+<li>使用 <code>var</code> 声明过的变量也不可被 <code>let</code> 重复声明：</li>
+</ol>
+<pre><code class="javascript">var a = 1
+let a = 2 // 报错 语法错误：标识符“a”已经被声明
+// SyntaxError: Identifier &#39;a&#39; has already been declared
+</code></pre>
+<ol start="3">
+<li>使用 let 声明的变量在预编译时不会提升，会产生一个暂时性死区:</li>
+</ol>
+<pre><code class="javascript">console.log(a) // 报错，引用错误: 在初始化之前不能访问 &#39;a&#39;
+let a = 1
+// ReferenceError: Cannot access &#39;a&#39; before initialization
+
+function test(x = y, y = 2) &#123;
+    console.log(x, y)
+&#125;
+test() // 报错，引用错误: 在初始化之前不能访问 &#39;y&#39;
+// ReferenceError: Cannot access &#39;y&#39; before initialization
+
+console.log(typeof a) // 报错，引用错误: 在初始化之前不能访问 &#39;a&#39;
+let a
+// ReferenceError: Cannot access &#39;a&#39; before initialization
+</code></pre>
+<ol start="4">
+<li><code>let</code> 只能在当前的作用域下生效:</li>
+</ol>
+<pre><code class="javascript">if (1) &#123;
+    let a = 2
+&#125;
+console.log(a) // 报错
+for (let i = 0; i &lt; 10; i++) &#123;
+    let a = 1
+&#125;
+console.log(a) // 报错
+console.log(i) // 报错
+</code></pre>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>花括号中的是独立的块级作用域：</p>
+<pre><code class="javascript">let a = 1
+&#123;
+    let a = 2
+    console.log(a) // 2
+&#125;
+console.log(a) // 1
+</code></pre>
+<p><code>for</code> 循环中有两个作用域：</p>
+<pre><code class="javascript">for(父级作用域) &#123;
+    子级作用域
+&#125;
+
+for(let i = 0; i &lt; 10; i++) &#123;
+    let i = &#39;abc&#39;;
+    console.log(i);
+&#125;
+// 上面的 for 循环执行后将会打印 10 个 abc
+// 因为 for 括号中的 和 花括号中的 是两个不同的作用域
+// 花括号作用域是括号作用域的子作用域，括号作用域又是全局作用域的子作用域，这样就形成了一个作用域链：
+// 自顶到底： 全局作用域  --&gt;   括号作用域   --&gt;   花括号作用域
+</code></pre>
+<h3 id="const-声明常量"><a href="#const-声明常量" class="headerlink" title="const 声明常量"></a>const 声明常量</h3><p>使用 <code>const</code> 声明的是常量，常量是不可被修改的:</p>
+<pre><code class="javascript">// 使用 const 声明一个常量：
+const a = 1
+console.log(a) // 1
+
+// 常量不可被修改，下面的代码将抛出错误
+a = 2 // 报错
+
+// 常量不可被删除
+delete a
+console.log(a) // 1
+</code></pre>
+<h2 id="模版字符串-amp-字符串新增方法"><a href="#模版字符串-amp-字符串新增方法" class="headerlink" title="模版字符串 &amp; 字符串新增方法"></a>模版字符串 &amp; 字符串新增方法</h2><p><code>``</code> 反引号定义模版字符串，在模版字符串中可以随意换行。<br><br>字符串模板中使用 <code>$&#123;&#125;</code> 的形式添加变量</p>
+<blockquote>
+<p>使用这种方法拼接字符串比使用 <code>+</code> 的方式更简洁美观</p>
+</blockquote>
+<pre><code class="javascript">var name = &#39;Bob&#39;
+var age = 19
+var message = `Hello $&#123;name&#125;, Your age is $&#123;age&#125;. `
+console.log(message)
+// Hello Bob, Your age is 19.
+</code></pre>
+<p>字符串新增的一些方法:</p>
+<ol>
+<li><code>str.includes()</code> 在字符串中查找指定的字符，返回布尔值</li>
+</ol>
+<pre><code class="javascript">var str = &#39;Hello World!&#39;
+var message = str.includes(&#39;llo&#39;)
+console.log(message)
+// true
+</code></pre>
+<ol start="2">
+<li><code>str.startsWith()</code> 检测字符串是否以指定的字符开头，返回布尔值</li>
+</ol>
+<pre><code class="javascript">var str = &#39;Hello World!&#39;
+var message = str.startsWith(&#39;H&#39;)
+console.log(message)
+// true
+</code></pre>
+<ol start="3">
+<li><code>str.endsWith()</code> 检测字符串是否以指定的字符结尾，返回布尔值</li>
+</ol>
+<pre><code class="javascript">var str = &#39;Hello World!&#39;
+var message = str.endsWith(&#39;!&#39;)
+console.log(message)
+// true
+</code></pre>
+<ol start="4">
+<li><code>str.repeat()</code> 指定字符串被重复多少次，返回重复指定次数的字符串</li>
+</ol>
+<pre><code class="javascript">var str = &#39;Hello World!&#39;
+var message = str.repeat(3)
+console.log(message)
+// Hello World!Hello World!Hello World!
+</code></pre>
+<ol start="5">
+<li><code>str.padStart()</code> 往字符串开头填充指定的字符（需指定填充后字符串的长度）</li>
+</ol>
+<pre><code class="javascript">var name = &#39;Bob&#39;
+var age = 19
+var message = name.padStart(5, age)
+console.log(message)
+// 19Bob
+</code></pre>
+<ol start="6">
+<li><code>str.padEnd()</code> 往字符串末尾填充指定的字符（需指定填充后字符串的长度）</li>
+</ol>
+<pre><code class="javascript">var name = &#39;Bob&#39;
+var age = 19
+var message = name.padEnd(5, age)
+console.log(message)
+// Bob19
+</code></pre>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>一个基本的结构赋值:</p>
+<pre><code class="javascript">// 解构赋值，等号两边的格式必须一致
+let [a, b, c] = [1, 2, 3]
+console.log(a, b, c) // 1 2 3
+
+// let [a, [b, c]] = [1, [2, 3]]
+// console.log(a, b, c)    // 1 2 3
+</code></pre>
+<h3 id="解构对象"><a href="#解构对象" class="headerlink" title="解构对象"></a>解构对象</h3><pre><code class="javascript">// 解构对象
+// 直接把对象的键提取出来并用花括号包裹起来就可以解构对象
+let &#123;
+    name,
+    age,
+    email,
+    likes: &#123; first: firstLike &#125;
+&#125; = &#123;
+    name: &#39;Bob&#39;,
+    age: 18,
+    email: &#39;Bob@gmail.com&#39;,
+    likes: &#123;
+        first: &#39;game&#39;,
+        second: &#39;study&#39;
+    &#125;
+&#125;
+console.log(name, age, email, firstLike) // Bob 18 Bob@gmail.com game
+</code></pre>
+<h3 id="指定别名"><a href="#指定别名" class="headerlink" title="指定别名"></a>指定别名</h3><pre><code class="javascript">// key:name     指定别名，在键后写冒号，冒号后面指定的字符就替代了键名
+let &#123;
+    name: n,
+    age: g,
+    email: e
+&#125; = &#123;
+    name: &#39;Bob&#39;,
+    age: 18,
+    email: &#39;Bob@gmail.com&#39;
+&#125;
+console.log(n, g, e) // Bob 18 Bob@gmail.com
+</code></pre>
+<h3 id="设置默认值"><a href="#设置默认值" class="headerlink" title="设置默认值"></a>设置默认值</h3><pre><code class="javascript">// 设置默认值，仅在值为 undefined 时默认值生效
+let [a, b, c = &#39;默认值&#39;] = [1, 2]
+console.log(a, b, c) // 1 2 &quot;默认值&quot;
+</code></pre>
+<h3 id="解构函数返回值"><a href="#解构函数返回值" class="headerlink" title="解构函数返回值"></a>解构函数返回值</h3><pre><code class="javascript">// 解构函数的返回值
+let people = () =&gt; (&#123; name: &#39;Bob&#39;, age: 18 &#125;)
+let &#123; name, age &#125; = people() // 使用定义好的变量接收函数返回的值
+console.log(name, age) // Bob 18
+</code></pre>
+<h3 id="引入模块时的解构"><a href="#引入模块时的解构" class="headerlink" title="引入模块时的解构"></a>引入模块时的解构</h3><pre><code class="javascript">// 这里的 a b c 对应的是 test 模块中返回的三个值方法
+import &#123; a, b, c &#125; from &#39;./test&#39;
+</code></pre>
+<h3 id="函数形参使用解构赋值"><a href="#函数形参使用解构赋值" class="headerlink" title="函数形参使用解构赋值"></a>函数形参使用解构赋值</h3><pre><code class="javascript">// 函数形参使用解构赋值
+let fun = (&#123; name, age &#125;) =&gt; console.log(name + &quot;&#39;s age is &quot; + age)
+fun(&#123;
+    name: &#39;Bob&#39;,
+    age: 20
+&#125;) // Bob&#39;s age is 20
+</code></pre>
+<h2 id="this-指向、箭头函数、…运算符、函数参数"><a href="#this-指向、箭头函数、…运算符、函数参数" class="headerlink" title="this 指向、箭头函数、…运算符、函数参数"></a>this 指向、箭头函数、…运算符、函数参数</h2><h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p><code>this</code> 指向的 <code>4</code> 条规则：</p>
+<ol>
+<li>默认绑定： 默认指向 <code>window</code> ：</li>
+</ol>
+<pre><code class="javascript">function test() &#123;
+    console.log(this)
+&#125;
+test()
+// Window &#123;parent: Window, opener: null, top: Window, length: 0, frames: Window, …&#125;
+</code></pre>
+<ol start="2">
+<li>隐式绑定：被谁调用就指向谁：</li>
+</ol>
+<pre><code class="javascript">function test() &#123;
+    console.log(this.a)
+&#125;
+var obj = &#123;
+    a: 1,
+    b: 2,
+    test: test
+&#125;
+obj.test()
+// 1
+</code></pre>
+<ol start="3">
+<li>显示绑定：<code>call(obj, a, b, c)</code>、<code>apply(obj, [a, b, c])</code>、<code>bind(obj, a, b, c)</code></li>
+</ol>
+<pre><code class="javascript">var obj = &#123;
+    name: &#39;Bob&#39;,
+    age: 19
+&#125;
+function sayName() &#123;
+    console.log(this.name)
+&#125;
+sayName.call(obj)
+// Bob
+</code></pre>
+<ol start="4">
+<li><code>new</code> 构造函数：</li>
+</ol>
+<pre><code class="javascript">function Cars(name, color) &#123;
+    this.name = name
+    this.color = color
+    this.sayName = function () &#123;
+        console.log(this.name)
+    &#125;
+&#125;
+var car = new Cars(&#39;BMW&#39;, &#39;red&#39;)
+car.sayName()
+// BMW
+</code></pre>
+<h3 id="箭头函数-gt"><a href="#箭头函数-gt" class="headerlink" title="箭头函数 =&gt;"></a>箭头函数 <code>=&gt;</code></h3><ul>
+<li>  箭头函数是由 <code>=&gt;</code> 操作符定义的；</li>
+<li>  箭头函数是一个函数表达式；</li>
+<li>  箭头函数的 <code>this</code> 指向定义这个函数时所在的对象，而不是运行函数时所在的对象；</li>
+<li>  构造函数不能使用箭头函数；</li>
+<li>  箭头函数中不存在 <code>arguments</code>，可以使用 <code>...</code> 运算符；</li>
+<li>能用到回调函数的地方都能使用箭头函数<br>  一个基本的箭头函数最基本的定义形式：</li>
+</ul>
+<pre><code class="javascript">;() =&gt; &#123;&#125;
+</code></pre>
+<p>当仅有一个参数或一个返回值时，定义一个箭头函数的语法为：</p>
+<pre><code class="javascript">var 函数名 = 形参 =&gt; 返回值；
+
+var a = &#39;test&#39;;
+var f = a =&gt; a + &#39; Hello World!&#39;;
+console.log(f(a));  // test Hello World!
+
+// 等价于
+function f(a) &#123;
+    return a + &#39; Hello World!&#39;;
+&#125;
+console.log(f(a));  // test Hello World!
+</code></pre>
+<p>当有多个形参或多条函数内容时，定义一个箭头函数的语法为：</p>
+<pre><code class="javascript">var 函数名 = (形参1, 形参2 ...) =&gt; &#123;
+    // 函数体
+&#125;
+
+var a = 1;
+var b = 2;
+var add = (x, y) =&gt; &#123;
+    var result = x + y;
+    return result;
+&#125;
+console.log(add(a, b));
+// 3
+
+//等价于
+function add(x, y) &#123;
+    var result = x + y;
+    return result;
+&#125;
+</code></pre>
+<h3 id="spread-rest-运算符"><a href="#spread-rest-运算符" class="headerlink" title="... spread/rest 运算符"></a><code>...</code> spread/rest 运算符</h3><h4 id="用于展开或收集数组"><a href="#用于展开或收集数组" class="headerlink" title="用于展开或收集数组"></a>用于展开或收集数组</h4><p>箭头函数中没有 <code>arguments</code> 实参列表，但可以使用 <code>...</code> 操作符来获取实参列表；<br><br>展开或重置的基本用法：</p>
+<pre><code class="javascript">// ... 运算符展开或收集数组
+// 展开数组
+let arr = [1, 2, 3, 4, 5]
+console.log(...arr) // 1 2 3 4 5
+// 收集数组（主要用于函数的形参中）
+function makeArray(...names) &#123;
+    names.forEach((item) =&gt; console.log(item))
+&#125;
+makeArray(&#39;Bob&#39;, &#39;Jack&#39;, &#39;Henry&#39;)
+// Bob
+// Jack
+// Henry
+</code></pre>
+<h4 id="收集实参列表或数组"><a href="#收集实参列表或数组" class="headerlink" title="... 收集实参列表或数组"></a><code>...</code> 收集实参列表或数组</h4><pre><code class="javascript">// ... 运算符（收集实参列表）
+// ... 后默认就是一个数组，传多少个实参都会被放入到这个数组中
+var sum = (...args) =&gt; &#123;
+    console.log(args)
+    console.log(args[0] + args[1])
+&#125;
+sum(1, 2)
+// [1, 2]
+// 3
+
+// ... 运算符收集 剩余的所有实参数组 必须是最后一个参数
+// 收集剩余参数时，...必须放到形参列表的末尾，这样前面依然可以正常传实参，多余的实参会被收入到该数组中
+let fn = (a, b, ...c) =&gt; &#123;
+    console.log(a, b, c)
+&#125;
+fn(1, 2, 3, 4, 5)
+// 1 2 [3, 4, 5]
+</code></pre>
+<h4 id="展开实参列表或数组"><a href="#展开实参列表或数组" class="headerlink" title="... 展开实参列表或数组"></a><code>...</code> 展开实参列表或数组</h4><pre><code class="javascript">// ... 运算符（展开实参列表）
+function foo(x, y, z) &#123;
+    console.log(x, y, z)
+&#125;
+foo(...[1, 2, 3])
+// 等价于
+foo(1, 2, 3)
+// 等价于
+foo.apply(null, [1, 2, 3])
+// 1 2 3
+// 1 2 3
+// 1 2 3
+
+// ... 运算符 展开数组
+var a = [2, 3, 4]
+let b = [1, ...a, 5]
+console.log(b)
+// [1, 2, 3, 4, 5]
+</code></pre>
+<h4 id="箭头函数与解构赋值结合"><a href="#箭头函数与解构赋值结合" class="headerlink" title="箭头函数与解构赋值结合"></a>箭头函数与解构赋值结合</h4><pre><code class="javascript">// 箭头函数与解构赋值结合
+var full = (&#123; first, last &#125; = &#123;&#125;) =&gt; first + &#39;&#39; + last
+console.log(full(&#123; first: 3, last: 5 &#125;)) // &#39;35&#39;
+
+// 等价于
+function full(&#123; first, last &#125; = &#123;&#125;) &#123;
+    return first + &#39;&#39; + last
+&#125;
+</code></pre>
+<h4 id="箭头函数应用于数组排序"><a href="#箭头函数应用于数组排序" class="headerlink" title="箭头函数应用于数组排序"></a>箭头函数应用于数组排序</h4><pre><code class="javascript">// 箭头函数应用于数组排序
+var arr = [109, 59, 6, 9, 15, 4651, 13, 52, 1235]
+var arr1 = arr.sort((a, b) =&gt; a - b)
+console.log(arr1)
+// [6, 9, 13, 15, 52, 59, 109, 1235, 4651]
+
+// 使用 ...args 收集实参数组
+const sortNum = (...args) =&gt; args.sort((a, b) =&gt; a - b)
+console.log(sortNum(109, 59, 6, 9, 15, 4651, 13, 52, 1235))
+// [6, 9, 13, 15, 52, 59, 109, 1235, 4651]
+</code></pre>
+<h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>函数默认参数，可在定义函数形参时指定默认值：</p>
+<pre><code class="javascript">// 形参默认值
+// 指定默认值的形参应该放到形参列表的末尾
+function people(name, age = 19) &#123;
+    console.log(name + &quot;&#39;s age is &quot; + age)
+&#125;
+</code></pre>
+<p>函数参数默认已经定义了，不能再使用 <code>let</code>, <code>const</code> 声明：</p>
+<pre><code class="javascript">// 函数参数默认已经定义了，不能再使用 let const 声明
+function test(age = 18) &#123;
+    let age = 20 // 错误，形参 age 已经被定义
+&#125;
+</code></pre>
+<h2 id="数组新增"><a href="#数组新增" class="headerlink" title="数组新增"></a>数组新增</h2><h3 id="数组新增方法"><a href="#数组新增方法" class="headerlink" title="数组新增方法"></a>数组新增方法</h3><ol>
+<li><code>Array.from(arr)</code> 将类数组转为纯数组，返回一个纯数组</li>
+</ol>
+<pre><code class="javascript">let lis = document.querySelectorAll(&#39;ul li&#39;)
+console.log(lis) // Nodelist(5) [li, li, li, li, li] （类数组）
+// Array.from(arr)  将类数组转为纯数组
+let liArr = Array.from(lis)
+console.log(liArr) //(5) [li, li, li, li, li] （纯数组）
+// Array.from() 还可以将所有带有 length 属性的类型都转为数组
+let str = &#39;Hello&#39; // 字符串带有 length 属性，转换字符串
+console.log(Array.from(str)) // [&quot;H&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;]
+let obj = &#123;
+    0: &#39;apple&#39;,
+    1: &#39;banana&#39;,
+    2: &#39;orange&#39;,
+    length: 3
+&#125; // 转换类数组
+console.log(Array.from(obj)) // [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+</code></pre>
+<ol start="2">
+<li><code>Array.of(arg1, arg2[,arg3 ...])</code> 把一组值转为数组，类似于 <code>new Array()</code></li>
+</ol>
+<pre><code class="javascript">// Array.of(arg1, arg2[,arg3 ...])  将一组值转为数组，类似于 new Array
+let ofArr = Array.of(&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;)
+console.log(ofArr) //  [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+</code></pre>
+<h3 id="数组实例方法"><a href="#数组实例方法" class="headerlink" title="数组实例方法"></a>数组实例方法</h3><ol>
+<li><code>arr.find((item, index, arr) =&gt; &#123;&#125;)</code> 遍历数组，在找到第一个<strong>对回调函数的条件返回 <code>true</code> 的项</strong>时，返回该项，找不到则返回 <code>undefined</code></li>
+</ol>
+<pre><code class="javascript">// arr.find((item, index, arr) =&gt; &#123;&#125;)    遍历数组，在数组中查找指定的项，返回第一个找到的项，没找到返回 undefined
+let nums = [1, 4, 6, 76, 234, 110]
+let result = nums.find((item, index, arr) =&gt; &#123;
+    return item &gt; 100
+&#125;)
+console.log(result) // 234
+</code></pre>
+<ol start="2">
+<li><code>arr.findIndex((item, index, arr) =&gt; &#123;&#125;)</code> 在数组中查找满足条件的项，返回该项的索引，没找到返回 <code>-1</code></li>
+</ol>
+<pre><code class="javascript">// arr.findIndex((item, index, arr) =&gt; &#123;&#125;)  遍历数组，在数组中查找满足条件的项，返回该项的索引，没找到返回 -1
+let nums = [1, 4, 6, 76, 234, 110]
+let result = nums.findIndex((item, index, arr) =&gt; &#123;
+    return item &gt; 100
+&#125;)
+console.log(result) // 4
+</code></pre>
+<ol start="3">
+<li><code>arr.fill(填充的值，开始位置，结束位置)</code> 填充数组<blockquote>
+<p>如果不指定开始位置和结束位置则全部填充</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="javascript">// arr.fill(item, startIndex, endIndex)     填充数组
+let emptyArr = new Array(5)
+console.log(emptyArr) // [empty × 5]
+let newArr = emptyArr.fill(&#39;apple&#39;, 0, 3)
+console.log(newArr) // [&quot;apple&quot;, &quot;apple&quot;, &quot;apple&quot;, empty × 2]
+</code></pre>
+<ol start="4">
+<li><code>arr.includes(item)</code> 判断数组中是否包含指定的项，返回布尔值</li>
+</ol>
+<pre><code class="javascript">// arr.includes(item)     判断数组中是否包含指定的项，返回布尔值
+let colors = [&#39;red&#39;, &#39;green&#39;, &#39;orange&#39;]
+console.log(colors.includes(&#39;green&#39;)) // true
+console.log(colors.includes(&#39;blue&#39;)) // false
+</code></pre>
+<h3 id="数组循环相关"><a href="#数组循环相关" class="headerlink" title="数组循环相关"></a>数组循环相关</h3><h4 id="ES5中数组数组实例可以调用的各种循环方法"><a href="#ES5中数组数组实例可以调用的各种循环方法" class="headerlink" title="ES5中数组数组实例可以调用的各种循环方法"></a><code>ES5</code>中数组数组实例可以调用的各种循环方法</h4><ol>
+<li><code>arr.forEach((item, index, arr) =&gt; &#123;&#125;)</code> 代替普通 <code>for</code> 循环，没有返回值</li>
+<li><code>arr.map((item, index, arr) =&gt; &#123;&#125;)</code> 正常情况下，需要配合 <code>return</code> 返回的是一个新的数组，若是没有 <code>return</code> ，相当于 <code>forEach</code>。<br><blockquote>
+<p>注意：平时只要用 <code>map</code>，一定要有 <code>return</code>。</p>
+</blockquote>
+</li>
+<li><code>arr.filter((item, index, arr) =&gt; &#123;&#125;)</code> 过滤数组，把对回调函数中的条件返回 <code>true</code> 的项加入到一个新的数组然后返回</li>
+<li><code>arr.some((item,index,arr) =&gt; &#123;&#125;)</code> 查询数组，只要数组中有一项对回调函数返回 <code>true</code>，<code>some()</code> 方法就返回 <code>true</code>，否则就返回 <code>false</code></li>
+<li><code>arr.every((item, index, arr) =&gt; &#123;&#125;)</code> 查询数组，必须数组中的所有项都对回调函数返回 <code>true</code>，<code>every()</code> 方法才返回 <code>true</code>，否则就返回 <code>false</code></li>
+<li><code>reduce((prev, cur, index, arr) =&gt; &#123;&#125;)</code> 递归数组，得到数组中所有的项累计（加减乘除）的值，从左往右</li>
+<li><code>reduceRight((prev, cur, index, arr) =&gt; &#123;&#125;)</code> 递归数组，得到数组中所有的项累计（加减乘除）的值，从右往左</li>
+</ol>
+<h4 id="ES6-新增循环数组方法"><a href="#ES6-新增循环数组方法" class="headerlink" title="ES6 新增循环数组方法"></a><code>ES6</code> 新增循环数组方法</h4><ul>
+<li>  <code>for...of...</code> <code>for of</code> 循环默认可以拿到数组中的每一项，而不是数组的每一项的索引</li>
+</ul>
+<pre><code class="javascript">// for of 循环  默认循环数组，拿到数组中的每一项
+let arr = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;]
+for (item of arr) &#123;
+    console.log(item)
+&#125;
+// apple
+// banana
+// orange
+</code></pre>
+<ul>
+<li>  <code>arr.keys()</code> 返回只包含索引的数组 <code>Array Iterator &#123;&#125;</code>，此数组只能被迭代；<code>for (index of arr.keys()) &#123;&#125;</code> 拿到数组中每一项的索引:</li>
+</ul>
+<pre><code class="javascript">// for (index of arr.keys()) &#123;&#125;  拿到数组中每一项的索引
+let arr = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;]
+for (index of arr.keys()) &#123;
+    console.log(index)
+&#125;
+// 0
+// 1
+// 2
+</code></pre>
+<ul>
+<li>  <code>arr.entries()</code> 返回包含索引和值的数组 <code>Array Iterator &#123;&#125;</code>，此数组只能被迭代；<code>for ([index, item] of arr.entries()) &#123;&#125;</code> 拿到数组中每一项的索引和值:</li>
+</ul>
+<pre><code class="javascript">// for ([index, item] of arr.entries()) &#123;&#125;  拿到数组中每一项的索引和值
+let arr = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;]
+for ([index, item] of arr.entries()) &#123;
+    console.log(index, item)
+&#125;
+// 0 &quot;apple&quot;
+// 1 &quot;banana&quot;
+// 2 &quot;orange&quot;
+</code></pre>
+<ul>
+<li><code>arr.values()</code> 返回包含值的数组 <code>Array Iterator &#123;&#125;</code>，此数组只能被迭代；<code>for (item of arr.values()) &#123;&#125;</code> 拿到数组中每一项的索引和值:<br><blockquote>
+<p><code>for of</code>  默认循环的就是  <code>arr.values()</code></p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="javascript">// for (item of arr.values()) &#123;&#125;    拿到数组中的每一项，for of 默认循环的就是 arr.values()
+let arr = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;]
+for (item of arr.values()) &#123;
+    console.log(item)
+&#125;
+// apple
+// banana
+// orange
+</code></pre>
+<h2 id="对象新增"><a href="#对象新增" class="headerlink" title="对象新增"></a>对象新增</h2><h3 id="对象简洁语法"><a href="#对象简洁语法" class="headerlink" title="对象简洁语法"></a>对象简洁语法</h3><ul>
+<li>  可以将相同名称的属性和值变为只写为一个属性名</li>
+<li>  方法可以直接声明，但不能使用箭头函数，会造成 <code>this</code> 混乱</li>
+</ul>
+<pre><code class="javascript">// 对象简洁语法，可以将相同名称的属性和值只写为一个属性名
+// 方法可以直接声明，但不能使用箭头函数，会造成 this 混乱
+let name = &#39;Bob&#39;
+let age = 10
+let obj = &#123;
+    // name: name,
+    name, // 等价于上面 // age: age,
+    age, // 等价于上面 // sayName: function () &#123; //     console.log(this.name) //     &#125;,
+    sayName() &#123;
+        // 等价于上面
+        console.log(this.name)
+    &#125;
+&#125;
+console.log(obj) // &#123;name: &quot;Bob&quot;, age: 10, sayName: ƒ &#125;
+</code></pre>
+<h3 id="对象构造函数Object新增方法"><a href="#对象构造函数Object新增方法" class="headerlink" title="对象构造函数Object新增方法"></a>对象构造函数<code>Object</code>新增方法</h3><p>以下方法通过对象构造函数 <code>Object</code> 来调用</p>
+<ul>
+<li>  <code>Object.is(arg1, arg2)</code> 判断两个参数是否相等（使用这种方法时，<code>NaN</code> 和 <code>NaN</code> 是相等的），返回布尔值</li>
+</ul>
+<pre><code class="javascript">//Object.is(arg1, arg2)     判断两个参数是否相等
+// 使用这种方法时，NaN 和 NaN 是相等的
+// -0 和 +0 不相等
+console.log(Object.is(NaN, NaN)) // true
+console.log(Object.is(-0, +0)) // false
+console.log(Object.is(&#39;aaa&#39;, &#39;aaa&#39;)) // true
+</code></pre>
+<ul>
+<li><code>Object.assign(&#123;&#125;/[], sourceObj1[,sourceObj2 ...])</code> 合并对象或数组，将多个对象或数组合并到一个指定的对象中，返回一个新的对象<br><blockquote>
+<p>用途：复制一个对象或数组，合并参数<br><br>注意：此方法会改变位于第一个参数的对象</p>
+</blockquote>
+</li>
+</ul>
+<pre><code class="javascript">// Object.assign(&#123;&#125;/[], sourceObj1[,sourceObj2 ...])   合并对象或数组，将多个对象或数组合并到一个指定的对象中
+// 参数1：合并后的对象或数组
+// 参数2：要合并的对象1
+// 参数3：要合并的对象2
+// ...
+// 注意：后面指定的对象中如果有相同的属性或方法，后面的覆盖前面的
+let obj1 = &#123; name: &#39;Bob&#39; &#125;
+let obj2 = &#123; age: 20 &#125;
+let obj3 = &#123; name: &#39;Suxi&#39; &#125;
+let json = Object.assign(&#123;&#125;, obj1, obj2, obj3)
+// 有相同的属性，后面的覆盖前面的
+console.log(json) // &#123;name: &quot;Suxi&quot;, age: 20&#125;
+// 复制数组
+let arr = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;]
+let arr2 = Object.assign([], arr)
+console.log(arr2) // [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+</code></pre>
+<ul>
+<li>  <code>Object.keys()</code> 取出对象的键，返回键的数组</li>
+<li>  <code>Object.values()</code> 取出对象的值，返回值的数组</li>
+<li>  <code>Object.entries()</code> 取出对象的键和值，返回键和值的数组</li>
+</ul>
+<pre><code class="javascript">// Object.keys()    取出对象的键，返回键
+// Object.values()  取出对象的值，返回值
+// Object.entries() 取出对象的键和值，返回键和值
+let colors = &#123;
+    apple: &#39;red&#39;,
+    banana: &#39;yellow&#39;,
+    orange: &#39;orange&#39;
+&#125;
+// 遍历对象的键
+for (let key of Object.keys(colors)) &#123;
+    console.log(key)
+&#125;
+// apple
+// banana
+// orange
+
+// 遍历对象的值
+for (let value of Object.values(colors)) &#123;
+    console.log(value)
+&#125;
+// red
+// yellow
+// orange
+
+// 遍历对象的键和值
+for (let item of Object.entries(colors)) &#123;
+    console.log(item)
+&#125;
+// [&quot;apple&quot;, &quot;red&quot;]
+// [&quot;banana&quot;, &quot;yellow&quot;]
+// [&quot;orange&quot;, &quot;orange&quot;]
+
+// 结构对象的 keys()、values() 和 entries() 方法
+let &#123; keys, values, entries &#125; = Object
+// 使用结构的方法，得到跟上面一样的结果
+for (let key of keys(colors)) &#123;
+    console.log(key)
+&#125;
+for (let value of values(colors)) &#123;
+    console.log(value)
+&#125;
+for (let item of entries(colors)) &#123;
+    console.log(item)
+&#125;
+</code></pre>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p><code>Promise</code> 对于解决异步问题，基本使用：</p>
+<pre><code class="javascript">// Promise 对象，解决异步
+
+// 被 promise 测试的变量
+let a = 10
+
+// 创建一个 Promise 实例
+let promise = new Promise(function (resolve, reject) &#123;
+    // resolve     成功的时候返回的结果
+    // reject       失败的时候返回的结果
+    // 这里定义成功或失败后返回的结果，
+    // 在 Promise 实例的 .then 方法的 回调的 参数中 自动传入
+    if (a == 10) &#123;
+        // 这里定义 .then(res) 中 res 的内容
+        resolve(&#39;成功&#39;)
+    &#125; else &#123;
+        // 这里定义 .then(err) 中 err 的内容
+        reject(&#39;失败&#39;)
+    &#125;
+&#125;)
+
+// Promise 实例的 .then 方法，接收两个回调，一个是成功的回调，一个是失败的回调
+// 这里回调接收到的参数就是创建 Promise 实例时所设置的 resolve 和 reject 的值
+promise.then(
+    (res) =&gt; &#123;
+        // 成功的回调
+        console.log(res)
+    &#125;,
+    (err) =&gt; &#123;
+        // 失败的回调
+        console.log(err)
+    &#125;
+)
+
+// 失败的回调也可以放在 .catch 中：
+promise.catch((err) =&gt; &#123;
+    // 等价于 .then 的第二个参数
+    console.log(err)
+&#125;)
+
+// 因为 .then 返回的还是 promise 对象，所有可以在 .then 后面直接 .catch
+promise
+    .then((res) =&gt; &#123;
+        console.log(res)
+    &#125;)
+    .catch((err) =&gt; &#123;
+        console.log(err)
+    &#125;)
+// 这就是一个 promise 的基本流程
+</code></pre>
+<h3 id="Promise-resolve"><a href="#Promise-resolve" class="headerlink" title="Promise.resolve()"></a><code>Promise.resolve()</code></h3><p><code>Promise.resolve()</code> 创建一个 <code>Promise</code> 实例 并 定义这个实例的<strong>成功</strong>状态</p>
+<pre><code class="javascript">// Promise.resolve()    创建一个 Promise 实例 并 定义这个实例的成功状态
+let pTest1 = Promise.resolve(&#39;成功&#39;)
+pTest1.then((res) =&gt; console.log(res)) // 成功
+</code></pre>
+<p>等价于：</p>
+<pre><code class="javascript">new Promise((resolve) =&gt; &#123;
+    resolve(&#39;成功&#39;)
+&#125;)
+</code></pre>
+<h3 id="Promise-reject"><a href="#Promise-reject" class="headerlink" title="Promise.reject()"></a><code>Promise.reject()</code></h3><p><code>Promise.reject()</code> 创建一个 <code>Promise</code> 实例并 定义这个实例的的<strong>失败</strong>状态</p>
+<pre><code class="javascript">// Promise.reject()     创建一个 Promise 实例 并 定义这个实例的的失败状态
+let pTest2 = Promise.reject(&#39;失败&#39;)
+pTest2.catch((err) =&gt; console.log(err)) // 失败
+</code></pre>
+<h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a><code>Promise.all()</code></h3><p><code>Promise.all()</code> 将多个 <code>Promise</code> 实例包装成一个新的 <code>Promise</code> 实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回<strong>最先被 <code>reject</code> 失败状态的值</strong>。</p>
+<blockquote>
+<p>注意：必须确保放入到数组 <code>Promise</code> 实例都是 <code>resolve</code> 状态，也就是成功状态，否则没什么意义</p>
+</blockquote>
+<pre><code class="javascript">// Promise.all()     将多个Promise实例包装成一个新的Promise实例。
+// 成功和失败的返回值是不同的，成功的时候返回的是一个结果数组
+// 而失败的时候则返回最先被 reject 失败状态的值。
+let p1 = Promise.resolve(&#39;成功1&#39;)
+let p2 = Promise.resolve(&#39;成功2&#39;)
+let p3 = Promise.reject(&#39;失败 3&#39;)
+Promise.all([p1, p2]).then((res) =&gt; console.log(res)) // [&quot;成功1&quot;, &quot;成功2&quot;]
+Promise.all([p1, p2, p3])
+    .then((res) =&gt; console.log(res))
+    .catch((err) =&gt; console.log(err)) // 失败 3
+</code></pre>
+<p><code>Promise.all</code> 在处理多个异步处理时非常有用，比如说一个页面上需要等两个或多个 <code>ajax</code> 的数据回来以后才正常显示，在此之前只显示 <code>loading</code> 图标。<br></p>
+<p>需要特别注意的是，**<code>Promise.all</code> 获得的成功结果的数组里面的数据顺序和 <code>Promise.all</code> 接收到的数组顺序是一致的**，即 p1 的结果在前，即便 p1 的结果获取的比 p2 要晚。这带来了一个绝大的好处：在前端开发请求数据的过程中，偶尔会遇到发送多个请求并根据请求顺序获取和使用数据的场景，使用 <code>Promise.all</code> 毫无疑问可以解决这个问题。</p>
+<h3 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a><code>Promise.race()</code></h3><p><code>Promise.race()</code> 顾名思义，<code>Promse.race</code> 就是赛跑的意思，意思就是说，<code>Promise.race([p1, p2, p3])</code> 里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。</p>
+<pre><code class="javascript">// Promise.race()      把一组 Promise 实例的成功或失败的结果放入到数组中，
+// 返回数组中最先有结果（不论是成功或失败）的 Promise 实例 的结果
+let p1 = new Promise((resolve, reject) =&gt; &#123;
+    setTimeout(() =&gt; &#123;
+        resolve(&#39;成功 1&#39;)
+    &#125;, 1000)
+&#125;)
+let p2 = new Promise((resolve, reject) =&gt; &#123;
+    setTimeout(() =&gt; &#123;
+        reject(&#39;失败 2&#39;)
+    &#125;, 500)
+&#125;)
+Promise.race([p1, p2])
+    .then((res) =&gt; &#123;
+        console.log(res)
+    &#125;)
+    .catch((err) =&gt; &#123;
+        console.log(err)
+    &#125;) // 失败 2，因为失败状态先被捕获到
+</code></pre>
+<h2 id="类（class）和继承"><a href="#类（class）和继承" class="headerlink" title="类（class）和继承"></a>类（class）和继承</h2><h3 id="ES5-构造函数"><a href="#ES5-构造函数" class="headerlink" title="ES5 构造函数"></a>ES5 构造函数</h3><p>先来回顾一下 <code>ES5</code> 的构造函数</p>
+<pre><code class="javascript">// ES5 构造函数
+function Person(name, age) &#123;
+    this.name = name
+    this.age = age
+&#125;
+let person = new Person(&#39;Bob&#39;, 20)
+// 打印出对象的构造函数
+console.log(person.constructor)
+// 给构造函数原型添加方法
+Person.prototype.sayName = function () &#123;
+    console.log(this.name)
+&#125;
+Person.prototype.sayAge = function () &#123;
+    console.log(this.age)
+&#125;
+// 实例对象调用方法
+person.sayName() // Bob
+person.sayAge() // 20
+// 添加方法也可以使用下面这种形式
+Object.assign(Person.prototype, &#123;
+    sayMessage() &#123;
+        console.log(`你的名字是：$&#123;this.name&#125;，你的年龄是：$&#123;this.age&#125;`)
+    &#125;
+&#125;)
+// 调用方法
+person.sayMessage() // 你的名字是：Bob，你的年龄是：20
+</code></pre>
+<h3 id="ES6-class"><a href="#ES6-class" class="headerlink" title="ES6 class"></a>ES6 class</h3><h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><pre><code class="javascript">// ES6 class 类
+// 创建类：
+class Person1 &#123;
+    constructor(name, age) &#123;
+        // 使用 new 创建实例时，该 constructor 方法自动运行
+        // new 传过来的参数都在该方法的形参中
+        console.log(
+            `使用 new 创建实例，我被自动执行了，接收到的参数是：$&#123;name&#125; $&#123;age&#125;`
+        )
+    &#125;
+&#125;
+// 创建实例
+// 不传参数，两个 undefined
+let person1 = new Person1() // 使用 new 创建实例，我被自动执行了，接收到的参数是：undefined undefined
+// 传递参数
+let person2 = new Person1(&#39;Jack&#39;, 40) // 使用 new 创建实例，我被自动执行了，接收到的参数是：Jack 40
+//类中的属性和方法：
+// constructor 方法用来接收属性
+// 其他方法可以写在 constructor 方法后面，方法之间不需要加逗号
+class Person2 &#123;
+    constructor(name, age) &#123;
+        this.name = name
+        this.age = age
+    &#125; // 方法之间不需要加逗号！
+    sayName() &#123;
+        console.log(this.name)
+    &#125;
+    sayAge() &#123;
+        console.log(this.age)
+    &#125;
+&#125;
+// 创建实例
+let peiQi = new Person2(&#39;佩奇&#39;, 3)
+// 调用方法
+peiQi.sayName() // 佩奇
+peiQi.sayAge() // 3
+// 也可以使用表达式的方式创建类
+// 这种方式与上面的方式结果一样，推荐使用上面的方式
+const Persons = class &#123;&#125;
+</code></pre>
+<blockquote>
+<p>注意：使用 <code>class</code> 声明的类没有预解析提升的功能，必须先声明类后再使用</p>
+</blockquote>
+<h4 id="get-set"><a href="#get-set" class="headerlink" title="get set"></a><code>get</code> <code>set</code></h4><p><code>get</code> 取值，<code>set</code> 存值</p>
+<pre><code class="javascript">// get 取值，set 存值
+class Car &#123;
+    _color = &#39;&#39;
+    constructor(color) &#123;
+        this._color = color
+    &#125;
+    set color(value) &#123;
+        console.log(&#39;设置Car的颜色为：&#39; + value)
+        this._color = value
+    &#125;
+    get color() &#123;
+        console.log(&#39;获取Car的颜色为：&#39; + this._color)
+        return this._color
+    &#125;
+&#125;
+
+const car = new Car(&#39;red&#39;)
+// 实例取值
+car.color // 获取Car的颜色为：red
+// 实例存值
+car.color = &#39;green&#39; // 设置Car的颜色为：green
+// 实例取值
+car.color // 获取Car的颜色为：green
+</code></pre>
+<h4 id="static"><a href="#static" class="headerlink" title="static"></a><code>static</code></h4><p><code>static</code> 声明类本身的静态方法，只能通过类本身调用</p>
+<blockquote>
+<p>通过 <code>static</code> 声明的方法，可以被子类继承（会在后面介绍）</p>
+</blockquote>
+<pre><code class="javascript">// static 声明类身上的静态方法，只能通过类本身调用
+class Person &#123;
+    constructor() &#123;&#125;
+    message() &#123;
+        console.log(&#39;这是 message 方法&#39;)
+    &#125;
+    static method() &#123;
+        console.log(&#39;这是类身上的静态方法 method&#39;)
+    &#125;
+&#125;
+let person = new Person()
+// 通过实例调用普通方法
+person.message() // 这是 message 方法
+// 通过类本身调用静态方法
+Person.method() // 这是类身上的静态方法 method
+</code></pre>
+<h4 id="父类、子类、继承"><a href="#父类、子类、继承" class="headerlink" title="父类、子类、继承"></a>父类、子类、继承</h4><ul>
+<li>  子类继承父类，使用 <code>extends</code> 关键字，语法：<code>class</code> 子类名 <code>extends</code> 父类名</li>
+<li>  子类继承父类的属性，使用 <code>super()</code> 方法</li>
+<li>  子类继承父类后，子类的 <code>this</code> 和父类的 <code>this</code> 指向同一个地方</li>
+<li>  子类不能有跟父类相同的属性名，否则会覆盖掉父类的属性</li>
+<li>  子类跟父类有相同的方法名时，先在自己的方法中运行父类的方法，然后再运行自己的方法</li>
+</ul>
+<pre><code class="javascript">// 创建父类
+class Car &#123;
+    constructor(color) &#123;
+        // 初始化属性
+        this.color = color
+    &#125;
+    sayColor() &#123;
+        console.log(this.color)
+    &#125;
+&#125;
+// 创建子类
+// extends 指定要继承的父类
+// 语法：class 子类名 extends 父类名
+class XnyCar extends Car &#123;
+    // constructor 的第一个参数是父类拥有的属性
+    constructor(color, name) &#123;
+        // super()  将父类里的东西接收过来放到指定的参数里
+        super(color)
+        this.name = name
+    &#125;
+    sayName() &#123;
+        console.log(this.name)
+    &#125;
+&#125;
+
+// 创建父类实例
+let car = new Car(&#39;red&#39;)
+// 正常使用自己的方法
+car.sayColor() // red
+// 创建子类实例
+let xnyCar = new XnyCar(&#39;green&#39;, &#39;BMW&#39;)
+// 子类使用父类的方法
+xnyCar.sayColor() // green
+// 子类使用自己的方法
+xnyCar.sayName() // BMW
+</code></pre>
+<p>如果子类中的方法和父类中的方法同名，则子类会覆盖父类的方法；<br><br>可以在冲突的方法中使用 <code>super.父类的方法</code> ，先执行父类的方法，再执行子类的逻辑：</p>
+<pre><code class="javascript">// 子类父类方法名冲突，默认子类覆盖父类
+// 解决方法：在子类的方法中先运行父类的方法，再运行自己的方法
+class Father &#123;
+    constructor(fname) &#123;
+        this.fname = fname
+    &#125;
+    sayName() &#123;
+        console.log(`爸爸的名字是：$&#123;this.fname&#125;`)
+    &#125;
+&#125;
+class Children extends Father &#123;
+    constructor(fatherName, name) &#123;
+        // 继承父类的属性
+        super(fatherName)
+        this.name = name
+    &#125;
+    sayName() &#123;
+        // super.sayName() 先运行父类的方法，再定义子类的方法
+        super.sayName()
+        console.log(`儿子的名字是：$&#123;this.name&#125;`)
+    &#125;
+&#125;
+let children = new Children(&#39;老王&#39;, &#39;小王&#39;)
+children.sayName()
+// 爸爸的名字是：老王
+// 儿子的名字是：小王
+</code></pre>
+<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><blockquote>
+<p>注意：模块化需要运行在服务器环境中</p>
+</blockquote>
+<h3 id="定义模块"><a href="#定义模块" class="headerlink" title="定义模块"></a>定义模块</h3><p>在需要导出的 <code>js</code> 文件中的变量名前加上 <code>export</code> :</p>
+<pre><code class="javascript">export let a = 1
+export let b = 2
+export let c = 3
+// 也可以写成下面这种形式
+let d = 4
+let e = 5
+let f = 6
+export &#123;
+    d, // 相当于 d:d
+    e as eee, // 指定别名 , 这里的别名就是引入文件时的指向该变量的名称
+    f as fff // 指定别名
+&#125;
+</code></pre>
+<p>注意：使用 export 导出的变量在引入时必须加上花括号，使用 export default 导出的变量引入时则不需要加花括号</p>
+<pre><code class="javascript">// 使用 export 导出的数据在引入时必须加上花括号，使用 export default 导出的数据引入时则不需要加花括号
+export const a = 12
+export default &#39;test&#39;
+</code></pre>
+<h3 id="引入模块中某个功能"><a href="#引入模块中某个功能" class="headerlink" title="引入模块中某个功能"></a>引入模块中某个功能</h3><p><code>import &#123; xxx &#125; from &#39;./xxx&#39;</code> 引入模块中某个功能</p>
+<pre><code class="javascript">// import &#123;xxx&#125; from &#39;./xxx&#39;    引入模块中某个功能
+// 引入的变量必须是在模块文件中导出（export）了的
+// 同时引入一个模块中的多个变量，必须使用 &#123;&#125; 包裹要引入的变量，即使只有一个
+import &#123; b, c, d &#125; from &#39;./modules/test.js&#39;
+console.log(b, c, d)
+
+// 引入模块时指定别名
+import &#123; b as q, c as w, d as e &#125; from &#39;./modules/test.js&#39;
+console.log(q, w, e)
+
+// import * as xx from &#39;./xxx&#39;  引入一个模块下的所有导出的变量，
+// 返回一个 Module 对象，对象中的属性对应了所有导出的变量
+// let a = 1,
+//     b = 2,
+//     c = 3;
+// export &#123;
+//    a,
+//    b,
+//    c
+// &#125;
+import * as obj from &#39;./modules/2.js&#39;
+console.log(obj) // &#123;a: 1, b: 2, c: 3&#125;
+console.log(obj.a, obj.b, obj.c) // 1 2 3
+// 只有在模块中指定了 export default 时，引入变量才不需要加花括号 &#123;&#125;
+// export default &quot;Bob&quot;
+import name from &#39;./modules/name.js&#39;
+console.log(name) // Bob
+// 同时引入 export 和 export default 导出的数据，花括号必须在后面
+// 数据如下：
+// export const a = 12;
+// export default &quot;test&quot;;
+// 引入
+import test, &#123; a &#125; from &#39;./modules/test.js&#39;
+console.log(test, a) // test 12
+</code></pre>
+<h3 id="引入模块文件"><a href="#引入模块文件" class="headerlink" title="引入模块文件"></a>引入模块文件</h3><p>在 <code>script</code> 标签中 <code>type=&quot;module&quot;</code>, 然后使用 <code>import</code> 关键字引入模块文件</p>
+<pre><code class="javascript">&lt;script type=&#39;module&#39;&gt;
+    // 引入整个文件 import &#39;./modules/test.js&#39; // 也可以引入 url import
+    &#39;https://code.jquery.com/jquery-3.5.0.min.js&#39;
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>注意: 这种方式只是引入了整个文件，并不是引入模块中的某个功能。<code>import</code> 模块只会导入一次，后面再导入就不会生效</p>
+</blockquote>
+<h3 id="import-特点"><a href="#import-特点" class="headerlink" title="import 特点"></a><code>import</code> 特点</h3><ol>
+<li><code>import</code> 可以是相对路径，也可以是绝对路径（url）</li>
+<li><code>import</code> 导入模块只会导入一次，无论导入了多少次</li>
+<li><code>import &#39;./modules/1.js</code> 如果这么用，相当于引入了整个模块文件</li>
+<li>有预编译变量提升效果，<code>import</code> 会自动提升到顶部，首先执行</li>
+<li>导入的文件是响应式的，源文件发生改变，导入的地方也会改变</li>
+<li><code>import</code> 引入文件，是静态的，只能先引入文件，然后在下面使用，不能写在分支语句（<code>if else</code>）中</li>
+</ol>
+<h3 id="import"><a href="#import" class="headerlink" title="import()"></a><code>import()</code></h3><p><code>import()</code> 函数，可以动态引入文件，该方法引入文件会返回一个 <code>Promise</code> 对象，可以在 <code>.then</code> 中使用模块中的数据（是异步的）</p>
+<pre><code class="javascript">// import() 动态引入文件，返回 Promise 对象 , 成功状态的数据就是一个 Module 对象，其中包含了模块中的所有数据
+// 在分支语句中使用 import()   函数动态引入模块并使用模块中的数据
+let temp = 2
+if (temp === 1) &#123;
+    // 模块文件内容如下：
+    // export default &quot;Bob&quot;;
+    import(&#39;./modules/name.js&#39;).then((res) =&gt; console.log(res)) // &#123;default: &quot;Bob&quot;&#125;
+&#125; else &#123;
+    // 模块文件内容如下：
+    // export const a = 12;
+    // export default &quot;test&quot;;
+    // let
+    // b = 2,
+    // c = 3,
+    // d = 4;
+    // export &#123;
+    // b,
+    // c,
+    // d
+    // &#125;
+    import(&#39;./modules/test.js&#39;).then((res) =&gt; console.log(res)) // &#123; a: 12, b: 2, c: 3, d: 4, default: &quot;test&quot; &#125;
+&#125;
+</code></pre>
+<p><code>import()</code> 特点：</p>
+<ol>
+<li>按需加载</li>
+<li>可以写在 <code>if</code> 中</li>
+<li>路径也可以动态</li>
+</ol>
+<h2 id="async、await"><a href="#async、await" class="headerlink" title="async、await"></a><code>async</code>、<code>await</code></h2><p><code>async</code> 和 <code>await</code> 主要是为了解决异步队列的问题 <br><br>在 <code>async</code> 和 <code>await</code> 之前解决异步是使用，生成器 <code>function * fn() &#123; yield xxx &#125;</code> 的方法<br><br>语法:</p>
+<pre><code class="javascript">// async 表示这个函数中有异步队列
+async function fn() &#123;
+    let result = await xxx // await 表示执行完当前的异步任务才能执行后面的
+    let result2 = await yyy // 异步任务2
+    let result3 = await zzz // 异步任务...
+&#125;
+</code></pre>
+<p><code>async</code> 和 <code>await</code> 特点：</p>
+<ol>
+<li><code>await</code> 只能放到 <code>async</code> 函数中</li>
+<li>相比 <code>genrator</code> 语义化更强</li>
+<li><code>await</code> 后面可以是 <code>Promise</code> 对象，也可以是数字、字符串、布尔等</li>
+<li><code>async</code> 函数返回的是一个 <code>Promise</code> 对象</li>
+<li>只要 <code>async</code> 函数中有一个 <code>await</code> 的 <code>Promise</code> 状态变为 <code>reject</code>(失败)，那么整个 <code>async</code> 函数就会中断执行<blockquote>
+<p>注意：因为 <code>async</code> 中的 <code>await</code> 只要有任何一个出现错误都会影响整个函数的执行，所以要把每一个可能会出现错误的 <code>await</code> 都使用 <code>try&#123;&#125;catch(e)&#123;&#125;</code> 捕获</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a><code>Set</code></h2><p><code>Set</code> 是一种数据结构，类似于数组，但里面不能有重复值（类似于 Python 中的集合）</p>
+<ul>
+<li>  <code>Set</code> 构造函数接收的是一个数组 <code>new Set([])</code></li>
+<li><code>WeakSet</code> 构造函数接收的是一个对象 <code>new WeakSet(&#123;&#125;)</code>（这种写法不靠谱，而且 <code>WeakSet</code> 没有 <code>size</code>，故下面就不展开介绍了）<br><br>  <code>Set</code> 构造函数原型上的属性和方法：<br>  <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/set.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/set.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Set构造函数原型上的属性和方法"><br><br>  <code>WeakSet</code> 构造函数原型上的属性和方法：<br>  <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/weakSet.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/weakSet.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="WeakSet构造函数原型上的属性和方法"></li>
+</ul>
+<h3 id="Set-类型的属性和方法"><a href="#Set-类型的属性和方法" class="headerlink" title="Set 类型的属性和方法"></a><code>Set</code> 类型的属性和方法</h3><pre><code class="javascript">// 创建一个 Set
+let setArr = new Set([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
+console.log(setArr) // &#123;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#125;
+// Set 不能有重复值
+let setArr2 = new Set([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;])
+console.log(setArr2) // &#123;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;&#125;
+// add()    往 Set 末尾添加值，一次只能添加一个
+setArr.add(&#39;d&#39;)
+console.log(setArr) // &#123;&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;&#125;
+// delete()    删除 Set 中指定的值
+setArr.delete(&#39;b&#39;)
+console.log(setArr) // &#123;&quot;a&quot;, &quot;c&quot;, &quot;d&quot;&#125;
+// has()    判断 Set 中有没有指定的值，返回布尔值
+console.log(setArr.has(&#39;b&#39;)) // false
+console.log(setArr.has(&#39;a&#39;)) // true
+// size     查看 Set 里面值的个数，返回数值
+console.log(setArr.size) // 3
+// clear()  清空 Set
+setArr.clear()
+console.log(setArr) // &#123;&#125;
+// 循环
+for (item of setArr2) &#123;
+    console.log(item)
+&#125;
+// a
+// b
+// c
+
+// keys()   Set中每一项的键
+for (item of setArr2.keys()) &#123;
+    console.log(item)
+&#125;
+// a
+// b
+// c
+
+// values() Set 中每一项的值
+for (item of setArr2.values()) &#123;
+    console.log(item)
+&#125;
+// a
+// b
+// c
+
+// 通过上面三个例子我们发现，Set 循环的默认值、keys()、values() 结果都是一样的
+// Set 循环的值默认是 values()
+
+// entries()    Set 中每一项的键和值
+for (item of setArr2.entries()) &#123;
+    console.log(item)
+&#125;
+//  [&quot;a&quot;, &quot;a&quot;]
+//  [&quot;b&quot;, &quot;b&quot;]
+//  [&quot;c&quot;, &quot;c&quot;]
+
+// forEach((item, index) =&gt; &#123;&#125;) 遍历 Set，回调函数中的 item 和 index 是每一项的值和键
+setArr2.forEach((item, index) =&gt; &#123;
+    console.log(item, index)
+&#125;)
+// a a
+// b b
+// c c
+</code></pre>
+<h3 id="使用-Set-的特性给数组去重"><a href="#使用-Set-的特性给数组去重" class="headerlink" title="使用 Set 的特性给数组去重"></a>使用 <code>Set</code> 的特性给数组去重</h3><pre><code class="javascript">let arr = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 7, 5]
+// [...Set]  把 Set 转为数组
+let newArr = [...new Set(arr)]
+console.log(newArr) // [1, 2, 3, 4, 5, 6, 7]
+</code></pre>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a><code>Map</code></h2><ul>
+<li>  <code>Map</code> 是一种类似对象的数据类型，<code>Map</code> 的 <code>key</code> 可以是任何类型；</li>
+<li><code>WeakMap</code> 的 <code>Key</code> 只能是对象，用处不大。。<br><br>  <code>Map</code> 构造函数原型上的属性和方法：<br>  <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/map.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/map.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Map构造函数原型上的属性和方法"><br><br>  <code>WeakMap</code> 上的属性和方法：<br>  <img src="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/weakMap.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/qiuxchao/CDN/pictures/weakMap.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="WeakMap上的属性和方法"></li>
+</ul>
+<h3 id="Map-的基本方法和属性"><a href="#Map-的基本方法和属性" class="headerlink" title="Map 的基本方法和属性"></a><code>Map</code> 的基本方法和属性</h3><pre><code class="javascript">// map 是一种类似对象的类型
+// 使用：
+// 创建一个 map
+let map = new Map()
+console.log(map) // &#123;&#125;
+// set(key, value)    设置一个键值对，此方法返回自身，可以链式调用
+map.set(&#39;name&#39;, &#39;Bob&#39;)
+console.log(map) // &#123;&quot;name&quot; =&gt; &quot;Bob&quot;&#125;
+// get(key)     获取一个值
+console.log(map.get(&#39;name&#39;)) // Bob
+// delete(key)  删除一项
+map.delete(&#39;name&#39;)
+console.log(map) // &#123;&#125;
+// 删完了，再增加两项
+map.set(&#39;name&#39;, &#39;Bob&#39;).set(&#39;age&#39;, 20)
+console.log(map) //  &#123;&quot;name&quot; =&gt; &quot;Bob&quot;, &quot;age&quot; =&gt; 30&#125;
+// has(key)     判断有没有指定的项，返回布尔值
+console.log(map.has(&#39;name&#39;)) // true
+console.log(map.has(&#39;sex&#39;)) // false
+// size     返回 Map 中的项数
+console.log(map.size) // 2
+// clear()      清空 map
+map.clear()
+console.log(map) // &#123;&#125;
+</code></pre>
+<p><code>Map</code> 的遍历方法：</p>
+<pre><code class="javascript">// Map 的循环
+let newMap = new Map()
+newMap.set(&#39;name&#39;, &#39;Bob&#39;).set(&#39;age&#39;, 30).set(&#39;sex&#39;, &#39;male&#39;)
+console.log(newMap) // &#123;&quot;name&quot; =&gt; &quot;Bob&quot;, &quot;age&quot; =&gt; 30, &quot;sex&quot; =&gt; &quot;male&quot;&#125;
+// 基本循环，每一项都是一个数组
+for (let item of newMap) &#123;
+    console.log(item)
+&#125;
+// [&quot;name&quot;, &quot;Bob&quot;]
+// [&quot;age&quot;, 30]
+// [&quot;sex&quot;, &quot;male&quot;]
+
+// keys()   拿到 map 的每一个键
+for (let key of newMap.keys()) &#123;
+    console.log(key)
+&#125;
+// name
+// age
+// sex
+
+// values() 拿到 map 的每一个值
+for (let value of newMap.values()) &#123;
+    console.log(value)
+&#125;
+// Bob
+// 30
+// male
+
+// entries()    拿到 Map 的每一个键值对，默认Map循环的就是 entries
+for (let item of newMap.entries()) &#123;
+    console.log(item)
+&#125;
+// [&quot;name&quot;, &quot;Bob&quot;]
+// [&quot;age&quot;, 30]
+// [&quot;sex&quot;, &quot;male&quot;]
+
+// forEach((value, key) =&gt; &#123;&#125;)  循环 Map，回调函数中第一个参数是 值，第二个参数是 键
+newMap.forEach((value, key) =&gt; &#123;
+    console.log(key, value)
+&#125;)
+// name Bob
+// age 30
+// sex male
+</code></pre>
+<h3 id="Map-和-Set-各自的特性"><a href="#Map-和-Set-各自的特性" class="headerlink" title="Map 和 Set 各自的特性"></a><code>Map</code> 和 <code>Set</code> 各自的特性</h3><ol>
+<li><code>Set</code> 里面是数组，不重复，没有 <code>key</code> 没有 <code>get</code> 和 <code>set</code> 方法；</li>
+<li><code>Map</code> 是对 <code>json</code> 功能的增强，<code>key</code> 可以是任意类型的值</li>
+</ol>
+<h2 id="异步循环"><a href="#异步循环" class="headerlink" title="异步循环"></a>异步循环</h2><p><code>ES9</code> 引入了异步迭代器(asynchronous iterators),使 <code>await</code> 可以和 <code>for...of</code> 循环一起使用</p>
+<pre><code class="javascript">async function foo(array) &#123;
+    for await (let i of array) &#123;
+        doSomething(i)
+    &#125;
+&#125;
+</code></pre>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://qiuxchao.github.io/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/>https://qiuxchao.github.io/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-06-15T17:12:22+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年6月15日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：9.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：41分钟</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JavaScript</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ES6/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>ES6</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://qiuxchao.github.io/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/&title=JavaScript ES6+学习总结 - 阿湫o的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qiuxchao.github.io/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/&title=JavaScript ES6+学习总结 - 阿湫o的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://qiuxchao.github.io/2020/04/09/Es6+%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/&title=JavaScript ES6+学习总结 - 阿湫o的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/06/18/Webpack%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Webpack学习总结</p>
+          <p class='content'>Webpack 学习总结本文主要记录我在学习 Webpack 过程中所遇到的一些知识点，以及自己写的一些 demo。
+
+参考资料：Webpack 官方文档
+
+初识 WebpackWebpack ...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/02/20/%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%92%8C%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/'>
+          <p class='title'>贪心算法和动态规划<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>贪心算法和动态规划贪心算法当遇到一个求解全局最优解问题时，如果可以将全局问题切分为小的局部问题，并寻求局部最优解，同时可以证明局部最优解累计的结果就是全局最优解，则可以使用贪心算法
+找零问题：
+...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#let%E3%80%81%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E3%80%81const-%E5%B8%B8%E9%87%8F"><span class="toc-text">let、块级作用域、const 常量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#let-%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-text">let 声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const-%E5%A3%B0%E6%98%8E%E5%B8%B8%E9%87%8F"><span class="toc-text">const 声明常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E7%89%88%E5%AD%97%E7%AC%A6%E4%B8%B2-amp-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95"><span class="toc-text">模版字符串 &amp; 字符串新增方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-text">解构赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E5%AF%B9%E8%B1%A1"><span class="toc-text">解构对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%88%AB%E5%90%8D"><span class="toc-text">指定别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">设置默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">解构函数返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E6%A8%A1%E5%9D%97%E6%97%B6%E7%9A%84%E8%A7%A3%E6%9E%84"><span class="toc-text">引入模块时的解构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BD%A2%E5%8F%82%E4%BD%BF%E7%94%A8%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC"><span class="toc-text">函数形参使用解构赋值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-%E6%8C%87%E5%90%91%E3%80%81%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E3%80%81%E2%80%A6%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-text">this 指向、箭头函数、…运算符、函数参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#this"><span class="toc-text">this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0-gt"><span class="toc-text">箭头函数 &#x3D;&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spread-rest-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">... spread&#x2F;rest 运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E5%B1%95%E5%BC%80%E6%88%96%E6%94%B6%E9%9B%86%E6%95%B0%E7%BB%84"><span class="toc-text">用于展开或收集数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%B6%E9%9B%86%E5%AE%9E%E5%8F%82%E5%88%97%E8%A1%A8%E6%88%96%E6%95%B0%E7%BB%84"><span class="toc-text">... 收集实参列表或数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%95%E5%BC%80%E5%AE%9E%E5%8F%82%E5%88%97%E8%A1%A8%E6%88%96%E6%95%B0%E7%BB%84"><span class="toc-text">... 展开实参列表或数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%BB%93%E5%90%88"><span class="toc-text">箭头函数与解构赋值结合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%BA%94%E7%94%A8%E4%BA%8E%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F"><span class="toc-text">箭头函数应用于数组排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-text">函数参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E"><span class="toc-text">数组新增</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95"><span class="toc-text">数组新增方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="toc-text">数组实例方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%BE%AA%E7%8E%AF%E7%9B%B8%E5%85%B3"><span class="toc-text">数组循环相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ES5%E4%B8%AD%E6%95%B0%E7%BB%84%E6%95%B0%E7%BB%84%E5%AE%9E%E4%BE%8B%E5%8F%AF%E4%BB%A5%E8%B0%83%E7%94%A8%E7%9A%84%E5%90%84%E7%A7%8D%E5%BE%AA%E7%8E%AF%E6%96%B9%E6%B3%95"><span class="toc-text">ES5中数组数组实例可以调用的各种循环方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ES6-%E6%96%B0%E5%A2%9E%E5%BE%AA%E7%8E%AF%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95"><span class="toc-text">ES6 新增循环数组方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%96%B0%E5%A2%9E"><span class="toc-text">对象新增</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%AE%80%E6%B4%81%E8%AF%AD%E6%B3%95"><span class="toc-text">对象简洁语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0Object%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95"><span class="toc-text">对象构造函数Object新增方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise"><span class="toc-text">Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-resolve"><span class="toc-text">Promise.resolve()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-reject"><span class="toc-text">Promise.reject()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-all"><span class="toc-text">Promise.all()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-race"><span class="toc-text">Promise.race()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%EF%BC%88class%EF%BC%89%E5%92%8C%E7%BB%A7%E6%89%BF"><span class="toc-text">类（class）和继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ES5-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">ES5 构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6-class"><span class="toc-text">ES6 class</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#get-set"><span class="toc-text">get set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#static"><span class="toc-text">static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%B6%E7%B1%BB%E3%80%81%E5%AD%90%E7%B1%BB%E3%80%81%E7%BB%A7%E6%89%BF"><span class="toc-text">父类、子类、继承</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="toc-text">定义模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E6%A8%A1%E5%9D%97%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%8A%9F%E8%83%BD"><span class="toc-text">引入模块中某个功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E6%A8%A1%E5%9D%97%E6%96%87%E4%BB%B6"><span class="toc-text">引入模块文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import-%E7%89%B9%E7%82%B9"><span class="toc-text">import 特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import"><span class="toc-text">import()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#async%E3%80%81await"><span class="toc-text">async、await</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set"><span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-text">Set 类型的属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Set-%E7%9A%84%E7%89%B9%E6%80%A7%E7%BB%99%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="toc-text">使用 Set 的特性给数组去重</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map"><span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="toc-text">Map 的基本方法和属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-%E5%92%8C-Set-%E5%90%84%E8%87%AA%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">Map 和 Set 各自的特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E5%BE%AA%E7%8E%AF"><span class="toc-text">异步循环</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="JavaScript ES6+学习总结";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+         
+<footer class="footer clearfix">
+	<br /><br />
+	 
+	<div class="aplayer-container">
+		
+
+
+	</div>
+	  
+	<br />
+	<div class="social-wrapper">
+		      
+	</div>
+	  
+	<div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+	   
+	<div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+	    本站使用
+	<a
+		href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1"
+		target="_blank"
+		class="codename"
+		>Volantis</a
+	>
+	作为主题   
+	<div class="copyright"> <p><a href="/">Copyright © 2019-2021 阿湫o</a></p>
+ </div>
+	 
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date()
+		function createtime() {
+			var grt = new Date('08/10/2019 17:38:00') //在此处修改你的建站时间，格式：月/日/年 时:分:秒
+			now.setTime(now.getTime() + 250)
+			days = (now - grt) / 1000 / 60 / 60 / 24
+			dnum = Math.floor(days)
+			hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum
+			hnum = Math.floor(hours)
+			if (String(hnum).length == 1) {
+				hnum = '0' + hnum
+			}
+			minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum
+			mnum = Math.floor(minutes)
+			if (String(mnum).length == 1) {
+				mnum = '0' + mnum
+			}
+			seconds =
+				(now - grt) / 1000 -
+				24 * 60 * 60 * dnum -
+				60 * 60 * hnum -
+				60 * mnum
+			snum = Math.round(seconds)
+			if (String(snum).length == 1) {
+				snum = '0' + snum
+			}
+			document.getElementById('timeDate').innerHTML =
+				'本站已安全运行 ' + dnum + ' 天 '
+			document.getElementById('times').innerHTML =
+				hnum + ' 小时 ' + mnum + ' 分 ' + snum + ' 秒'
+		}
+		setInterval('createtime()', 250)
+	</script>
+</footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@11.4.0/styles/a11y-dark.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg"];
+        if ('false' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://qiuxchao.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://qiuxchao.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://qiuxchao.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>
